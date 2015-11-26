@@ -1,0 +1,1213 @@
+This is Info file DLdoc.info, produced by Makeinfo version 1.68 from
+the input file DLdoc.texi.
+
+
+File: DLdoc.info,  Node: ptp,  Next: vtv,  Prev: constraint,  Up: Inverse dynamics classes
+
+Point-to-point constraint
+=========================
+
+The point-to-point constraint specifies that the coordinates of two
+points (from different dynas, or from a dyna and a geometry) should have
+the same coordinates. This constraint imposes a ball-joint connection
+between the dyna and the geo. Here is its API:
+
+     class DL_ptp : public DL_constraint {
+       DL_Scalar maxforce;
+     
+       void init(DL_dyna*, DL_point*, DL_geo*, DL_point*);
+       void reactionforce(DL_vector*);
+     
+       DL_dyna* get_dyna();
+       void     get_dyna_point(DL_point*);
+       void     set_dyna_point(DL_point*);
+       DL_geo*  get_geo();
+       void     get_geo_point(DL_point*);
+       void     set_geo_point(DL_point*);
+     
+                DL_ptp();
+                ~DL_ptp();
+     }
+
+`DL_Scalar DL_ptp::maxforce'
+     With this attribute, a maximum reaction force for the constraint
+     can be specified: if this maximum reaction force is exceed the
+     constraint will deactivate itself, so the connection `breaks'. A
+     `maxforce' value of zero or smaller indicates that there is no
+     limit to the reaction force magnitude. The default value is zero.
+
+`void DL_ptp::init(DL_dyna *d, DL_point *pd, DL_geo *g, DL_point *pg)'
+     This method initializes the constraint and activates it. It
+     specifies that the point-to-point constraint should keep the point
+     of dyna `d' with local coordinates `pd', at the same position as
+     the point of geo `g' (which may be a dyna, since dyna inherits from
+     geo) with local coordinates `pg'.
+
+`void DL_ptp::reactionforce(DL_vector *f);'
+     This method returns a copy of the reaction force (in world
+     coordinates) in vector `f' (for visualization or for
+     stress-evaluation for example).
+
+`DL_dyna* DL_ptp::get_dyna()'
+     This method returns a reference to the dyna with which the
+     constraint was initialized.
+
+`void DL_ptp::get_dyna_point(DL_point *dp)'
+     This method returns in `dp' a copy of the current attachment point
+     in the dyna.
+
+`void DL_ptp::set_dyna_point(DL_point *dp)'
+     This method allows you to change the attachment point in the dyna.
+     Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which
+     may cause instabilities.
+
+`DL_geo* DL_ptp::get_geo()'
+     This method returns a copy of the geo with which the constraint was
+     initialized.
+
+`void DL_ptp::get_geo_point(DL_point *gp)'
+     This method returns in `gp' a copy of the current attachment point
+     in the geo.
+
+`void DL_ptp::set_geo_point(DL_point *gp)'
+     This method allows you to change the attachment point in the geo.
+     Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which
+     may cause instabilities.
+
+
+File: DLdoc.info,  Node: vtv,  Next: linehinge,  Prev: ptp,  Up: Inverse dynamics classes
+
+Velocity-to-velocity constraint
+===============================
+
+The velocity-to-velocity constraint specifies that the velocities of two
+points (from different dynas, or from a dyna and a geometry) should
+remain the same. This constraint has a very similar effect as the
+point-to-point constraint, except for some possible drift due to
+residual errors after each frame's constraint correction, and except for
+the behaviour in a situation where the constraint is not valid
+initially. Since this constraint is not based on positional behaviour,
+the `soft()' and `hard()' methods have no effect on this constraint.
+Here is its API:
+
+     class DL_vtv : public DL_constraint {
+       DL_Scalar maxforce;
+     
+       void init(DL_dyna*, DL_point*, DL_geo*, DL_point*);
+       void reactionforce(DL_vector*);
+     
+       DL_dyna* get_dyna();
+       void     get_dyna_point(DL_point*);
+       void     set_dyna_point(DL_point*);
+       DL_geo*  get_geo();
+       void     get_geo_point(DL_point*);
+       void     set_geo_point(DL_point*);
+     
+                DL_vtv();
+                ~DL_vtv();
+     }
+
+`DL_Scalar DL_vtv::maxforce'
+     With this attribute, a maximum reaction force for the constraint
+     can be specified: if this maximum reaction force is exceed the
+     constraint will deactivate itself, so the connection `breaks'. A
+     `maxforce' value of zero or smaller indicates that there is no
+     limit to the reaction force magnitude. The default value is zero.
+
+`void DL_vtv::init(DL_dyna *d, DL_point *pd, DL_geo *g, DL_point *pg)'
+     This method initializes the constraint and activates it. It
+     specifies that the velocity-to-velocity constraint should keep the
+     velocity of the point of dyna `d' with local coordinates `pd', the
+     same as the velocity of the point of geo `g' with local
+     coordinates `pg'.
+
+`void DL_vtv::reactionforce(DL_vector *f);'
+     This method returns a copy of the reaction force (in world
+     coordinates) in vector `f' (for visualization or for
+     stress-evaluation for example).
+
+`DL_dyna* DL_vtv::get_dyna()'
+     This method returns a reference to the dyna with which the
+     constraint was initialized.
+
+`void DL_vtv::get_dyna_point(DL_point *dp)'
+     This method returns in `dp' a copy of the current attachment point
+     in the dyna.
+
+`void DL_vtv::set_dyna_point(DL_point *dp)'
+     This method allows you to change the attachment point in the dyna.
+     Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which
+     may cause instabilities.
+
+`DL_geo* DL_vtv::get_geo()'
+     This method returns a copy of the geo with which the constraint was
+     initialized.
+
+`void DL_vtv::get_geo_point(DL_point *gp)'
+     This method returns in `gp' a copy of the current attachment point
+     in the geo.
+
+`void DL_vtv::set_geo_point(DL_point *gp)'
+     This method allows you to change the attachment point in the geo.
+     Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which
+     may cause instabilities.
+
+
+File: DLdoc.info,  Node: linehinge,  Next: orientation,  Prev: vtv,  Up: Inverse dynamics classes
+
+Line-hinge constraint
+=====================
+
+The line-hinge constraint specifies that a dyna and a geo share a line,
+thereby imposing a line hinge (also called a pin joint) between the two
+geometries. Here is its API:
+
+     class DL_linehinge : public DL_constraint {
+       DL_Scalar maxforce;
+       void init(DL_dyna*, DL_point*, DL_point*, DL_geo*, DL_point*, DL_point*);
+     
+       DL_dyna* get_dyna();
+       void get_dyna_point0(DL_point*);
+       void set_dyna_point0(DL_point*);
+       void get_dyna_point1(DL_point*);
+       void set_dyna_point1(DL_point*);
+       DL_geo* get_geo();
+       void get_geo_point0(DL_point*);
+       void set_geo_point0(DL_point*);
+       void get_geo_point1(DL_point*);
+       void set_geo_point1(DL_point*);
+     
+       void reactionforce0(DL_vector*);
+       void reactionforce1(DL_vector*);
+       void reactionforce2(DL_vector*);
+     
+       DL_Scalar reactionforce();
+     
+             DL_linehinge();
+             ~DL_linehinge();
+     }
+
+`DL_Scalar DL_linehinge::maxforce'
+     Using this attribute, you can specify a maximum reaction force for
+     the constraint. If the reaction force exceeds the maximum force,
+     the constraint deactivates itself: the connection `breaks'. A
+     `maxforce' value of zero or smaller indicates that there is no
+     limit to the reaction force magnitude. The default value is zero.
+     The reaction force is taken as the magnitude of the 5-D vector
+     that contains the magnitudes of the force components.
+
+`void DL_linehinge::init(DL_dyna *d, DL_point *pd0, DL_point *pd1,'
+`                        DL_geo *g, DL_point *pg0, DL_point *pg1)'
+     This method initializes and activates the line-hinge constraint. It
+     specifies that the point with local coordinates `pd0' in dyna `d'
+     should coincide with the point with local coordinates `pg0' in geo
+     `g', and that the point with local coordinates `pd1' in dyna `d'
+     should coincide with the point with local coordinates `pg1' in geo
+     `g', effectively fixing the whole line between `pd0' and `pd1' to
+     the line between `pg0' and `pg1'. The same effect can not be
+     reached with two point-to-point constraints, since two
+     point-to-point constraints try to restrict six degrees of freedom,
+     whereas a linehinge only restricts five. The two attachment point
+     pairs should be sufficiently far apart to prevent large torques in
+     the hinge.
+
+`DL_dyna* DL_linehinge::get_dyna()'
+     This method returns a reference to the dyna with which the
+     constraint was initialized.
+
+`void DL_linehinge::get_dyna_point0(DL_point *dp)'
+     This method returns in `dp' a copy of the local coordinates of the
+     first attachment point in the dyna.
+
+`void DL_linehinge::set_dyna_point0(DL_point *dp)'
+     This method allows you to change the first attachment point in the
+     dyna. Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which may
+     cause instabilities.
+
+`void DL_linehinge::get_dyna_point1(DL_point *dp)'
+     This method returns in `dp' a copy of the local coordinates of the
+     second attachment point in the dyna.
+
+`void DL_linehinge::set_dyna_point1(DL_point *dp)'
+     This method allows you to change the second attachment point in the
+     dyna. Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which may
+     cause instabilities.
+
+`DL_geo* DL_linehinge::get_geo()'
+     This method returns a reference to the geo with which the
+     constraint was initialized.
+
+`void DL_linehinge::get_geo_point0(DL_point *gp)'
+     This method returns in `gp' a copy of the local coordinates of the
+     second attachment point in the geo.
+
+`void DL_linehinge::set_geo_point0(DL_point *gp)'
+     This method allows you to change the first attachment point in the
+     geo. Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which may
+     cause instabilities.
+
+`void DL_linehinge::get_geo_point1(DL_point *gp)'
+     This method returns in `gp' a copy of the local coordinates of the
+     second attachment point in the geo.
+
+`void DL_linehinge::set_geo_point1(DL_point *gp)'
+     This method allows you to change the second attachment point in the
+     geo. Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which may
+     cause instabilities.
+
+`void DL_linehinge::reactionforce0(DL_vector *f)'
+     This method returns in vector `f' a copy of the current reaction
+     force in the first attachment point, perpendicular to the hinge
+     line.
+
+`void DL_linehinge::reactionforce1(DL_vector *f)'
+     This method returns in vector `f' a copy of the current reaction
+     force in the second attachment point, perpendicular to the hinge
+     line.
+
+`void DL_linehinge::reactionforce2(DL_vector *f)'
+     This method returns in vector `f' a copy of the current reaction
+     force in the direction of the hinge line.
+
+`DL_Scalar DL_linehinge::reactionforce()'
+     This method returns the magnitude of the current 5-D restriction
+     vector (which is used to measure the reaction force magnitude)
+
+
+File: DLdoc.info,  Node: orientation,  Next: connector,  Prev: linehinge,  Up: Inverse dynamics classes
+
+Orientation constraint
+======================
+
+The orientation constraint class provides a type of constraint that can
+be used to make sure that the relative orientation of two geometric
+objects (at least one of which is a dyna) remains constant. The
+constraint does not impose any restrictions on the relative position.
+Here is its API:
+
+     class DL_orientation : public DL_constraint {
+       DL_Scalar maxtorque;
+       void  init(DL_dyna*, DL_vector*, DL_vector*, DL_geo*, DL_vector*, DL_vector*);
+       void  reactiontorque(DL_vector*);
+     
+       DL_dyna* get_dyna();
+       void     get_dyna_vector0(DL_vector*);
+       void     set_dyna_vector0(DL_vector*);
+       void     get_dyna_vector1(DL_vector*);
+       void     set_dyna_vector1(DL_vector*);
+       DL_geo*  get_geo();
+       void     get_geo_vector1(DL_vector*);
+       void     set_geo_vector1(DL_vector*);
+       void     get_geo_vector2(DL_vector*);
+       void     set_geo_vector2(DL_vector*);
+     
+                DL_orientation();
+                ~DL_orientation();
+     }
+
+`DL_Scalar maxtorque'
+     Using this attribute, you can specify a maximum torque for the
+     constraint. If the reaction torque exceeds the maximum torque, the
+     constraint deactivates itself: the connection `breaks'. A value
+     equal to or smaller than zero means that there is no boundary for
+     the reaction torque. The default value is zero.
+
+`void DL_orientation::init(DL_dyna *d, DL_vector *v0, DL_vector *v1,'
+`                          DL_geo *g, DL_vector *w1, DL_vector *w2);'
+     This method initializes the constraint. It provides the
+     orientation with two perpendicular direction vectors `v0' and `v1'
+     (both expressed in local coordinates of `d') in `d', and two
+     perpendicular direction vectors `w1' and `w2' (both expressed in
+     local coordinates of `g') in `g'. The constraint expresses that
+     `v0' remains perpendicular to both `w1' and `w2', and that `v1'
+     remains perpendicular to `w2', effectively fixing the relative
+     orientations of `d' and `g'.
+
+`void DL_orientation::reactiontorque(DL_vector *t)'
+     This method returns in vector `f' a copy of the reaction torque
+     (in world coordinates).
+
+`DL_dyna* DL_orientation::get_dyna()'
+     This method returns a reference to the dyna with which the
+     constraint was initialized.
+
+`void DL_orientation::get_dyna_vector0(DL_vector *v0)'
+     This method returns in `v0' a copy of the first direction vector
+     in the dyna (expressed in local coordinates).
+
+`void DL_orientation::set_dyna_vector0(DL_vector *v0)'
+     This method allows you to change the first direction vector in the
+     dyna. Use this method with caution, since too large jumps in the
+     relative orientation can lead to very strong reaction torques
+     which may cause instabilities.
+
+`void DL_orientation::get_dyna_vector1(DL_vector *v1)'
+     This method returns in `v1' a copy of the second direction vector
+     in the dyna (expressed in local coordinates).
+
+`void DL_orientation::set_dyna_vector1(DL_vector *v1)'
+     This method allows you to change the second direction vector in the
+     dyna. Use this method with caution, since too large jumps in the
+     relative orientation can lead to very strong reaction torques
+     which may cause instabilities.
+
+`DL_geo* DL_orientation::get_geo()'
+     This method returns a reference to the geo with which the
+     constraint was initialized.
+
+`void DL_orientation::get_geo_vector1(DL_vector *w1)'
+     This method returns in `w1' a copy of the first direction vector
+     in the geo (expressed in local coordinates).
+
+`void DL_orientation::set_geo_vector1(DL_vector *w1)'
+     This method allows you to change the first direction vector in the
+     geo. Use this method with caution, since too large jumps in the
+     relative orientation can lead to very strong reaction torques
+     which may cause instabilities.
+
+`void DL_orientation::get_geo_vector2(DL_vector *w2)'
+     This method returns in `w2' a copy of the second direction vector
+     in the geo (expressed in local coordinates).
+
+`void DL_orientation::set_geo_vector2(DL_vector *w2)'
+     This method allows you to change the second direction vector in the
+     geo. Use this method with caution, since too large jumps in the
+     relative orientation can lead to very strong reaction torques
+     which may cause instabilities.
+
+
+File: DLdoc.info,  Node: connector,  Next: cyl,  Prev: orientation,  Up: Inverse dynamics classes
+
+Connector constraint
+====================
+
+The connector constraint class provides a type of constraint that can be
+used to completely restrict the relative motion of a dyna and a geo. It
+uses a point-to-point and an orientation constraint to accomplish its
+goals. In general it is more efficient to model those two objects as
+one, except that now the `maxforce' and `maxtorque' attributes can be
+used to assign a given strength to the connection, allowing it to break
+under stress. Here is its API:
+
+     class DL_connector : public DL_constraint {
+       DL_ptp *myptp;
+       DL_orientation *myorient;
+       void init(DL_dyna*, DL_point*, DL_point*, DL_point*,
+                 DL_geo* , DL_point*, DL_point*, DL_point*);
+     
+            DL_connector();
+            ~DL_connector();
+     }
+
+`DL_ptp* DL_connector::myptp'
+     This attribute contains a reference to the point-to-point
+     constraint of the connector constraint (the point-to-point
+     constraint is created and initialized by the `init' method).
+
+`DL_orientation* DL_connector::myorient'
+     This attribute contains a reference to the orientation constraint
+     of the connector constraint (the orientation constraint is created
+     and initialized by the `init' method).
+
+`void DL_connector::init(DL_dyna *d, DL_point *pd0, DL_point *pd1, DL_point *pd2,'
+`                       DL_geo *g, DL_point* pg0, DL_point *pg1, DL_point *pg2)'
+     This method initializes the connector constraint. The constraint is
+     created such that the points with local coordinates `pd0', `pd1'
+     and `pd2' in `d' will always coincide with the points in `g' with
+     local coordinates `pg0', `pg1', and `pg2'.
+
+
+File: DLdoc.info,  Node: cyl,  Next: plc,  Prev: connector,  Up: Inverse dynamics classes
+
+Cylinder constraint
+===================
+
+The cylinder constraint class provides a constraint that can be uses to
+connect a dyna and a geo such that their only relative motion is
+uncoupled translation and rotation along a given common axis. The
+connection is similar to a line-hinge, but the two geometries can now
+also translate along the hinge line (with respect to each other). Here
+is the API of the constraint:
+
+     class DL_cyl : public DL_constraint {
+       DL_Scalar maxforce;
+       void init(DL_dyna*, DL_point*, DL_point*, DL_geo*, DL_point*, DL_point*);
+     
+       DL_dyna* get_dyna();
+       void get_dyna_point0(DL_point*);
+       void set_dyna_point0(DL_point*);
+       void get_dyna_point1(DL_point*);
+       void set_dyna_point1(DL_point*);
+       DL_geo* get_geo();
+       void get_geo_point0(DL_point*);
+       void set_geo_point0(DL_point*);
+       void get_geo_point1(DL_point*);
+       void set_geo_point1(DL_point*);
+     
+       void reactionforce0(DL_vector*);
+       void reactionforce1(DL_vector*);
+     
+       DL_Scalar reactionforce();
+     
+             DL_cyl();
+             ~DL_cyl();
+     }
+
+`DL_Scalar DL_cyl::maxforce'
+     Using this attribute, you can specify a maximum reaction force for
+     the constraint. If the reaction force exceeds the maximum force,
+     the constraint deactivates itself: the connection `breaks'. A
+     value equal to or smaller than zero means that there is no
+     boundary for the reaction force. The default value is zero. The
+     reaction force is taken as the magnitude of the 4-D vector that
+     contains the magnitudes of the force components.
+
+`void DL_cyl::init(DL_dyna *d, DL_point *pd0, DL_point *pd1,'
+`                  DL_geo *g, DL_point *pg0, DL_point *pg1)'
+     This method initializes and activates the cylinder constraint. It
+     specifies that the line in `d' through the points with local
+     coordinates `pd0' and `pd1' should coincide with the line in `g'
+     through the points with local coordinates `pg0' and `pg1'
+     (allowing for relative rotations and translations along this
+     line).  The two attachment point pairs should be sufficiently far
+     apart to prevent large torques in the hinge.
+
+`DL_dyna* DL_cyl::get_dyna()'
+     This method returns a reference to the dyna with which the
+     constraint was initialized.
+
+`void DL_cyl::get_dyna_point0(DL_point *dp)'
+     This method returns in `dp' a copy of the local coordinates of the
+     first attachment point in the dyna.
+
+`void DL_cyl::set_dyna_point0(DL_point *dp)'
+     This method allows you to change the first attachment point in the
+     dyna. Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which may
+     cause instabilities.
+
+`void DL_cyl::get_dyna_point1(DL_point *dp)'
+     This method returns in `dp' a copy of the local coordinates of the
+     second attachment point in the dyna.
+
+`void DL_cyl::set_dyna_point1(DL_point *dp)'
+     This method allows you to change the second attachment point in the
+     dyna. Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which may
+     cause instabilities.
+
+`DL_geo* DL_cyl::get_geo()'
+     This method returns a reference to the geo with which the
+     constraint was initialized.
+
+`void DL_cyl::get_geo_point0(DL_point *gp)'
+     This method returns in `gp' a copy of the local coordinates of the
+     first attachment point in the geo.
+
+`void DL_cyl::set_geo_point0(DL_point *gp)'
+     This method allows you to change the first attachment point in the
+     geo. Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which may
+     cause instabilities.
+
+`void DL_cyl::get_geo_point1(DL_point *gp)'
+     This method returns in `gp' a copy of the local coordinates of the
+     second attachment point in the geo.
+
+`void DL_cyl::set_geo_point1(DL_point *gp)'
+     This method allows you to change the second attachment point in the
+     geo. Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which may
+     cause instabilities.
+
+`void DL_cyl::reactionforce0(DL_vector *f)'
+     This method returns in vector `f' a copy of the current reaction
+     force in the first attachment point, perpendicular to the hinge
+     line.
+
+`void DL_cyl::reactionforce1(DL_vector *f)'
+     This method returns in vector `f' a copy of the current reaction
+     force in the second attachment point, perpendicular to the hinge
+     line.
+
+`DL_Scalar DL_cyl::reactionforce()'
+     This method returns the magnitude of the current 4-D restriction
+     vector (which is used to measure the reaction force magnitude used
+     for comparing to the `maxforce' attribute)
+
+
+File: DLdoc.info,  Node: plc,  Next: pris,  Prev: cyl,  Up: Inverse dynamics classes
+
+Plane constraint
+================
+
+The plane constraint class provides a constraint type that can be used
+to connect a dyna and a geo in such a way that they have a plane in
+common. This means that their relative motion is restricted to
+translations within the plane, and rotations around the plane normal.
+Here is its API:
+
+     class DL_plc : public DL_constraint {
+       DL_Scalar maxforce;
+       DL_Scalar maxtorque;
+       void init(DL_dyna*, DL_point*, DL_vector*, DL_geo*, DL_point*, DL_vector*);
+     
+       DL_dyna* get_dyna();
+       DL_geo* get_geo();
+     
+       void reactionforce(DL_vector*);
+       void reactiontorque(DL_vector*);
+     
+            DL_plc();
+            ~DL_plc();
+     }
+
+`DL_Scalar DL_plc::maxforce'
+     With this attribute, a maximum reaction force for the constraint
+     can be specified: if this maximum reaction force is exceed the
+     constraint will deactivate itself, so the connection `breaks'. A
+     `maxforce' value of zero or smaller indicates that there is no
+     limit to the reaction force magnitude. The default value is zero.
+
+`DL_Scalar DL_plc::maxtorque'
+     With this attribute, a maximum reaction torque for the constraint
+     can be specified: if this maximum reaction torque is exceed the
+     constraint will deactivate itself, so the connection `breaks'. A
+     `maxtorque' value of zero or smaller indicates that there is no
+     limit to the reaction torque. The default value is zero.
+
+`void DL_plc::init(DL_dyna *d, DL_point *pd, DL_vector *nd,'
+`                  DL_geo *g, DL_point *pg, DL_vector *ng);'
+     This method initializes the plane constraint, specifying that the
+     plane in dyna `d' through the point with local coordinates `pd' and
+     with normal `pn' (also given in local coordinates), should coincide
+     with the plane in geo `g' through the point with local coordinates
+     `pg' and with normal `ng' (also given in local coordinates). This
+     leaves two translation degrees of freedom (only relative
+     translation perpendicular to the plane is prohibited), and one
+     rotational degree of freedom (rotations along the plane's normal
+     are allowed).
+
+`DL_dyna* DL_plc::get_dyna()'
+     This method returns a reference to the dyna with which the
+     constraint was initialized.
+
+`DL_geo* DL_plc::get_geo()'
+     This method returns a reference to the geo with which the
+     constraint was initialized.
+
+`void DL_plc::reactionforce(DL_vector *f)'
+     This method returns in `f', a copy of the reaction force that is
+     applied to `pd' (see the `init' method) and (inverted) to `pg'.
+
+`void DL_plc::reactiontorque(DL_vector *t)'
+     This method returns in `t' a copy of the reaction torque that is
+     applied to the dyna and (inverted) to the geo.
+
+
+File: DLdoc.info,  Node: pris,  Next: ptc,  Prev: plc,  Up: Inverse dynamics classes
+
+Prism constraint
+================
+
+The prism constraint class provides a connection constraint where a dyna
+and a geo have as only relative freedom of motion translation along a
+pre-defined axis.
+
+     class DL_pris : public DL_constraint {
+       DL_orientation *myorient;
+       DL_Scalar maxforce;
+     
+       void init(DL_dyna*,DL_point*,DL_vector*,DL_geo*,DL_point*,DL_vector*);
+     
+       DL_dyna* get_dyna();
+       DL_geo* get_geo();
+     
+       void reactionforce(DL_vector*);
+     
+            DL_pris();
+            ~DL_pris();
+     }
+
+`DL_orientation* DL_pris::myorient'
+     This method returns a reference to the orientation constraint that
+     this constraint uses to maintain the proper orientation between
+     the dyna and the geo.
+
+`DL_Scalar DL_pris::maxforce'
+     With this attribute, a maximum reaction force for the constraint
+     can be specified: if this maximum reaction force is exceed the
+     constraint will deactivate itself, so the connection `breaks'. A
+     `maxforce' value of zero or smaller indicates that there is no
+     limit to the reaction force magnitude. The default value is zero.
+
+`void DL_pris::init(DL_dyna *d, DL_point *pd, DL_vector *ld, DL_vector *rd,'
+`                   DL_geo *g, DL_point *pg, DL_vector *lg, DL_vector *rg)'
+     This method initializes the constraint, specifying that the only
+     relative motion between `d' and `g' is translation along the axis
+     which in the local coordinate system of `d' is defined by point
+     `pd' and direction vector `ld', and which in the local coordinate
+     system of `g' is defined by point `pg' and direction `lg'. The
+     relative orientation is such that vectors `rd' and `rg' also
+     coincide (so l, r and their cross product form a basis in both the
+     geo and the dyna and these two basis are kept at the same
+     orientation). Vectors `l' and `r' should be perpendicular.
+
+`DL_dyna* DL_pris::get_dyna()'
+     This method returns a reference to the dyna with which the
+     constraint was initialized.
+
+`DL_geo* DL_pris::get_geo()'
+     This method returns a reference to the geo with which the
+     constraint was initialized.
+
+`void DL_pris::reactionforce(DL_vector *f)'
+     This method returns in `f' a copy of the reaction force which is
+     being applied to point `pd' in `d' (see the`init' method), and
+     (inverted) to point `pg' in `g'.
+
+
+File: DLdoc.info,  Node: ptc,  Next: pts,  Prev: pris,  Up: Inverse dynamics classes
+
+Point-to-curve constraint
+=========================
+
+The point-to-curve constraint class provides a connection constraint
+that specifies that a given point of a given geo should lie on a given
+curve (for the curve class, *note Curves::.). This means that the
+constraint will calculate and apply a reaction force that will pull the
+point towards the curve, but which will allow unrestricted motion along
+the curve. The constraint will deactivate itself if the connection point
+reaches outside the domain of the curve. The curve should be continuous
+and differentiable in all the points of its domain. Here is the API of
+the class:
+
+     class DL_ptc : public DL_constraint {
+       DL_Scalar maxforce;
+     
+       void init(DL_geo*, DL_point*, DL_curve*);
+       void reactionforce(DL_vector*);
+     
+       DL_geo* get_geo();
+       void get_point(DL_point*);
+       void set_point(DL_point*);
+     
+       DL_curve* get_curve();
+       DL_Scalar get_s();
+     
+             DL_ptc();
+             ~DL_ptc();
+     }
+
+`DL_Scalar DL_ptc::maxforce'
+     With this attribute, a maximum reaction force for the constraint
+     can be specified: if this maximum reaction force is exceed the
+     constraint will deactivate itself, so the connection `breaks'. A
+     maximum force value of zero or smaller indicates that there is no
+     maximum. The default value is zero.
+
+`void DL_ptc::init(DL_geo *g, DL_point *p, DL_curve *c)'
+     This method initializes the constraint, specifying that point `p'
+     (given in local coordinates) of geo `g' should lie on curve `c'.
+     For the constraint to be able to apply its reaction force, either
+     the curve should be part of a dyna, or `g' should be a dyna.
+
+`void DL_ptc::reactionforce(DL_vector *f)'
+     This method returns in `f' a copy of the reaction force used to
+     keep the constraint valid.
+
+`DL_geo* DL_ptc::get_geo()'
+     This method returns a copy of the geo with which the constraint was
+     initialized.
+
+`void DL_ptc::get_point(DL_point *p)'
+     This method returns in `p' a copy of the current attachment point
+     in the geo.
+
+`void DL_ptc::set_point(DL_point *p)'
+     This method allows you to change the attachment point in the geo.
+     Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which
+     may cause instabilities.
+
+`DL_curve* DL_ptc::get_curve()'
+     This method returns a reference to the curve the constraint was
+     initialized with.
+
+`DL_Scalar DL_ptc::get_s()'
+     This method returns the current curve-parameter corresponding to
+     the attachment point.
+
+
+File: DLdoc.info,  Node: pts,  Next: bar/rope,  Prev: ptc,  Up: Inverse dynamics classes
+
+Point-to-surface constraint
+===========================
+
+The point-to-surface constraint class provides a connection constraint
+that specifies that a given point of a given geo should lie on a given
+surface (for the surface class, *note Surfaces::.). This means that the
+constraint will calculate and apply a reaction force that will pull the
+point towards the surface, but which will allow unrestricted motion
+within the surface. The constraint will deactivate itself if the
+connection point reaches outside the domain of the surface. The surface
+should be C-1 in all the points of its domain. Here is the API of the
+class:
+
+     class DL_pts : public DL_constraint {
+       DL_Scalar maxforce;
+     
+       void init(DL_geo*, DL_point*, DL_surface*);
+       void reactionforce(DL_vector*);
+     
+       DL_geo* get_geo();
+       void get_point(DL_point*);
+       void set_point(DL_point*);
+     
+       DL_surface* get_surface();
+       DL_Scalar get_s();
+       DL_Scalar get_t();
+     
+             DL_pts();
+             ~DL_pts();
+     }
+
+`DL_Scalar DL_pts::maxforce'
+     With this attribute, a maximum reaction force for the constraint
+     can be specified: if this maximum reaction force is exceed the
+     constraint will deactivate itself, so the connection `breaks'. A
+     `maxforce' value of zero or smaller indicates that there is no
+     limit to the reaction force magnitude. The default value is zero.
+
+`void DL_pts::init(DL_geo *g, DL_point *p, DL_surface *s)'
+     This method initializes the constraint, specifying that geo `g'
+     should remain connected to surface `s' in the point with local
+     coordinates `p'. For the constraint to be able to apply its
+     reaction force, either the surface should be part of a dyna, or `g'
+     should be a dyna.
+
+`void DL_pts::reactionforce(DL_vector *f)'
+     This method returns in `f' a copy of the reaction force used to
+     keep the constraint valid.
+
+`DL_geo* DL_pts::get_geo()'
+     This method returns a copy of the geo with which the constraint was
+     initialized.
+
+`void DL_pts::get_point(DL_point *p)'
+     This method returns in `p' a copy of the current attachment point
+     in the geo.
+
+`void DL_pts::set_point(DL_point *p)'
+     This method allows you to change the attachment point in the geo.
+     Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which
+     may cause instabilities.
+
+`DL_surface* DL_pts::get_surface()'
+     This method returns a reference to the surface the constraint was
+     initialized with.
+
+`DL_Scalar DL_pts::get_s()'
+`DL_Scalar DL_pts::get_t()'
+     These two methods return the surface parameters corresponding to
+     the current attachment point.
+
+
+File: DLdoc.info,  Node: bar/rope,  Next: multibar/rope,  Prev: pts,  Up: Inverse dynamics classes
+
+The bar (rope) constraint
+=========================
+
+The bar constraint class provides objects that can be used to model
+ropes or bars between two attachment points. In essence, it acts as a
+length constraint between the two attachment points.
+
+     class DL_bar : public DL_constraint {
+       DL_Scalar maxforce;
+       boolean rope;
+     
+       void init(DL_dyna*, DL_point*, DL_geo*, DL_point*, DL_Scalar);
+       void reactionforce(DL_vector*);
+     
+       DL_dyna* get_dyna();
+       void get_dyna_point(DL_point*);
+       void set_dyna_point(DL_point*);
+       DL_geo* get_geo();
+       void get_geo_point(DL_point*);
+       void set_geo_point(DL_point*);
+     
+       void set_length(DL_Scalar);
+       DL_Scalar get_length();
+     
+                  DL_bar();
+                  ~DL_bar();
+     }
+
+`DL_Scalar DL_bar::maxforce'
+     With this attribute, a maximum reaction force for the constraint
+     can be specified: if this maximum reaction force is exceed the
+     constraint will deactivate itself, so the connection `breaks'. A
+     `maxforce' value of zero or smaller indicates that there is no
+     limit to the reaction force magnitude. The default value is zero.
+
+`boolean DL_bar::rope'
+     This boolean indicates if the constraint should model a rope or a
+     bar. A bar can excert both pulling and pushing forces, and can
+     hence always make sure that the bar retains its length, while a
+     rope can only exert pulling forces: meaning that it cannot prevent
+     the distance between the two attachment points to become less than
+     the length of the rope. The default value for this attribute is
+     `false'
+
+`void DL_bar::init(DL_dyna *d, DL_point *pd, DL_geo *g, DL_point *pg, DL_Scalar l)'
+     This method initializes the constraint and activates it. It
+     specifies that a bar (or rope) with length `l' is attached on the
+     one side to the point of dyna `d' with local coordinates `pd', and
+     on the other side to the point of geo `g' with local coordinates
+     `pg'. The bar/rope in itself is weightless, and thus acts as a
+     (partial) length constraint.
+
+`void DL_bar::reactionforce(DL_vector *f)'
+     This method returns a copy of the reaction force (in world
+     coordinates) in vector `f' (for visualization or for
+     stress-evaluation for example).
+
+`DL_dyna* DL_bar::get_dyna()'
+     This method returns a reference to the dyna with which the
+     constraint was initialized.
+
+`void DL_bar::get_dyna_point(DL_point *dp)'
+     This method returns in `dp' a copy of the current attachment point
+     in the dyna.
+
+`void DL_bar::set_dyna_point(DL_point *dp)'
+     This method allows you to change the attachment point in the dyna.
+     Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which
+     may cause instabilities.
+
+`DL_geo* DL_bar::get_geo()'
+     This method returns a copy of the geo with which the constraint was
+     initialized.
+
+`void DL_bar::get_geo_point(DL_point *gp)'
+     This method returns in `gp' a copy of the current attachment point
+     in the geo.
+
+`void DL_bar::set_geo_point(DL_point *gp)'
+     This method allows you to change the attachment point in the geo.
+     Use this method with caution, since too large jumps in the
+     attachment points can lead to very strong reaction forces which
+     may cause instabilities.
+
+`void DL_bar::set_length(DL_Scalar l)'
+     This method sets the length of the bar/rope to `l'. Use this method
+     with caution, since too large changes in the length can lead to
+     very strong reaction forces which may cause instabilities.
+
+`DL_Scalar DL_bar::get_length()'
+     This method returns the length of the rope.
+
+
+File: DLdoc.info,  Node: multibar/rope,  Next: wheel,  Prev: bar/rope,  Up: Inverse dynamics classes
+
+The multibar (rope) constraint
+==============================
+
+The multibar constraint class provides objects that can be used to model
+ropes or bars between two or more attachment points. In essence, it
+acts as a constraint trying to preserve the total length of the sum of
+the distances between the attachment points.
+
+     class DL_multi_bar : public DL_constraint {
+       DL_Scalar maxforce;
+       boolean rope;
+     
+       void init(int);
+       void addpair(DL_geo*,DL_point*);
+     
+       void reactionforce(int, DL_vector*);
+     
+       DL_geo* get_geo(int);
+       void get_point(int, DL_point*);
+       void set_point(int, DL_point*);
+     
+       void set_length(DL_Scalar);
+       DL_Scalar rest_length();
+       DL_Scalar actual_length();
+     
+                  DL_multi_bar();
+     	     ~DL_multi_bar();
+     }
+
+`DL_Scalar DL_multibar::maxforce'
+     With this attribute, a maximum reaction force for the constraint
+     can be specified: if this maximum reaction force is exceed the
+     constraint will deactivate itself, so the connection `breaks'. A
+     `maxforce' value of zero or smaller indicates that there is no
+     limit to the reaction force magnitude. The default value is zero.
+
+`boolean DL_multibar::rope'
+     This boolean indicates if the constraint should model a multirope
+     or a multibar. A multibar can excert both pulling and pushing
+     forces, and can hence always make sure that it retains its length,
+     while a multirope can only exert pulling forces: meaning that it
+     cannot prevent the sum of distances between the attachment points
+     to become less than the length of the multirope. The default value
+     for this attribute is `false'
+
+`void DL_multibar::init(int nr)'
+     This method initializes the multibar constraint, and specifies that
+     there will be at most `nr' attachment points. The multibar
+     maintains a list of attachment points. The multibar/rope is strung
+     between the subsequent attachment points in the list. Before
+     actual use, attachment points can be added using the `addpair'
+     method.
+
+`void DL_multibar::addpair(DL_geo*,DL_point*)'
+     This method adds an attachment point to the end of the list. The
+     rest length of the rope is set to the current length.
+
+`void DL_multibar::reactionforce(int i, DL_vector *f)'
+     This method assigns to f, the reaction force in the segment between
+     attachment points `i' and `i+1'.
+
+`DL_geo* DL_multibar::get_geo(int i)'
+     This method returns a reference to the geometry of the `i'-th
+     attachment point.
+
+`void DL_multibar::get_point(int i, DL_point *dp)'
+     This method returns in `dp' a copy of the coordinates of the
+     `i'-th attachment point (in local coordinates of `get_geo(i)').
+
+`void DL_multibar::set_point(int i, DL_point *dp)'
+     This method sets the coordinates of the `i'-th attachment point (in
+     local coordinates of `get_geo(i)') to `dp'.
+
+`void DL_multibar::set_length(DL_Scalar)'
+     This method sets the rest length of the multibar/rope.
+
+`DL_Scalar DL_multibar::rest_length()'
+     This method returns the rest length of the multibar/rope.
+
+`DL_Scalar DL_multibar::actual_length()'
+     This method returns the actual length of the multibar. In case of
+     the multibar being a rope, this length can actually be less than
+     the rest length.
+
+
+File: DLdoc.info,  Node: wheel,  Next: collision,  Prev: multibar/rope,  Up: Inverse dynamics classes
+
+Wheel constraint
+================
+
+The wheel constraint class provides a constraint type that can be used
+to model the contact of a wheel with the surface it is rolling over. The
+constraint will calculate a reaction force such that the wheel rolls
+without slipping (either sideways or in the rolling direction).
+
+     class DL_wheel : public DL_constraint {
+       DL_Scalar maxforce;
+     
+       void init(DL_dyna*, DL_vector*, DL_point*, DL_Scalar,
+                 DL_surface*, DL_Scalar, DL_Scalar);
+       void reactionforce(DL_vector*);
+       DL_dyna* get_dyna();
+       void get_contact_point(DL_point*);
+     
+            DL_wheel();
+            ~DL_wheel();
+     }
+
+`DL_Scalar DL_wheel::maxforce'
+     With this attribute, a maximum reaction force for the constraint
+     can be specified: if this maximum reaction force is exceed the
+     constraint will deactivate itself, so the connection `breaks'. A
+     `maxforce' value of zero or smaller indicates that there is no
+     limit to the reaction force magnitude. The default value is zero.
+
+`void DL_wheel::init(DL_dyna *w, DL_vector *n, DL_point *c, DL_Scalar r,'
+`                    DL_surface *sf, DL_Scalar s, DL_Scalar t)'
+     This method initializes the constraint. The first four parameters
+     specify the wheel: `w' is the dyna, point `c' gives (in local
+     coordinates) the center of the wheel (normally this is point
+     `(0,0,0)'), vector `n' gives the normal of the wheel-plane, and
+     `r' is the radius of the wheel. The last three parameters specify
+     the *road* the wheel is rolling on: surface `sf' describes this
+     *road*, and the pair `(s,t)' gives the initial position of the
+     contact point of the wheel in the surface.
+
+`void DL_wheel::reactionforce(DL_vector *f)'
+     This method returns in `f' a copy of the current reaction force
+     used to keep the constraint valid.
+
+`DL_dyna* DL_wheel::get_dyna();'
+     This method retruns a reference to the dyna that is the wheel.
+
+`void DL_wheel::get_contact_point(DL_point *p);'
+     This method returns in p the coordinates of the contact point
+     between the wheel and the surface (in local coordinates of the
+     wheel);.
+
+
+File: DLdoc.info,  Node: collision,  Prev: wheel,  Up: Inverse dynamics classes
+
+Collision constraint
+====================
+
+The collision constraint class provides a constraint type that can be
+used for collision handling of point-point collisions. A collision
+detector can create collision constraints when it has detected that a
+collision is taking place, and then the collision constraint will
+calculate and apply the appropriate collision forces. A collision
+constraint always deletes itself at the end of the frame, when it has
+been handled.  Here is its (current) API:
+
+     class DL_collision : public DL_constraint {
+           DL_collision(DL_geo*, DL_point*,
+                        DL_geo*, DL_point*,
+                        DL_vector*, int mode=1);
+           ~DL_collision();
+     }
+
+`DL_collision::DL_collision(DL_geo *g0, DL_point *p0,'
+`                           DL_geo *g1, DL_point *p1, DL_vector *n, int mode=0)'
+     The constructor of the collision constraint class is also used to
+     initialize the constraint. It specifies that a collision between
+     geo `g0' and `g1' (at least one of which should be a dyna) will be
+     handled. The contact point in the first geo is given by local
+     coordinates `p0'. The contact point in the second geo is given by
+     local coordinates `p1'.
+
+     Vector `n' is the collision normal which is used to determine the
+     direction of the collision reaction force. For a point-plane
+     collision this is the normal of the plane for example. It does not
+     matter to which side of the plane the normal points.
+
+     The `mode' parameter is optional. It allows control over the way
+     the collision is handled: a value of 1 signifies handling via a
+     velocity constraint only. A value larger than one adds positional
+     constraints.  A value smaller than 1 lets the collision constraint
+     decide whether to imploy the extra positional constraint or not
+     (this is the default behaviour).
+
+     The elasticity of the collision is determined from the elasticity
+     values given for the colliding geometries.
+
+
+File: DLdoc.info,  Node: Miscellaneous classes,  Prev: Inverse dynamics classes,  Up: Top
+
+Miscellaneous classes
+*********************
+
+In this section the remaining classes in the Dynamo library are
+presented. First, the curve and the surface classes are discussed which
+can be used to model the curves and surfaces required by the
+point-to-curve and the point-to-surface constraints. Then the generic
+controller class and the one controller (for modeling dampers and
+(damped) springs).
+
+* Menu:
+
+* Curves::         The curve classes for use with the
+                   point-to-curve constraint
+* Surfaces::       The surface classes for use with the
+                   point-to-surface constraint
+* Sensors::        The sensor classes (for use with controllers a.o.)
+* Actuators::      The actuator classes (for use with controllers a.o.)
+* Controllers::    The controller classes
+
+
+File: DLdoc.info,  Node: Curves,  Next: Surfaces,  Up: Miscellaneous classes
+
+Curves
+======
+
+The curve classes are used to model explicit curves: functions from one
+curve parameter to 3-D points. These are the curves that are use by the
+point-to-curve constraint (*note ptc::.). With each curve, a geo is
+associated: the curve is expressed in the local coordinate system of
+that geo (or in world coordinates if the geo-reference happens to be the
+`NULL' pointer).  In case the geo is a dyna, the point-to-curve
+constraint's reaction forces are also applied to this geo. The
+`DL_curve' class is the generic explicit curve class which presents the
+general curve-API, while the other classes presented here are actual
+implementations of specific types of curves.
+
+* Menu:
+
+* Curve::            The generic explicit curve class
+* Line::             The line curve class
+* Line segment::     The line segment curve class
+* Circle::           The circle curve class
+* B-spline segment:: The B-spline segment curve class
+* B-spline::         The B-spline curve class
+* C-spline segment:: The C-spline segment curve class
+* C-spline::         The C-spline curve class
+
+
+File: DLdoc.info,  Node: Curve,  Next: Line,  Up: Curves
+
+Curve
+-----
+
+The generic explicit curve class provides the generic API for curves.
+It should be considered an abstract class, and only the curve
+specializations provide an initialization method.
+
+     class DL_curve {
+       void assign(DL_curve*);
+     
+       boolean pos(DL_Scalar,DL_point*);
+       boolean deriv(DL_Scalar,DL_vector*);
+       boolean indomain(DL_Scalar);
+       DL_Scalar closeto(DL_point*);
+     
+       DL_geo* get_geo();
+       DL_Scalar get_minparam();
+       DL_Scalar get_maxparam();
+     
+             DL_curve();
+             ~DL_curve();
+     }
+
+`void DL_curve::assign(DL_curve *c)'
+     This method assigns curve `c' to this curve
+
+`boolean DL_curve::pos(DL_Scalar s, DL_point *p)'
+     This method assigns the position (in the local coordinate system
+     of the geo associated with the curve) for curve parameter `s' to
+     `p'. It returns if `s' is within the curve domain.
+
+`boolean DL_curve::deriv(DL_Scalar s, DL_vector *d)'
+     This method assigns the derivative (in the local coordinate system
+     of the geo associated with the curve) for curve parameter `s' to
+     `d'. It returns if `s' is within the curve domain.
+
+`boolean DL_curve::indomain(DL_Scalar s)'
+     This method returns whether s is within the curve domain or not
+
+`DL_Scalar DL_curve::closeto(DL_point *p)'
+     This method returns a curve-parameter which is such that the
+     distance between that point on the curve and point `p' (given in
+     world coordinates) is minimal.
+
+`DL_geo* DL_curve::get_geo()'
+     This method returns the geo associated with this curve.
+
+`DL_Scalar DL_curve::get_minparam()'
+`DL_Scalar DL_curve::get_maxparam()'
+     These two methods return the two curve parameters that are the
+     boundaries for the curve domain. Some curve specializations may
+     also provide methods to change these boundaries, but not all of
+     them will want to allow this.
+

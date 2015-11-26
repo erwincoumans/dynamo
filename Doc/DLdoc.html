@@ -1,0 +1,5291 @@
+<HTML>
+<HEAD>
+<!-- This HTML file has been created by texi2html 1.52
+     from DLdoc.texi on 19 April 2000 -->
+
+<TITLE>Dynamo Library User Documentation</TITLE>
+</HEAD>
+<BODY>
+<H1>DynaMo Library User Documentation</H1>
+<H2>last updated April 19th, 2000</H2>
+<ADDRESS>Bart Barenbrug</ADDRESS>
+<P>
+<P><HR><P>
+
+
+
+<H1><A NAME="SEC1" HREF="DLdoc_toc.html#TOC1">GNU LIBRARY GENERAL PUBLIC LICENSE</A></H1>
+<P>
+Version 2, June 1991
+
+</P>
+
+<PRE>
+Copyright (C) 1991 Free Software Foundation, Inc.
+59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
+
+[This is the first released version of the library GPL.  It is
+ numbered 2 because it goes with version 2 of the ordinary GPL.]
+</PRE>
+
+
+
+<H2><A NAME="SEC2" HREF="DLdoc_toc.html#TOC2">Preamble</A></H2>
+
+<P>
+  The licenses for most software are designed to take away your
+freedom to share and change it.  By contrast, the GNU General Public
+Licenses are intended to guarantee your freedom to share and change
+free software--to make sure the software is free for all its users.
+
+</P>
+<P>
+  This license, the Library General Public License, applies to some
+specially designated Free Software Foundation software, and to any
+other libraries whose authors decide to use it.  You can use it for
+your libraries, too.
+
+</P>
+<P>
+  When we speak of free software, we are referring to freedom, not
+price.  Our General Public Licenses are designed to make sure that you
+have the freedom to distribute copies of free software (and charge for
+this service if you wish), that you receive source code or can get it
+if you want it, that you can change the software or use pieces of it
+in new free programs; and that you know you can do these things.
+
+</P>
+<P>
+  To protect your rights, we need to make restrictions that forbid
+anyone to deny you these rights or to ask you to surrender the rights.
+These restrictions translate to certain responsibilities for you if
+you distribute copies of the library, or if you modify it.
+
+</P>
+<P>
+  For example, if you distribute copies of the library, whether gratis
+or for a fee, you must give the recipients all the rights that we gave
+you.  You must make sure that they, too, receive or can get the source
+code.  If you link a program with the library, you must provide
+complete object files to the recipients so that they can relink them
+with the library, after making changes to the library and recompiling
+it.  And you must show them these terms so they know their rights.
+
+</P>
+<P>
+  Our method of protecting your rights has two steps: (1) copyright
+the library, and (2) offer you this license which gives you legal
+permission to copy, distribute and/or modify the library.
+
+</P>
+<P>
+  Also, for each distributor's protection, we want to make certain
+that everyone understands that there is no warranty for this free
+library.  If the library is modified by someone else and passed on, we
+want its recipients to know that what they have is not the original
+version, so that any problems introduced by others will not reflect on
+the original authors' reputations.
+
+</P>
+<P>
+  Finally, any free program is threatened constantly by software
+patents.  We wish to avoid the danger that companies distributing free
+software will individually obtain patent licenses, thus in effect
+transforming the program into proprietary software.  To prevent this,
+we have made it clear that any patent must be licensed for everyone's
+free use or not licensed at all.
+
+</P>
+<P>
+  Most GNU software, including some libraries, is covered by the ordinary
+GNU General Public License, which was designed for utility programs.  This
+license, the GNU Library General Public License, applies to certain
+designated libraries.  This license is quite different from the ordinary
+one; be sure to read it in full, and don't assume that anything in it is
+the same as in the ordinary license.
+
+</P>
+<P>
+  The reason we have a separate public license for some libraries is that
+they blur the distinction we usually make between modifying or adding to a
+program and simply using it.  Linking a program with a library, without
+changing the library, is in some sense simply using the library, and is
+analogous to running a utility program or application program.  However, in
+a textual and legal sense, the linked executable is a combined work, a
+derivative of the original library, and the ordinary General Public License
+treats it as such.
+
+</P>
+<P>
+  Because of this blurred distinction, using the ordinary General
+Public License for libraries did not effectively promote software
+sharing, because most developers did not use the libraries.  We
+concluded that weaker conditions might promote sharing better.
+
+</P>
+<P>
+  However, unrestricted linking of non-free programs would deprive the
+users of those programs of all benefit from the free status of the
+libraries themselves.  This Library General Public License is intended to
+permit developers of non-free programs to use free libraries, while
+preserving your freedom as a user of such programs to change the free
+libraries that are incorporated in them.  (We have not seen how to achieve
+this as regards changes in header files, but we have achieved it as regards
+changes in the actual functions of the Library.)  The hope is that this
+will lead to faster development of free libraries.
+
+</P>
+<P>
+  The precise terms and conditions for copying, distribution and
+modification follow.  Pay close attention to the difference between a
+"work based on the library" and a "work that uses the library".  The
+former contains code derived from the library, while the latter only
+works together with the library.
+
+</P>
+<P>
+  Note that it is possible for a library to be covered by the ordinary
+General Public License rather than by this special one.
+
+</P>
+
+
+<H2><A NAME="SEC3" HREF="DLdoc_toc.html#TOC3">TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION</A></H2>
+
+
+<OL>
+<LI>
+
+This License Agreement applies to any software library which
+contains a notice placed by the copyright holder or other authorized
+party saying it may be distributed under the terms of this Library
+General Public License (also called "this License").  Each licensee is
+addressed as "you".
+
+  A "library" means a collection of software functions and/or data
+prepared so as to be conveniently linked with application programs
+(which use some of those functions and data) to form executables.
+
+  The "Library", below, refers to any such software library or work
+which has been distributed under these terms.  A "work based on the
+Library" means either the Library or any derivative work under
+copyright law: that is to say, a work containing the Library or a
+portion of it, either verbatim or with modifications and/or translated
+straightforwardly into another language.  (Hereinafter, translation is
+included without limitation in the term "modification".)
+
+  "Source code" for a work means the preferred form of the work for
+making modifications to it.  For a library, complete source code means
+all the source code for all modules it contains, plus any associated
+interface definition files, plus the scripts used to control compilation
+and installation of the library.
+
+  Activities other than copying, distribution and modification are not
+covered by this License; they are outside its scope.  The act of
+running a program using the Library is not restricted, and output from
+such a program is covered only if its contents constitute a work based
+on the Library (independent of the use of the Library in a tool for
+writing it).  Whether that is true depends on what the Library does
+and what the program that uses the Library does.
+  
+<LI>
+
+You may copy and distribute verbatim copies of the Library's
+complete source code as you receive it, in any medium, provided that
+you conspicuously and appropriately publish on each copy an
+appropriate copyright notice and disclaimer of warranty; keep intact
+all the notices that refer to this License and to the absence of any
+warranty; and distribute a copy of this License along with the
+Library.
+
+  You may charge a fee for the physical act of transferring a copy,
+and you may at your option offer warranty protection in exchange for a
+fee.
+
+<LI>
+
+You may modify your copy or copies of the Library or any portion
+of it, thus forming a work based on the Library, and copy and
+distribute such modifications or work under the terms of Section 1
+above, provided that you also meet all of these conditions:
+
+
+<OL>
+<LI>
+
+The modified work must itself be a software library.
+
+<LI>
+
+You must cause the files modified to carry prominent notices
+stating that you changed the files and the date of any change.
+
+<LI>
+
+You must cause the whole of the work to be licensed at no
+charge to all third parties under the terms of this License.
+
+<LI>
+
+If a facility in the modified Library refers to a function or a
+table of data to be supplied by an application program that uses
+the facility, other than as an argument passed when the facility
+is invoked, then you must make a good faith effort to ensure that,
+in the event an application does not supply such function or
+table, the facility still operates, and performs whatever part of
+its purpose remains meaningful.
+
+(For example, a function in a library to compute square roots has
+a purpose that is entirely well-defined independent of the
+application.  Therefore, Subsection 2d requires that any
+application-supplied function or table used by this function must
+be optional: if the application does not supply it, the square
+root function must still compute square roots.)
+</OL>
+
+These requirements apply to the modified work as a whole.  If
+identifiable sections of that work are not derived from the Library,
+and can be reasonably considered independent and separate works in
+themselves, then this License, and its terms, do not apply to those
+sections when you distribute them as separate works.  But when you
+distribute the same sections as part of a whole which is a work based
+on the Library, the distribution of the whole must be on the terms of
+this License, whose permissions for other licensees extend to the
+entire whole, and thus to each and every part regardless of who wrote
+it.
+
+Thus, it is not the intent of this section to claim rights or contest
+your rights to work written entirely by you; rather, the intent is to
+exercise the right to control the distribution of derivative or
+collective works based on the Library.
+
+In addition, mere aggregation of another work not based on the Library
+with the Library (or with a work based on the Library) on a volume of
+a storage or distribution medium does not bring the other work under
+the scope of this License.
+
+<LI>
+
+You may opt to apply the terms of the ordinary GNU General Public
+License instead of this License to a given copy of the Library.  To do
+this, you must alter all the notices that refer to this License, so
+that they refer to the ordinary GNU General Public License, version 2,
+instead of to this License.  (If a newer version than version 2 of the
+ordinary GNU General Public License has appeared, then you can specify
+that version instead if you wish.)  Do not make any other change in
+these notices.
+
+  Once this change is made in a given copy, it is irreversible for
+that copy, so the ordinary GNU General Public License applies to all
+subsequent copies and derivative works made from that copy.
+
+  This option is useful when you wish to copy part of the code of
+the Library into a program that is not a library.
+
+<LI>
+
+You may copy and distribute the Library (or a portion or
+derivative of it, under Section 2) in object code or executable form
+under the terms of Sections 1 and 2 above provided that you accompany
+it with the complete corresponding machine-readable source code, which
+must be distributed under the terms of Sections 1 and 2 above on a
+medium customarily used for software interchange.
+
+  If distribution of object code is made by offering access to copy
+from a designated place, then offering equivalent access to copy the
+source code from the same place satisfies the requirement to
+distribute the source code, even though third parties are not
+compelled to copy the source along with the object code.
+
+<LI>
+
+A program that contains no derivative of any portion of the
+Library, but is designed to work with the Library by being compiled or
+linked with it, is called a "work that uses the Library".  Such a
+work, in isolation, is not a derivative work of the Library, and
+therefore falls outside the scope of this License.
+
+  However, linking a "work that uses the Library" with the Library
+creates an executable that is a derivative of the Library (because it
+contains portions of the Library), rather than a "work that uses the
+library".  The executable is therefore covered by this License.
+Section 6 states terms for distribution of such executables.
+
+  When a "work that uses the Library" uses material from a header file
+that is part of the Library, the object code for the work may be a
+derivative work of the Library even though the source code is not.
+Whether this is true is especially significant if the work can be
+linked without the Library, or if the work is itself a library.  The
+threshold for this to be true is not precisely defined by law.
+
+  If such an object file uses only numerical parameters, data
+structure layouts and accessors, and small macros and small inline
+functions (ten lines or less in length), then the use of the object
+file is unrestricted, regardless of whether it is legally a derivative
+work.  (Executables containing this object code plus portions of the
+Library will still fall under Section 6.)
+
+  Otherwise, if the work is a derivative of the Library, you may
+distribute the object code for the work under the terms of Section 6.
+Any executables containing that work also fall under Section 6,
+whether or not they are linked directly with the Library itself.
+
+<LI>
+
+As an exception to the Sections above, you may also compile or
+link a "work that uses the Library" with the Library to produce a
+work containing portions of the Library, and distribute that work
+under terms of your choice, provided that the terms permit
+modification of the work for the customer's own use and reverse
+engineering for debugging such modifications.
+
+  You must give prominent notice with each copy of the work that the
+Library is used in it and that the Library and its use are covered by
+this License.  You must supply a copy of this License.  If the work
+during execution displays copyright notices, you must include the
+copyright notice for the Library among them, as well as a reference
+directing the user to the copy of this License.  Also, you must do one
+of these things:
+
+
+<OL>
+<LI>
+
+Accompany the work with the complete corresponding
+machine-readable source code for the Library including whatever
+changes were used in the work (which must be distributed under
+Sections 1 and 2 above); and, if the work is an executable linked
+with the Library, with the complete machine-readable "work that
+uses the Library", as object code and/or source code, so that the
+user can modify the Library and then relink to produce a modified
+executable containing the modified Library.  (It is understood
+that the user who changes the contents of definitions files in the
+Library will not necessarily be able to recompile the application
+to use the modified definitions.)
+
+<LI>
+
+Accompany the work with a written offer, valid for at
+least three years, to give the same user the materials
+specified in Subsection 6a, above, for a charge no more
+than the cost of performing this distribution.
+
+<LI>
+
+If distribution of the work is made by offering access to copy
+from a designated place, offer equivalent access to copy the above
+specified materials from the same place.
+
+<LI>
+
+Verify that the user has already received a copy of these
+materials or that you have already sent this user a copy.
+</OL>
+
+  For an executable, the required form of the "work that uses the
+Library" must include any data and utility programs needed for
+reproducing the executable from it.  However, as a special exception,
+the source code distributed need not include anything that is normally
+distributed (in either source or binary form) with the major
+components (compiler, kernel, and so on) of the operating system on
+which the executable runs, unless that component itself accompanies
+the executable.
+
+  It may happen that this requirement contradicts the license
+restrictions of other proprietary libraries that do not normally
+accompany the operating system.  Such a contradiction means you cannot
+use both them and the Library together in an executable that you
+distribute.
+
+<LI>
+
+You may place library facilities that are a work based on the
+Library side-by-side in a single library together with other library
+facilities not covered by this License, and distribute such a combined
+library, provided that the separate distribution of the work based on
+the Library and of the other library facilities is otherwise
+permitted, and provided that you do these two things:
+
+
+<OL>
+<LI>
+
+Accompany the combined library with a copy of the same work
+based on the Library, uncombined with any other library
+facilities.  This must be distributed under the terms of the
+Sections above.
+
+<LI>
+
+Give prominent notice with the combined library of the fact
+that part of it is a work based on the Library, and explaining
+where to find the accompanying uncombined form of the same work.
+</OL>
+
+<LI>
+
+You may not copy, modify, sublicense, link with, or distribute
+the Library except as expressly provided under this License.  Any
+attempt otherwise to copy, modify, sublicense, link with, or
+distribute the Library is void, and will automatically terminate your
+rights under this License.  However, parties who have received copies,
+or rights, from you under this License will not have their licenses
+terminated so long as such parties remain in full compliance.
+
+<LI>
+
+You are not required to accept this License, since you have not
+signed it.  However, nothing else grants you permission to modify or
+distribute the Library or its derivative works.  These actions are
+prohibited by law if you do not accept this License.  Therefore, by
+modifying or distributing the Library (or any work based on the
+Library), you indicate your acceptance of this License to do so, and
+all its terms and conditions for copying, distributing or modifying
+the Library or works based on it.
+
+<LI>
+
+Each time you redistribute the Library (or any work based on the
+Library), the recipient automatically receives a license from the
+original licensor to copy, distribute, link with or modify the Library
+subject to these terms and conditions.  You may not impose any further
+restrictions on the recipients' exercise of the rights granted herein.
+You are not responsible for enforcing compliance by third parties to
+this License.
+
+<LI>
+
+If, as a consequence of a court judgment or allegation of patent
+infringement or for any other reason (not limited to patent issues),
+conditions are imposed on you (whether by court order, agreement or
+otherwise) that contradict the conditions of this License, they do not
+excuse you from the conditions of this License.  If you cannot
+distribute so as to satisfy simultaneously your obligations under this
+License and any other pertinent obligations, then as a consequence you
+may not distribute the Library at all.  For example, if a patent
+license would not permit royalty-free redistribution of the Library by
+all those who receive copies directly or indirectly through you, then
+the only way you could satisfy both it and this License would be to
+refrain entirely from distribution of the Library.
+
+If any portion of this section is held invalid or unenforceable under any
+particular circumstance, the balance of the section is intended to apply,
+and the section as a whole is intended to apply in other circumstances.
+
+It is not the purpose of this section to induce you to infringe any
+patents or other property right claims or to contest validity of any
+such claims; this section has the sole purpose of protecting the
+integrity of the free software distribution system which is
+implemented by public license practices.  Many people have made
+generous contributions to the wide range of software distributed
+through that system in reliance on consistent application of that
+system; it is up to the author/donor to decide if he or she is willing
+to distribute software through any other system and a licensee cannot
+impose that choice.
+
+This section is intended to make thoroughly clear what is believed to
+be a consequence of the rest of this License.
+
+<LI>
+
+If the distribution and/or use of the Library is restricted in
+certain countries either by patents or by copyrighted interfaces, the
+original copyright holder who places the Library under this License may add
+an explicit geographical distribution limitation excluding those countries,
+so that distribution is permitted only in or among countries not thus
+excluded.  In such case, this License incorporates the limitation as if
+written in the body of this License.
+
+<LI>
+
+The Free Software Foundation may publish revised and/or new
+versions of the Library General Public License from time to time.
+Such new versions will be similar in spirit to the present version,
+but may differ in detail to address new problems or concerns.
+
+Each version is given a distinguishing version number.  If the Library
+specifies a version number of this License which applies to it and
+"any later version", you have the option of following the terms and
+conditions either of that version or of any later version published by
+the Free Software Foundation.  If the Library does not specify a
+license version number, you may choose any version ever published by
+the Free Software Foundation.
+
+<LI>
+
+If you wish to incorporate parts of the Library into other free
+programs whose distribution conditions are incompatible with these,
+write to the author to ask for permission.  For software which is
+copyrighted by the Free Software Foundation, write to the Free
+Software Foundation; we sometimes make exceptions for this.  Our
+decision will be guided by the two goals of preserving the free status
+of all derivatives of our free software and of promoting the sharing
+and reuse of software generally.
+
+
+
+<P><STRONG>NO WARRANTY</STRONG></P>
+
+<LI>
+
+BECAUSE THE LIBRARY IS LICENSED FREE OF CHARGE, THERE IS NO
+WARRANTY FOR THE LIBRARY, TO THE EXTENT PERMITTED BY APPLICABLE LAW.
+EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR
+OTHER PARTIES PROVIDE THE LIBRARY "AS IS" WITHOUT WARRANTY OF ANY
+KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE
+LIBRARY IS WITH YOU.  SHOULD THE LIBRARY PROVE DEFECTIVE, YOU ASSUME
+THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+<LI>
+
+IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN
+WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY
+AND/OR REDISTRIBUTE THE LIBRARY AS PERMITTED ABOVE, BE LIABLE TO YOU
+FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR
+CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE
+LIBRARY (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING
+RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A
+FAILURE OF THE LIBRARY TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
+SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGES.
+</OL>
+
+
+<H2>END OF TERMS AND CONDITIONS</H2>
+
+
+
+<H2><A NAME="SEC4" HREF="DLdoc_toc.html#TOC4">How to Apply These Terms to Your New Libraries</A></H2>
+
+<P>
+  If you develop a new library, and you want it to be of the greatest
+possible use to the public, we recommend making it free software that
+everyone can redistribute and change.  You can do so by permitting
+redistribution under these terms (or, alternatively, under the terms of the
+ordinary General Public License).
+
+</P>
+<P>
+  To apply these terms, attach the following notices to the library.  It is
+safest to attach them to the start of each source file to most effectively
+convey the exclusion of warranty; and each file should have at least the
+"copyright" line and a pointer to where the full notice is found.
+
+</P>
+
+<PRE>
+<VAR>one line to give the library's name and an idea of what it does.</VAR>
+Copyright (C) <VAR>year</VAR>  <VAR>name of author</VAR>
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Library General Public
+License as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Library General Public License for more details.
+
+You should have received a copy of the GNU Library General Public
+License along with this library; if not, write to the
+Free Software Foundation, Inc., 59 Temple Place - Suite 330, Cambridge,
+MA 02139, USA.
+</PRE>
+
+<P>
+Also add information on how to contact you by electronic and paper mail.
+
+</P>
+<P>
+You should also get your employer (if you work as a programmer) or your
+school, if any, to sign a "copyright disclaimer" for the library, if
+necessary.  Here is a sample; alter the names:
+
+</P>
+
+<PRE>
+Yoyodyne, Inc., hereby disclaims all copyright interest in
+the library `Frob' (a library for tweaking knobs) written
+by James Random Hacker.
+
+<VAR>signature of Ty Coon</VAR>, 1 April 1990
+Ty Coon, President of Vice
+</PRE>
+
+<P>
+That's all there is to it!
+
+</P>
+
+
+<H1><A NAME="SEC5" HREF="DLdoc_toc.html#TOC5">Introduction</A></H1>
+
+<P>
+This is the user documentation for the Dynamo Library: a C++ class
+library developed at the Eindhoven University of Technology for handling
+dynamics and inverse dynamics motion behaviour in computer animation and
+simulation.
+
+</P>
+<P>
+This documentation is structured as follows: first, a very brief
+overview is given of what (inverse) dynamics entails. Then the few
+things needed to connect the library to a host system are
+discussed. This involves implementing a few simple callbacks. Once these
+callbacks have been implemented, the library can be used. That is what
+the remainder of this documentation focuses on, by first giving some
+general hints about the usage of the library, and then presenting the
+API of the library. In this API description all relevant classes in the
+library are presented along with a description of each of their methods.
+
+</P>
+<P>
+More in-depth documentation describing the theory on which the library
+is based can be found at the author's home page on the Internet at url
+<SAMP>`http://www.win.tue.nl/win/cs/tt/bartb/'</SAMP>. For questions, the author
+can be reached at e-mail address <SAMP>`bartb@win.tue.nl'</SAMP>.
+
+</P>
+
+
+
+<H1><A NAME="SEC6" HREF="DLdoc_toc.html#TOC6">Dynamics overview</A></H1>
+
+<P>
+Dynamics provides a way to specify motion behaviour for an animation or
+simulation. Unlike kinematics, where motions are specified in terms of
+translations and rotations, dynamics uses forces and torques to set the
+animation geometries in motion. The dynamics algorithms use the laws of
+physics to calculate the motion of objects. In order to be able to
+calculate the dynamic motions, some physical properties of the animated
+objects are required, such as the mass of the objects.
+
+</P>
+<P>
+Inverse dynamics provides a tool to specify the dynamics forces on a
+higher level by stating properties of the dynamics objects. Inverse
+dynamics takes care of calculating and applying the (reaction) forces
+that maintain those properties. The properties are specified in
+so-called "constraints". A constraint might for example specify that two
+objects are to remain connected in a given manner at all times (with a
+ball joint, or a pin joint for example). The constraint then acts as a
+hinge between the two objects by calculating and applying the hinge
+force. The advantage of constraints is that they can be used in a
+declarative fashion: once a constraint is specified, the inverse
+dynamics engine will make sure it remains satisfied for the remainder of
+the animation/simulation (or until the constraint is "deactivated").
+
+</P>
+
+
+<H1><A NAME="SEC7" HREF="DLdoc_toc.html#TOC7">General notes</A></H1>
+
+<P>
+The task of the Dynamo Library is calculate the motions of the
+geometric objects that are under its control. These geometric objects
+exist outside the Dynamo library, and so the library itself maintains
+companion objects that make the information required for the dynamics
+calculation available to the objects in the library.
+
+</P>
+<P>
+The calculations themselves are controlled by two system components: one
+of type <CODE>DL_dyna_system</CODE> (for the forward dynamics), and one of
+type <CODE>DL_constraint_manager</CODE> (for the inverse dynamics). The
+dyna system component provides the entry-point for the dynamics
+calculation in the form of the <CODE>dynamics()</CODE> method: this method is
+to be called once for each time step in the animation/simulation and will
+take care that all the dynamically controlled objects (`dynas' for
+short) will also make a time step according to their inertia, external
+forces and torques, and the constraints imposed on them. The method is
+also available as a C-function <CODE>dynamics()</CODE>.
+
+</P>
+<P>
+Sometimes constraints are specified between a dyna and a geometric
+object that is not under control of the Dynamo library. Companion
+objects (`geos') for such objects are also maintained by the library.
+The dyna system object provides methods that enable you to register a
+geometric object as either a geo or a dyna. When the <CODE>dynamics</CODE>
+method make a time step, it assumes that the geos have already made
+their step: that way it can position the dynas in such a way that at the
+new time, the constraints are valid again.
+
+</P>
+<P>
+The header files for the Dynamo library list more classes, attributes
+and methods than described in this document. However, only the methods
+documented here are intended to be used externally to the library. Other
+methods (which are marked as such) are present in the header
+definitions, but are only for use by other classes in the library. The
+classes in the Dynamo library have the prefix <CODE>DL_</CODE> prepended to
+their name to distinguish them from other classes.
+
+</P>
+<P>
+Points and vectors are often expressed in the local coordinate system of
+some geo. So often you see as parameters a pair <CODE>DL_point *p,
+DL_geo *g</CODE>, expressing that point <CODE>p</CODE> is given in the local
+coordinate system of geo <CODE>g</CODE>. In such cases, <CODE>g</CODE> can be passed
+the value <CODE>NULL</CODE> to indicate that <CODE>p</CODE> is given in world
+coordinates.
+
+</P>
+
+
+<H1><A NAME="SEC8" HREF="DLdoc_toc.html#TOC8">Installation</A></H1>
+
+<P>
+Before the Dynamo library can be used, several things have to be done.
+
+</P>
+<P>
+Since the dynamics calculations are carried out by the dyna system and
+the constraint manager object (see the General notes section), those two
+objects need be created during the initialization (if no inverse
+dynamics is used, the creation of the constraint manager object may be
+omitted). Moreover, the dyna_system object requires a motion integrator
+to be present (see the section on forward dynamics), so a motion
+integrator of choice will have to be created and installed as well
+
+</P>
+<P>
+For the information exchange between the actual geometric objects and
+their companions, a few very simple callbacks have to be
+implemented. These callbacks are grouped together in a class-definition
+<CODE>DL_dyna_system_callbacks</CODE>. Its API is given below, and the class
+is meant to be used as a superclass for an actual implementation. An
+object of this class also needs to be created during the initialization
+phase to serve as a companion for the dyna system object.
+
+</P>
+<P>
+An object of this class is used as companion to the dyna_system. Since
+the dyna_system also needs a reference to a force_drawer, this callbacks
+class inherits from the <CODE>DL_force_drawer</CODE> class so its methods can
+(optionally) be implemented too and are easily accessible.
+
+</P>
+
+<PRE>
+class <B>DL_dyna_system_callbacks</B> : public <B>DL_force_drawer</B> {
+    void update_dyna_companion(DL_dyna*);
+    void get_new_geo_info(DL_geo*);
+    void get_first_geo_info(DL_geo*);
+    void check_inertiatensor(DL_dyna*);
+    void do_collision_detection();
+    void Msg(char*, ...);
+}
+</PRE>
+
+<P>
+Only the first two methods need to be implemented: the others are
+optional since they have a default implementation:
+
+</P>
+<DL COMPACT>
+
+<DT><CODE>void DL_dyna_system_callbacks::update_dyna_companion(DL_dyna *d)</CODE>
+<DD>
+This method should copy the newly calculated position and orientation of
+a dyna to its geometric companion object after its new position is
+calculated. 
+
+<DT><CODE>void DL_dyna_system_callbacks::get_new_geo_info(DL_geo *g)</CODE>
+<DD>
+This method has the same function as the <CODE>update_dyna_companion</CODE>
+method, but does its copying in the other direction. It is used to copy
+new information from a non-dynamically controlled geometric object to
+its companion in the Dynamo library.  Its argument provides a reference
+to the <CODE>DL_geo</CODE> who's position and orientation need to be
+updated. The <CODE>DL_geo</CODE> class has a method <CODE>move</CODE> especially for
+this purpose. A reference to the companion object of this <CODE>DL_geo</CODE>
+can be retrieved using its <CODE>get_companion()</CODE> method. The difference
+between this callback and the <CODE>get_first_geo_info</CODE> callback is that
+the latter is used to initialise a companion (so it has to set the
+motion state for time <CODE>t</CODE> as well as for time <CODE>t+h</CODE>), and this
+callback is used to increment the time by shifting the next motion state
+into the current one, and only specify the new motion motion state.
+  
+<DT><CODE>void DL_dyna_system_callbacks::get_first_geo_info(DL_geo *g)</CODE>
+<DD>
+This method is used to copy the information from a geometric object to
+its companion in the Dynamo library when the companion is created.
+Its argument provides a reference to the <CODE>DL_geo</CODE> who's positions
+and orientations need to be set. A reference to the companion object of
+this <CODE>DL_geo</CODE> can be retrieved using its <CODE>get_companion()</CODE>
+method. The default implementation of this method calls the
+<CODE>get_new_geo_info</CODE> method to obtain the position and orientation
+of the geometry, and copies this into both the new and current motion
+states, while setting the velocities to zero. For non-zero initial
+velocities, this method should be overriden.
+  
+<DT><CODE>void DL_dyna_system_callbacks::check_inertiatensor(DL_dyna*)</CODE>
+<DD>
+The dynamic calculations for each dyna depend on some of the physical
+properties of the dyna, such as its mass and its tensor of
+inertia. This callback gives the geometric companion object of a dyna
+a chance to update these properties if necessary (for example when the
+geometric companion object has been deformed).
+
+<DT><CODE>void DL_dyna_system_callbacks::do_collision_detection()</CODE>
+<DD>
+The Dynamo library has a <CODE>collision</CODE> constraint for collision
+handling. But it relies on external collision detection to determine
+when such a constraint should be created. This callback is used to call
+the collision detector at the right moment. This callback should
+implement a call to the collision detector to do its work (possibly
+preceded by updating the positions of the geometries in the collision
+detector's datastructures), which in turn should create collision
+constraints upon detection of a collision.
+
+The collision detection should use the estimates for the next motion
+state to determine if a collision is taking place. To this end, the
+geometry class has a set of methods (not listed in its interface
+description below, since they normally are only used by the other
+components of Dynamo, and only have valid values during the dynamics
+phase) for retrieving the geometry's properties based on the estimate
+for next frame's motion state. See the <CODE>geo.h</CODE> file for their
+interfaces.
+
+When overlap is detected by a collision detector, it is usually a good
+idea to only create a collision constraint for the case where the
+colliding geometries are moving closer to each other: if they are
+already moving away from each other (maybe because of a collision
+constraint in the previous frame), the "mirror the velocity" approach
+of Dynamo's collision constraint only has adverse effects.
+
+<DT><CODE>void DL_dyna_system_callbacks::Msg(char *fmt, ...)</CODE>
+<DD>
+This method is used by Dynamo to send messages (warnings, errors,
+notificications) to the outside world. The default implementation
+prints the message on stderr, but for windowing systems it is often
+better to reroute these messages to some window.
+
+</DL>
+
+
+
+<H1><A NAME="SEC9" HREF="DLdoc_toc.html#TOC9">Example</A></H1>
+
+<P>
+The following code shows the use of the Dynamo library classes in
+creating a chain of cubes swinging due to gravity. The render
+functionality is provided in the <CODE>render.cpp</CODE> file
+
+</P>
+
+<PRE>
+// A demo for the use of the Dynamo classes.
+// It shows a chain of cubes that swings under influence of gravity.
+
+#include "rungekutta2.h"
+#include "ptp.h"
+
+// How many cubes make up the chain?:
+#define NCUBES 15
+
+// Here is the class for our cubes, these function mainly as an intermediate
+// between the dyna companion, the control routine, and the rendering software.
+class MyCube {
+  public:
+    // the attributes of the cube:
+    DL_point pos;       // the position of the center of the cube
+    DL_matrix orient;   // the orientation of the cube
+    DL_dyna* companion; // the companion which does all the dynamics
+                        // calculations for us
+    DL_ptp* link;       // used to connect this cube to another
+
+    // the functions needed for the DL_dyna_callback to copy position and
+    // orientation to/from the companion:
+    void get_new_geo_info(DL_geo *g){
+      g-&#62;move(&#38;pos,&#38;orient);
+    }
+    void update_dyna_companion(DL_dyna *d){
+      pos.assign(d-&#62;get_position());
+      orient.assign(d-&#62;get_orientation());
+    }
+
+    // show an example of a constraint: this method uses a point-to-point
+    // constraint to connect one of the cube's corners to a corner of the
+    // other cube.
+    void ConnectTo(MyCube *cube){
+      DL_point posm(1,1,1),posp(-1,-1,-1);
+      link=new DL_ptp();
+      if (cube) link-&#62;init(companion,&#38;posm,cube-&#62;companion,&#38;posp);
+      else { // connect to the current position of the corner in the world.
+        DL_point posw;
+        companion-&#62;to_world(&#38;posm,&#38;posw);
+        link-&#62;init(companion,&#38;posm,NULL,&#38;posw);
+      }
+    }
+    void Disconnect(){
+      if (link) delete link;
+      link=NULL;
+    }
+
+    MyCube(DL_point&#38; newpos){
+    // constructor: its main task is creating and initialising the companion
+      pos.assign(&#38;newpos);
+      orient.makeone();
+      companion=new DL_dyna((void*)this);
+      companion-&#62;set_mass(1);
+      companion-&#62;set_inertiatensor(1,1,1);
+      companion-&#62;set_velodamping(0.995); // introduce a bit of friction
+      link=NULL;
+    }
+    ~MyCube(){
+      if (link) delete link;
+      delete companion;
+    }
+};
+
+// we need to implement the callbacks that allow the dyna system to commicate
+// its calculated positions and orientations to us:
+class My_dyna_system_callbacks : public DL_dyna_system_callbacks {
+  public:
+    virtual void get_new_geo_info(DL_geo *g){
+      ((MyCube*)(g-&#62;get_companion()))-&#62;get_new_geo_info(g);
+    }
+    virtual void update_dyna_companion(DL_dyna *d){
+      ((MyCube*)(d-&#62;get_companion()))-&#62;update_dyna_companion(d);
+    }
+};
+
+// rendering is taken care of elsewhere:
+#include "render.cpp"
+
+// here comes the main control function: it initialises the dyna system
+// and then creates a chain of cubes 
+void main(){
+  int i;
+  MyCube* cube[NCUBES];
+  My_dyna_system_callbacks *dsc=new My_dyna_system_callbacks();
+  DL_m_integrator* my_int=new DL_rungekutta2();
+  DL_dyna_system dsystem(dsc,my_int);
+  DL_constraint_manager *constraints=new DL_constraint_manager();
+  constraints-&#62;max_error=0.0001;
+
+  DL_point pos(0.75*NCUBES,1.75*NCUBES,4*NCUBES);
+  DL_vector vec(-2,-2,-2);
+
+  for (i=0;i&#60;NCUBES;i++){
+    cube[i]=new MyCube(pos);
+    pos.plusis(&#38;vec);
+  }
+    
+  cube[0]-&#62;ConnectTo(NULL);
+  for (i=1;i&#60;NCUBES;i++) cube[i]-&#62;ConnectTo(cube[i-1]);
+
+  vec.init(0,-1,0);
+  dsystem.set_gravity(&#38;vec);
+  my_int-&#62;set_stepsize(0.02);
+
+  InitRender(dsystem,cube,NCUBES);
+
+  // everything initialised. Now let the animation run:
+  while (RenderCubes(cube)) {
+    dsystem.dynamics();
+    if (fabs(dsystem.time()-70)&#60;0.01) cube[NCUBES/2]-&#62;Disconnect();
+  }
+
+  // all done: clean up:
+  for (i=0;i&#60;NCUBES;i++) delete cube[i];
+  delete constraints; delete my_int; delete dsc;
+}
+</PRE>
+
+
+
+<H1><A NAME="SEC10" HREF="DLdoc_toc.html#TOC10">General classes</A></H1>
+
+<P>
+Before presenting the classes that are used for the dynamics, several
+standard classes for manipulating with points, vectors, matrices and
+lists have to be presented: objects of these classes are often used as
+parameters in the other classes. Many objects use the type
+<CODE>DL_Scalar</CODE> which resolves to <CODE>double</CODE> (but which can easily
+be changed if required).
+
+</P>
+
+
+
+<H2><A NAME="SEC11" HREF="DLdoc_toc.html#TOC11">Points</A></H2>
+
+<P>
+Here is the API for the 3-D point class:
+
+</P>
+
+<PRE>
+class <B>DL_point</B> : public <B>DL_ListElem</B> {
+    DL_Scalar  x,y,z;
+
+    void       init(DL_Scalar,DL_Scalar,DL_Scalar);
+    void       assign(DL_point*);
+    boolean    equal(DL_point*);
+
+    void       plus(DL_vector*,DL_point*);
+    void       minus(DL_point*,DL_vector*);
+    void       times(DL_Scalar,DL_point*);
+
+    void       plusis(DL_vector*);
+    void       minusis(DL_vector*);
+    void       timesis(DL_Scalar);
+
+    void       tovector(DL_vector*);
+
+               DL_point();
+               DL_point(DL_point*);
+               DL_point(DL_Scalar,DL_Scalar,DL_Scalar);
+               ~DL_point();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_point::x</CODE>
+<DD>
+<DT><CODE>DL_Scalar DL_point::y</CODE>
+<DD>
+<DT><CODE>DL_Scalar DL_point::z</CODE>
+<DD>
+These attributes hold the position of the point.
+
+<DT><CODE>void DL_point::init(DL_Scalar nx, DL_Scalar ny, DL_Scalar nz)</CODE>
+<DD>
+This method assigns coordinates (<CODE>nx,ny,nz</CODE>) to the point
+
+<DT><CODE>void DL_point::assign(DL_point *p)</CODE>
+<DD>
+This method assigns the coordinates of point <CODE>p</CODE> to this point.
+
+<DT><CODE>boolean DL_point::equal(DL_point *p)</CODE>
+<DD>
+This method returns if point <CODE>p</CODE> and this point have the same
+coordinates.
+
+<DT><CODE>void DL_point::plus(DL_vector *v, DL_point *sum)</CODE>
+<DD>
+This method assigns to point <CODE>sum</CODE> the sum of this point and vector
+<CODE>v</CODE>.
+
+<DT><CODE>void DL_point::minus(DL_point *p, DL_vector *diff)</CODE>
+<DD>
+This method assigns to vector <CODE>diff</CODE> the difference between this
+point and point <CODE>p</CODE>.
+
+<DT><CODE>void DL_point::times(DL_Scalar f, DL_point *p)</CODE>
+<DD>
+This method assigns to point <CODE>p</CODE> the product of this point and
+<CODE>f</CODE>.
+
+<DT><CODE>void DL_point::plusis(DL_vector *v)</CODE>
+<DD>
+This method adds vector <CODE>v</CODE> to this point.
+
+<DT><CODE>void DL_point::minusis(DL_point *p)</CODE>
+<DD>
+This method substracts vector <CODE>diff</CODE> from this point.
+
+<DT><CODE>void DL_point::timesis(DL_Scalar f)</CODE>
+<DD>
+This method multiplies this point by a factor <CODE>f</CODE>.
+
+<DT><CODE>void DL_point::tovector(DL_vector *v)</CODE>
+<DD>
+This method assigns the coordinates of this point to vector <CODE>v</CODE>.
+
+</DL>
+
+
+
+<H2><A NAME="SEC12" HREF="DLdoc_toc.html#TOC12">Vectors</A></H2>
+
+<P>
+Here is the API for the 3-D vector class:
+
+</P>
+
+<PRE>
+class <B>DL_vector</B> {
+    DL_Scalar x,y,z;
+
+    void      init(DL_Scalar,DL_Scalar,DL_Scalar);
+    void      assign(DL_vector*);
+    DL_Scalar norm();
+    void      normalize();
+    DL_Scalar inprod(DL_vector*);
+    void      plusis(DL_vector*);
+    void      minusis(DL_vector*);
+    void      timesis(DL_Scalar);
+    boolean   equal(DL_vector*);
+
+    DL_Scalar get(int);
+    void      set(int,DL_Scalar);
+
+    void      crossprod(DL_vector*,DL_vector*);   
+    void      neg(DL_vector*);
+    void      times(DL_Scalar,DL_vector*);       
+    void      plus(DL_vector*,DL_vector*);      
+    void      minus(DL_vector*,DL_vector*);     
+    void      topoint(DL_point*);
+
+            DL_vector();
+            DL_vector(DL_vector*);
+            DL_vector(DL_Scalar,DL_Scalar,DL_Scalar);
+            ~DL_vector();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_vector::x</CODE>
+<DD>
+<DT><CODE>DL_Scalar DL_vector::y</CODE>
+<DD>
+<DT><CODE>DL_Scalar DL_vector::z</CODE>
+<DD>
+These attributes hold the coordinates of the vector
+
+<DT><CODE>void DL_vector::init(DL_Scalar nx, DL_Scalar ny, DL_Scalar nz)</CODE>
+<DD>
+This method assigns coordinates (<CODE>nx,ny,nz</CODE>) to the vector
+
+<DT><CODE>void DL_vector::assign(DL_vector *v)</CODE>
+<DD>
+This method assigns the coordinates of vector <CODE>v</CODE> to this vector.
+
+<DT><CODE>DL_Scalar DL_vector::norm()</CODE>
+<DD>
+This method returns the length of the vector
+
+<DT><CODE>void DL_vector::normalize()</CODE>
+<DD>
+This vector normalizes the length of the vector to one.
+
+<DT><CODE>DL_Scalar DL_vector::inprod(DL_vector *v)</CODE>
+<DD>
+This method returns the inner product of this vector and vector
+<CODE>v</CODE>.
+
+<DT><CODE>void DL_vector::plusis(DL_vector *v)</CODE>
+<DD>
+This method adds vector <CODE>v</CODE> to this vector.
+
+<DT><CODE>void DL_vector::minusis(DL_vector *v)</CODE>
+<DD>
+This method subtracts vector <CODE>v</CODE> from this vector.
+
+<DT><CODE>void DL_vector::timesis(DL_Scalar f)</CODE>
+<DD>
+This method multiplies this vector by factor <CODE>f</CODE>.
+
+<DT><CODE>boolean DL_vector::equal(DL_vector *v)</CODE>
+<DD>
+This method returns if this vector has the same coordinates as vector
+<CODE>v</CODE>.
+
+<DT><CODE>DL_Scalar DL_vector::get(int i)</CODE>
+<DD>
+This method returns <CODE>x</CODE> if <CODE>i</CODE> is zero, <CODE>y</CODE> if <CODE>i</CODE>
+is one, and <CODE>z</CODE> if <CODE>i</CODE> is two. 
+
+<DT><CODE>void DL_vector::set(int i, DL_Scalar f)</CODE>
+<DD>
+This method assigns <CODE>f</CODE> to the <CODE>i</CODE>-th coordinate of this
+vector (i=0,1,2).
+
+<DT><CODE>void DL_vector::crossprod(DL_vector *v, DL_vector *c)</CODE>
+<DD>
+This method assigns the cross product of vector
+<CODE>v</CODE> and this vector to vector <CODE>c</CODE>.
+
+<DT><CODE>void DL_vector::neg(DL_vector *v)</CODE>
+<DD>
+This method assigns the negation of this vector to vector <CODE>v</CODE>.
+
+<DT><CODE>void DL_vector::times(DL_Scalar f, DL_vector *v)</CODE>
+<DD>
+This method assigns the product of this vector and <CODE>f</CODE> to <CODE>v</CODE>
+
+<DT><CODE>void DL_vector::plus(DL_vector *v, DL_vector *sum)</CODE>
+<DD>
+This method assigns the sum of this vector and <CODE>v</CODE> to <CODE>sum</CODE>.
+
+<DT><CODE>void DL_vector::minus(DL_vector *v, DL_vector *diff)</CODE>
+<DD>
+This method assigns the difference between this vector and <CODE>v</CODE> to
+<CODE>diff</CODE>.
+
+<DT><CODE>void DL_vector::topoint(DL_point *p)</CODE>
+<DD>
+This method assigns the coordinates of this vector to point <CODE>p</CODE>.
+
+</DL>
+
+
+
+<H2><A NAME="SEC13" HREF="DLdoc_toc.html#TOC13">Matrices</A></H2>
+
+<P>
+Here is the API for the 3 by 3 matrix class:
+
+</P>
+
+<PRE>
+class <B>DL_matrix</B> { 
+    DL_vector c0;
+    DL_vector c1;
+    DL_vector c2;
+
+    void  makeone();
+    void  makezero();
+    void  normalize();
+    
+    void  assign(DL_matrix*);
+    void  assign(DL_vector*,DL_vector*,DL_vector*);
+    void  assign(DL_Scalar,DL_Scalar,DL_Scalar,
+                 DL_Scalar,DL_Scalar,DL_Scalar,
+                 DL_Scalar,DL_Scalar,DL_Scalar);
+    
+    DL_Scalar get(int,int);
+    void  set(int,int,DL_Scalar);
+
+    void  plus(DL_matrix*,DL_matrix*);
+    void  minus(DL_matrix*,DL_matrix*);
+
+    void  plusis(DL_matrix*);
+    void  minusis(DL_matrix*);
+    void  timesis(DL_Scalar);
+    
+    void  times(DL_matrix*,DL_matrix*);
+    void  times(DL_Scalar,DL_matrix*);
+    void  times(DL_vector*,DL_vector*);
+    void  times(DL_point*,DL_point*);
+    void  invert(DL_matrix*);
+    void  transpose(DL_matrix*);
+    void  timestranspose(DL_matrix*, DL_matrix*);
+    void  transposetimes(DL_vector*, DL_vector*);
+    void  jacobi(DL_matrix*,DL_vector*);
+    void  diag_transpose_vec(DL_vector*,DL_vector*,DL_vector*);
+    void  negcrossdiagcross(DL_point*,DL_vector*,DL_point*);
+    void  diagcrosstranspose(DL_vector*,DL_point*,DL_matrix*);
+
+    void  tensor(DL_vector*,DL_vector*);
+
+    DL_matrix();
+    DL_matrix(DL_vector*,DL_vector*,DL_vector*);
+    ~DL_matrix();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_vector DL_matrix::c0</CODE>
+<DD>
+<DT><CODE>DL_vector DL_matrix::c1</CODE>
+<DD>
+<DT><CODE>DL_vector DL_matrix::c2</CODE>
+<DD>
+These attributes hold the three column vectors that constitute the matrix.
+
+<DT><CODE>void DL_matrix::makeone()</CODE>
+<DD>
+This method assigns the unit matrix to this matrix
+
+<DT><CODE>void DL_matrix::makeone()</CODE>
+<DD>
+This method assigns the zero matrix to this matrix
+
+<DT><CODE>void DL_matrix::normalize()</CODE>
+<DD>
+This method normalizes each of the three column vectors of the matrix.
+    
+<DT><CODE>void DL_matrix::assign(DL_matrix *A)</CODE>
+<DD>
+This method assigns matrix <CODE>A</CODE> to this matrix.
+
+<DT><CODE>void DL_matrix::assign(DL_vector *v0, DL_vector *v1, DL_vector *v2)</CODE>
+<DD>
+This method assigns the three vectors <CODE>v0, v1</CODE> and <CODE>v2</CODE> to the
+three column vectors of this matrix.
+
+<DT><CODE>void DL_matrix::assign(DL_Scalar c0x, DL_Scalar c1x, DL_Scalar c2x,</CODE>
+<DD>
+<DT><CODE>DL_Scalar c0y, DL_Scalar c1y, DL_Scalar c2y,</CODE>
+<DD>
+<DT><CODE>DL_Scalar c0z, DL_Scalar c1z, DL_Scalar c2z)</CODE>
+<DD>
+This method assigns the given DL_Scalars to the elements of this matrix
+
+<DT><CODE>DL_Scalar DL_matrix::get(int i, int j)</CODE>
+<DD>
+This method returns the <CODE>i</CODE>-th coordinate of the <CODE>j</CODE>-th column
+of this matrix (i,j=0,1,2).
+
+<DT><CODE>void DL_matrix::set(int i, int j,DL_Scalar f)</CODE>
+<DD>
+This method assigns DL_Scalar <CODE>f</CODE> to the element at the <CODE>i</CODE>-th
+coordinate of the <CODE>j</CODE>-th column of this matrix (i,j=0,1,2)
+
+<DT><CODE>void DL_matrix::plus(DL_matrix *A, DL_matrix *sum)</CODE>
+<DD>
+This method assigns to <CODE>sum</CODE> the sum of this matrix and matrix <CODE>A</CODE>.
+
+<DT><CODE>void DL_matrix::minus(DL_matrix *A, DL_matrix *diff)</CODE>
+<DD>
+This method assigns to <CODE>diff</CODE> the difference between this matrix
+and matrix <CODE>A</CODE>.
+
+<DT><CODE>void DL_matrix::times(DL_matrix *A, DL_matrix *prod)</CODE>
+<DD>
+This method assigns to <CODE>prod</CODE> the product of this matrix and matrix
+<CODE>A</CODE>.
+
+<DT><CODE>void DL_matrix::plusis(DL_matrix *A)</CODE>
+<DD>
+This method adds matrix <CODE>A</CODE> to this matrix
+
+<DT><CODE>void DL_matrix::minusis(DL_matrix *A)</CODE>
+<DD>
+This method substracts matrix <CODE>A</CODE> from this matrix.
+
+<DT><CODE>void DL_matrix::timesis(DL_Scalar f)</CODE>
+<DD>
+This method multiplies this matrix by factor <CODE>f</CODE>.
+
+<DT><CODE>void DL_matrix::times(DL_vector *v, DL_vector *prod)</CODE>
+<DD>
+This method assigns to <CODE>prod</CODE> the product of this matrix and vector
+<CODE>v</CODE>.
+
+<DT><CODE>void DL_matrix::times(DL_point *p, DL_point *prod)</CODE>
+<DD>
+This method assigns to <CODE>prod</CODE> the product of this matrix and point
+<CODE>p</CODE>.
+
+<DT><CODE>void DL_matrix::times(DL_Scalar f, DL_matrix *prod)</CODE>
+<DD>
+This method assigns to <CODE>prod</CODE> the product of this matrix and DL_Scalar
+<CODE>f</CODE>.
+
+<DT><CODE>void DL_matrix::invert(DL_matrix *A)</CODE>
+<DD>
+This method assigns the inverse of this matrix to matrix <CODE>A</CODE>.
+
+<DT><CODE>void DL_matrix::transpose(DL_matrix *AT)</CODE>
+<DD>
+This method assign the transpose of this matrix to matrix <CODE>AT</CODE>.
+
+<DT><CODE>void DL_matrix::timestranspose(DL_matrix *A, DL_matrix *prod)</CODE>
+<DD>
+This method assigns the product of this matrix and the transpose of
+matrix <CODE>A</CODE> to matrix <CODE>prod</CODE>.
+
+<DT><CODE>void DL_matrix::transposetimes(DL_vector *v, DL_vector *prod)</CODE>
+<DD>
+This method assigns the product of the transpose of this matrix and
+vector <CODE>v</CODE> to vector <CODE>prod</CODE>
+
+<DT><CODE>void DL_matrix::jacobi(DL_matrix *A, DL_vector *v)</CODE>
+<DD>
+This method performs a jacobi decomposition on this matrix, calculating
+<CODE>A</CODE> and <CODE>v</CODE> such that the product of <CODE>A</CODE> and
+<CODE>diag(v)</CODE> and the transpose of <CODE>A</CODE> is this matrix. Here
+<CODE>diag(v)</CODE> is the diagonal matrix containing the eigenvalues of this
+matrix.
+
+<DT><CODE>void DL_matrix::diag_transpose_vec(DL_vector *d, DL_vector *v, DL_vector *r)</CODE>
+<DD>
+This method assigns to vector <CODE>r</CODE> the product of <CODE>diag(d)</CODE>,
+the transpose of this matrix and <CODE>v</CODE>
+
+<DT><CODE>void DL_matrix::negcrossdiagcross(DL_point *p, DL_vector *d, DL_point *q);</CODE>
+<DD>
+This method assigns to this matrix the negation of the crossmatrix
+induced by <CODE>p</CODE> times the diagonal matrix induced by <CODE>d</CODE> and
+crossmatrix induced by <CODE>q</CODE>.
+
+<DT><CODE>void DL_matrix::diagcrosstranspose(DL_vector *d, DL_point *q, DL_matrix *m);</CODE>
+<DD>
+This method assigns to this matrix the product of the diagonal matrix
+induced by <CODE>d</CODE>, the crossmatrix induced by <CODE>q</CODE>, and the
+transpose of <CODE>m</CODE>.
+
+<DT><CODE>void DL_matrix::tensor(DL_vector *v, DL_vector *w)</CODE>
+<DD>
+This method assigns the tensor matrix of <CODE>v</CODE> and <CODE>w</CODE> to this
+matrix.
+
+</DL>
+
+
+
+<H2><A NAME="SEC14" HREF="DLdoc_toc.html#TOC14">Lists</A></H2>
+
+<P>
+The next two classes provide support for storing objects in linked
+lists. Each of the object will have to have DL_ListElem as one of its
+ancestors, and then the DL_List class can be used to list such items. An
+item can only occur in one list at a time.
+
+</P>
+<P>
+The list element class does not have any public methods (only methods
+visible to DL_List), so its API is rather simple:
+
+</P>
+
+<PRE>
+class <B>DL_ListElem</B> {
+    DL_ListElem();
+    ~DL_ListElem();
+}
+</PRE>
+
+<P>
+The DL_List is the actual list class which can store elements of type
+<CODE>DL_ListElem</CODE>. Here is its API:
+
+</P>
+
+<PRE>
+class <B>DL_List</B> {
+   void addelem(DL_ListElem*);
+   void addbefore(DL_ListElem*,DL_ListElem*);
+   void addafter(DL_ListElem*,DL_ListElem*);
+   void remelem(DL_ListElem*);
+   void delete_all();
+   int length();
+
+   DL_ListElem* getfirst();
+   DL_ListElem* getnext(DL_ListElem*);
+   DL_ListElem* getlast();
+   DL_ListElem* getprev(DL_ListElem*);
+   DL_ListElem* element(int);
+
+      DL_List();
+      ~DL_List();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_List::addelem(DL_ListElem *e)</CODE>
+<DD>
+This method adds element <CODE>e</CODE> to the end of the list.
+
+<DT><CODE>void DL_List::addbefore(DL_ListElem *le, DL_ListElem *el)</CODE>
+<DD>
+This methods adds element <CODE>le</CODE> to the list, in the position before
+element <CODE>el</CODE> (or at the tail of the list if <CODE>el</CODE> is
+<CODE>NULL</CODE>).
+
+<DT><CODE>void DL_List::addafter(DL_ListElem *le, DL_ListElem *el)</CODE>
+<DD>
+This methods adds element <CODE>le</CODE> to the list, in the position after
+element <CODE>el</CODE> (or at the head of the list if <CODE>el</CODE> is
+<CODE>NULL</CODE>).
+
+<DT><CODE>void DL_List::remelem(DL_ListElem *e)</CODE>
+<DD>
+This method removes element <CODE>e</CODE> from the list
+
+<DT><CODE>void DL_List::delete_all()</CODE>
+<DD>
+This method deletes all elements in the list (thereby making
+the list empty). The elements are actually deleted, not just removed
+from the list.
+
+<DT><CODE>int DL_List::length()</CODE>
+<DD>
+This method returns the number of elements stored in the list.
+
+<DT><CODE>DL_ListElem* DL_List::getfirst()</CODE>
+<DD>
+This method returns a reference to the first element in the list (or
+<CODE>NULL</CODE> if the list is empty). Use this method in combination with
+<CODE>getnext</CODE> to traverse this list elements
+
+<DT><CODE>DL_ListElem* DL_List::getnext(DL_ListElem *e)</CODE>
+<DD>
+This method returns a reference to the element in the list following
+element <CODE>e</CODE>. This method is often used to traverse the list in the
+following way (<CODE>T</CODE> is a type inheriting from <CODE>DL_ListElem</CODE>):
+
+<PRE>
+    T *my_elem=my_list-&#62;getfirst();
+    while (my_elem) {
+       // do something with my_elem
+       my_elem=(T*)my_list-&#62;getnext(my_elem);
+    }
+</PRE>
+
+<DT><CODE>DL_ListElem* DL_List::getlast()</CODE>
+<DD>
+This method returns a reference to the last element in the list (or
+<CODE>NULL</CODE> if the list is empty). Use this method in combination with
+<CODE>getprev</CODE> to traverse this list elements in reverse order.
+
+<DT><CODE>DL_ListElem* DL_List::getprev(DL_ListElem *e)</CODE>
+<DD>
+This method returns a reference to the element in the list preceding
+element <CODE>e</CODE>. This method is used in combination with the
+<CODE>getlast()</CODE> method to traverse the list in reverse order.
+
+<DT><CODE>DL_ListElem* DL_List::element(int i)</CODE>
+<DD>
+This method returns a reference to the <CODE>i</CODE>-th element in the list
+(or <CODE>NULL</CODE> if such an element does not exist).
+
+</DL>
+
+
+
+<H1><A NAME="SEC15" HREF="DLdoc_toc.html#TOC15">Forward dynamics classes</A></H1>
+
+<P>
+The forward dynamics subsystem handles everything that has to do with
+making geometric objects respond to forces, torques and inertia. The
+main component is the dyna system, which manages all the dynas and
+geos, and which will make sure that the motions of the dynas are
+calculated and communicated to their companions.
+
+</P>
+<P>
+The following sections describe the different classes in the forward
+dynamics subsystem and their API's
+
+</P>
+
+
+
+<H2><A NAME="SEC16" HREF="DLdoc_toc.html#TOC16">Force Drawables</A></H2>
+
+<P>
+Since the dynamics system revolves around (the effects) of forces,
+torques and impulse exchanges, such `actuators' will often have to be
+visualised. Visualisation is handled by the host system, but
+force_drawables provides a uniform interface for controlling if forces,
+torques and impulse exchanges are visualised.
+
+</P>
+
+
+
+<H3><A NAME="SEC17" HREF="DLdoc_toc.html#TOC17">Force Drawable</A></H3>
+
+<P>
+The <CODE>DL_force_drawable class</CODE>
+is used as base class for for example the controller and constraint
+classes and any otehr classes that have `actuators' that might need to
+be visualised.
+
+</P>
+
+<PRE>
+class <B>DL_force_drawable</B> {
+    virtual void show_forces();
+    virtual void hide_forces();
+
+    virtual void get_fd_info(int&#38;,int&#38;);
+    virtual void get_force_info(int, DL_actuator_type&#38;,
+			        DL_dyna*&#38;, DL_point*, DL_vector*);
+
+       DL_force_drawable();  // constructor
+       ~DL_force_drawable(); // destructor
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_force_drawable::show_forces()</CODE>
+<DD>
+This method registers this force_drawable with the force_drawer so that
+its `actuators' are visualised.
+
+<DT><CODE>void DL_force_drawable::hide_forces()</CODE>
+<DD>
+This method removes this force_drawable from the force_drawer so that
+its `actuators' are not visualised anymore.
+
+<DT><CODE>void DL_force_drawable::get_fd_info(int&#38; nrf, int&#38; tf)</CODE>
+<DD>
+This method is used by the force_drawer to retrieve the number of
+actuators that should be drawn. A difference is made between forces
+and reaction forces, torques and reaction torques etc. The actuators
+are numbered from zero to <CODE>nrf</CODE>, and the reaction actuators are
+numbered from <CODE>nrf</CODE> to <CODE>tf</CODE>. For each of the actuators between
+zero and <CODE>tf</CODE> the <CODE>get_force_method</CODE> can then be called to
+retrieve the actual information about the actuator.
+
+By default this method returns two zeros indicating that no actuators
+are to be shown: it should be overriden in any descendant of <CODE>DL_force_drawable</CODE>
+that wants actuators to be visualised.
+
+<DT><CODE>void DL_force_drawable::get_force_info(int i, DL_actuator_type&#38; at,</CODE>
+<DD>
+<DT><CODE>DL_dyna*&#38; d, DL_point *p, DL_vector *f)</CODE>
+<DD>
+This method is used by the force_drawer to retrieve the actual
+information about the <CODE>i</CODE>-th actuator of this force_drawable. It returns
+in <CODE>at</CODE> the type of actuator using the enumeration type:
+  <CODE>enum DL_actuator_type {none, force, torque, impulse}</CODE>
+In <CODE>d</CODE> and <CODE>p</CODE> the attachement point of the actuator is
+specified, and in <CODE>f</CODE> the actuator itself.
+
+This method should be implemented by each descendant that wants to
+visualise its actuators: by default it returns actuator type <CODE>none</CODE>
+regardless of <CODE>i</CODE>.
+
+</DL>
+
+
+
+<H3><A NAME="SEC18" HREF="DLdoc_toc.html#TOC18">User Force Drawable</A></H3>
+
+<P>
+For existing classes that do not inherit from force_drawable, this class
+provides a means to still visualise its `actuators'. It can create a
+<CODE>usr_force_drawable</CODE> object and set its attributes to visualise one
+`actuator'.
+
+</P>
+
+<PRE>
+class <B>DL_usr_force_drawable</B> : public <B>DL_force_drawable</B> {
+    boolean reaction;
+    DL_actuator_type at;
+    DL_dyna *d;
+    DL_point p;
+    DL_vector f;
+  
+       DL_usr_force_drawable();  // constructor
+       ~DL_usr_force_drawable(); // destructor
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>boolean DL_usr_force_drawable::reaction</CODE>
+<DD>
+This boolean indicates if the force is a reaction-force or not
+(the forcedrawer might give reaction forces a different appearance
+from the corresponding force).
+
+<DT><CODE>DL_actuator_type DL_usr_force_drawable::at</CODE>
+<DD>
+This attribute signifies what type of actuator has to be visualised
+here: its value is of the following enumeration type:
+
+  <CODE>enum DL_actuator_type {none, force, torque, impulse}</CODE>
+
+<DT><CODE>DL_dyna DL_usr_force_drawable::*d</CODE>
+<DD>
+<DT><CODE>DL_point DL_usr_force_drawable::p</CODE>
+<DD>
+These two attributes specify the attachment point of the `actuator':
+it is the point with local coordinates <CODE>p</CODE> in dyna <CODE>d</CODE>.
+
+<DT><CODE>DL_vector DL_usr_force_drawable::f</CODE>
+<DD>
+This attribute finally specifies the `actuator' vector (in world
+coordinates).
+
+</DL>
+
+
+
+<H2><A NAME="SEC19" HREF="DLdoc_toc.html#TOC19">Force Drawer</A></H2>
+
+<P>
+The force_drawer class is the manager of force_drawable objects. It
+provides the methods <CODE>register_fd</CODE> and <CODE>remove_fd</CODE> using which
+DL_force_drawable objects can make sure their forces are visualised or
+not (these are used in the <CODE>show_forces</CODE> and <CODE>hide_forces</CODE>
+methods of such objects). The implementation of a force_drawer should
+maintain a list of registered force_drawables, the `actuators' of which
+should be visualised each frame. The class also provides a few methods
+that enable any object to visualise an `actuator' for one frame (though
+this is relatively expensive: if such an object has to visualise forces
+for an extensive period of time, it had better use a
+<CODE>usr_force_drawable</CODE> object). The class is ment as a base class for
+the actual implementation in the host system which can do the actual
+visualisation using the host system's visualisation primitives.
+
+</P>
+
+<PRE>
+class <B>DL_force_drawer</B> {
+  virtual void draw_force(DL_dyna*,DL_point*,DL_vector*);
+  virtual void draw_torque(DL_dyna*,DL_vector*);
+  virtual void draw_impulse(DL_dyna*,DL_point*,DL_vector*);
+
+  virtual void draw_reaction_force(DL_dyna*,DL_point*,DL_vector*);
+  virtual void draw_reaction_torque(DL_dyna*,DL_vector*);
+  virtual void draw_reaction_impulse(DL_dyna*,DL_point*,DL_vector*);
+
+  virtual void register_fd(DL_force_drawable*);
+  virtual void remove_fd(DL_force_drawable*);
+
+       DL_force_drawer();  // constructor
+       ~DL_force_drawer(); // destructor
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_force_drawer::draw_force(DL_dyna *d, DL_point *p, DL_vector *f)</CODE>
+<DD>
+This method is used to tell the force_drawer to visualise force <CODE>f</CODE>
+applied to point <CODE>p</CODE> of dyna <CODE>d</CODE> for the coming frame.
+
+<DT><CODE>void DL_force_drawer::draw_torque(DL_dyna *d, DL_vector *t)</CODE>
+<DD>
+This method is used to tell the force_drawer to visualise torque <CODE>t</CODE>
+applied to dyna <CODE>d</CODE> for the coming frame.
+
+<DT><CODE>void DL_force_drawer::draw_impulse(DL_dyna *d, DL_point *p, DL_vector *i)</CODE>
+<DD>
+This method is used to tell the force_drawer to visualise impulse change <CODE>i</CODE>
+applied to point <CODE>p</CODE> of dyna <CODE>d</CODE> for the coming frame.
+
+<DT><CODE>void DL_force_drawer::draw_reaction_force(DL_dyna *d, DL_point *p, DL_vector *f)</CODE>
+<DD>
+This method is used to tell the force_drawer to visualise reaction force <CODE>f</CODE>
+applied to point <CODE>p</CODE> of dyna <CODE>d</CODE> for the coming frame.
+
+<DT><CODE>void DL_force_drawer::draw_reaction_torque(DL_dyna *d, DL_vector *t)</CODE>
+<DD>
+This method is used to tell the force_drawer to visualise reaction torque <CODE>t</CODE>
+applied to dyna <CODE>d</CODE> for the coming frame.
+
+<DT><CODE>void DL_force_drawer::draw_reaction_impulse(DL_dyna *d, DL_point *p, DL_vector *i)</CODE>
+<DD>
+This method is used to tell the force_drawer to visualise reaction impulse change <CODE>i</CODE>
+applied to point <CODE>p</CODE> of dyna <CODE>d</CODE> for the coming frame.
+
+<DT><CODE>void DL_force_drawer::register_fd(DL_force_drawable *fd)</CODE>
+<DD>
+This is the method that is used in <CODE>DL_force_drawable::show_forces</CODE>
+to tell the force_drawer to visualise <CODE>fd</CODE>'s actuators from now on.
+
+<DT><CODE>void DL_force_drawer::remove_fd(DL_force_drawable *fd)</CODE>
+<DD>
+This is the method that is used in <CODE>DL_force_drawable::hide_forces</CODE>
+to tell the force_drawer to stop visualising <CODE>fd</CODE>'s actuators from now on.
+
+</DL>
+
+
+
+<H2><A NAME="SEC20" HREF="DLdoc_toc.html#TOC20">Dyna System</A></H2>
+
+<P>
+The dyna system is a one-of-a-kind object that steers the whole dynamics
+process. It keeps track of all the dynas and the geos in the system, and
+makes sure that they are activated properly. If there is a constraint
+manager, the dyna system object will also invoke the inverse dynamics
+routine, so that constraints are corrected along the way as well. Here
+is its API:
+
+</P>
+
+<PRE>
+class <B>DL_dyna_system</B> {
+    DL_dyna_system_callbacks* get_companion();
+
+    void dynamics();
+    
+    DL_geo* register_geo(void*);
+    void remove_geo(DL_geo*);
+    
+    void set_gravity(DL_vector*);
+    void get_gravity(DL_vector*);
+    void set_integrator(DL_m_integrator*);
+    DL_m_integrator* get_integrator();
+    DL_Scalar kinenergy();
+    DL_Scalar potenergy();
+    DL_Scalar totenergy();
+
+    int frame_number();
+    DL_Scalar time();
+
+    void show_controller_forces();
+    void hide_controller_forces();
+    boolean showing_controller_forces();
+
+    DL_dyna_system(DL_dyna_system_callbacks*,DL_m_integrator*);
+    ~DL_dyna_system();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_dyna_system_callbacks* DL_dyna_system::get_companion()</CODE>
+<DD>
+As explained in section <A HREF="DLdoc.html#SEC8">Installation</A>, the dyna system has a companion
+of type <CODE>DL_dyna_system_callbacks</CODE> which is used for the
+callbacks. This method provides easy access to that object (which was
+provided to the dyna system in its constructor)
+
+<DT><CODE>void DL_dyna_system::dynamics()</CODE>
+<DD>
+This method is the entry point for the whole Dynamo library. Call this
+method once a frame to have the dyna system update the positions and
+orientations of all the dynamically controlled geometric objects with
+respect to their inertia, applied forces and torques, and the
+constraints imposed on them.
+    
+<DT><CODE>DL_geo* DL_dyna_system::register_geo(void *g)</CODE>
+<DD>
+This method is provided for establishing the links between a geo and
+its companion. It takes a reference to a geometric object as an
+argument, and will check if there is already a <CODE>DL_geo</CODE> companion
+for this object. If so, it will return a reference to this object, if
+not, it will create a companion for the object and return a reference
+to it.
+
+The method is typically used when initializing constraints in case
+the constraint acts on a geometric object that is not dynamically
+controlled. The constraints require a <CODE>DL_geo</CODE> as parameter, and
+this method can be used to make sure that that geo is known to the
+library, and to obtain the reference to it.
+
+Note that dynas add and remove themselves to and from the dyna system
+upon their creation and deletion, but for geos (many of which are
+probably not of interest for the dynamics calculations) this is
+inefficient, since the <CODE>get_new_geo_info</CODE> callback is called each
+frame for each of the registered geos.
+
+<DT><CODE>void DL_dyna_system::remove_geo(DL_geo*)</CODE>
+<DD>
+if a geometric object is no longer required by the Dynamo library
+(and it was made known to it using the <CODE>register_geo()</CODE> method,
+its companion can be removed from the dyna system using this
+method. This removes some overhead since the dyna systems inquires
+about the new position and orientation of each geo at the beginning of
+each time step.
+
+<DT><CODE>void DL_dyna_system::set_gravity(DL_vector *g)</CODE>
+<DD>
+This method sets the global gravity to <CODE>g</CODE>. This gravity
+acceleration will be applied to all dynas in each frame of the
+animation/simulation. 
+
+<DT><CODE>void DL_dyna_system::get_gravity(DL_vector *g)</CODE>
+<DD>
+This method assigns a copy of the current gravity vector to <CODE>g</CODE>.
+
+<DT><CODE>void DL_dyna_system::set_integrator(DL_m_integrator *mi)</CODE>
+<DD>
+This method sets the motion integrator used by all the dyna to
+<CODE>mi</CODE>. The step size from the previous motion integrator
+will be retained. Use this method to switch to a different (faster or
+more accurate) type of integrator.
+
+<DT><CODE>DL_m_integrator* DL_dyna_system::get_integrator()</CODE>
+<DD>
+This method returns a reference to the current motion integrator.
+
+<DT><CODE>DL_Scalar DL_dyna_system::kinenergy()</CODE>
+<DD>
+This methods returns the total amount of kinetic energy
+in the system (i.e. of all dynas).
+
+<DT><CODE>DL_Scalar DL_dyna_system::potenergy()</CODE>
+<DD>
+This methods returns the total amount of potential energy
+in the system (i.e. of all dynas).
+
+<DT><CODE>DL_Scalar DL_dyna_system::totenergy()</CODE>
+<DD>
+This methods returns the total amount of kinetic and potential energy
+in the system (i.e. of all dynas).
+
+<DT><CODE>int DL_dyna_system::frame_number()</CODE>
+<DD>
+This method returns the number of times the <CODE>dynamics</CODE> method has
+been called.
+
+<DT><CODE>DL_Scalar DL_dyna_system::time()</CODE>
+<DD>
+This method returns the current virtual time: the sum of stepsizes of
+each of the calls to <CODE>dynamics</CODE>.
+
+<DT><CODE>void DL_dyna_system::show_controller_forces()</CODE>
+<DD>
+This method calls <CODE>show_forces</CODE> for all controllers that are
+present in the system, and will make sure that it is called for any
+controller that is added in the future.
+
+<DT><CODE>void DL_dyna_system::hide_controller_forces()</CODE>
+<DD>
+This method calls <CODE>hide_forces</CODE> for all controllers that are
+present in the system, and will make sure that it is called for any
+controller that is added in the future.
+
+<DT><CODE>boolean DL_dyna_system::showing_controller_forces()</CODE>
+<DD>
+This method returns if controller forces are shown or not.
+
+<DT><CODE>DL_dyna_system::DL_dyna_system(DL_dyna_system_callbacks *c, DL_m_integrator *i)</CODE>
+<DD>
+This is the constructor of the dyna system. The dyna system needs a
+(reference to) a <CODE>DL_dyna_system_callbacks</CODE> object, so it can
+communicate with its environment (see section <A HREF="DLdoc.html#SEC8">Installation</A>). It also needs a
+reference to a motion integrator, so it knows in what manner to
+integrate the motions of the dynas.
+
+</DL>
+
+
+
+<H2><A NAME="SEC21" HREF="DLdoc_toc.html#TOC21">Geo</A></H2>
+
+<P>
+Objects from the <CODE>DL_geo</CODE> class are companions to the geometric
+objects in the host application. The class only functions to
+administrate the two motion states (containing the position, velocity,
+orientation and angular velocity at time <CODE>t</CODE> (the current time) and
+at time <CODE>t+h</CODE> (the next time)) of such geometries, and provides an
+interface to the Dynamo library to access that state, and to transform
+points and vectors from world-coordinates to coordinates in the local
+coordinate system (induced by the geo's position and the orientation).
+Here is its API:
+
+</P>
+
+<PRE>
+class <B>DL_geo</B> {
+    void*      get_companion();
+
+    void       set_position(DL_point*);
+    DL_point*  get_position();
+    void       set_velocity(DL_vector*);
+    DL_vector* get_velocity();
+    void       set_orientation(DL_matrix*);
+    DL_matrix* get_orientation();
+    void       set_angvelocity(DL_vector*);
+    DL_vector* get_angvelocity();
+
+    void move(DL_point*,DL_matrix*);
+
+    void to_world(DL_point*,DL_point*);
+    void to_world(DL_vector*,DL_vector*);
+    void to_local(DL_point*,DL_geo*,DL_point*);
+    void to_local(DL_vector*,DL_geo*,DL_vector*);
+    void get_velocity(DL_point*,DL_vector*);
+    void get_velocity(DL_vector*,DL_vector*);
+
+    void assign(DL_geo*,void*);
+    boolean is_dyna();
+                                       
+    void set_elasticity(DL_Scalar);
+    DL_Scalar get_elasticity();
+
+    DL_geo(void*);
+    ~DL_geo();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void* DL_geo::get_companion()</CODE>
+<DD>
+This method returns a reference to the companion object (which was
+provided in the constructor of the geo).
+
+<DT><CODE>void DL_geo::set_position(DL_point *p)</CODE>
+<DD>
+This methods assigns <CODE>p</CODE> to the geo's current position
+
+<DT><CODE>DL_point* DL_geo::get_position()</CODE>
+<DD>
+This methods returns a reference to the geo's current position
+
+<DT><CODE>void DL_geo::set_velocity(DL_vector *v)</CODE>
+<DD>
+This method assigns <CODE>v</CODE> to the geo's current velocity
+
+<DT><CODE>DL_vector* DL_geo::get_velocity()</CODE>
+<DD>
+This method returns a reference to the geo's current velocity
+
+<DT><CODE>void DL_geo::set_orientation(DL_matrix *o)</CODE>
+<DD>
+This method assigns <CODE>o</CODE> to the current orientation of the geo
+
+<DT><CODE>DL_matrix* DL_geo::get_orientation()</CODE>
+<DD>
+This method returns a reference to the geo's current orientation
+
+<DT><CODE>void DL_geo::set_angvelocity(DL_vector *w)</CODE>
+<DD>
+This method assigns <CODE>w</CODE> to the current angular velocity of the geo
+
+<DT><CODE>DL_vector* DL_geo::get_angvelocity()</CODE>
+<DD>
+This method returns a reference to the geo's current angular velocity
+
+<DT><CODE>void DL_geo::move(DL_point *p, DL_matrix *o)</CODE>
+<DD>
+This method sets the geo's position to <CODE>p</CODE> and its orientation to
+<CODE>o</CODE>, while updating the velocity and angular velocity according to
+the previous values of the position and orientation, and the current
+integration step size
+
+<DT><CODE>void DL_geo::to_world(DL_point *pl, DL_point *pw)</CODE>
+<DD>
+This method converts the coordinates of point <CODE>pl</CODE> which are given
+in local coordinates, to world coordinates (using the current motion
+state), and returns the result in point <CODE>pw</CODE>
+
+<DT><CODE>void DL_geo::to_world(DL_vector *vl, DL_vector *vw)</CODE>
+<DD>
+This method converts the coordinates of vector <CODE>vl</CODE> which are given
+in local coordinates, to world coordinates (using the current motion
+state), and returns the result in vector <CODE>vw</CODE>
+
+<DT><CODE>void DL_geo::to_local(DL_point *p ,DL_geo *g, DL_point *pl)</CODE>
+<DD>
+This method converts the coordinates of point <CODE>p</CODE> (given in the
+current local coordinate system of geo <CODE>g</CODE>) to local coordinates,
+and returns these local coordinates in point <CODE>pl</CODE>.
+
+<DT><CODE>void DL_geo::to_local(DL_vector *v, DL_geo *g, DL_vector *vl)</CODE>
+<DD>
+This method converts the direction vector <CODE>v</CODE> (given in the current
+local coordinate system of geo <CODE>g</CODE>) to local coordinates, and
+returns these local coordinates in vector <CODE>vl</CODE>.
+
+<DT><CODE>void DL_geo::get_velocity(DL_point *p, DL_vector *v)</CODE>
+<DD>
+This method returns in vector <CODE>v</CODE> the velocity of the point with
+local coordinates <CODE>p</CODE> (based on the current translational velocity
+and angular velocity of the geo).
+
+<DT><CODE>void DL_geo::get_velocity(DL_vector *d, DL_vector *v)</CODE>
+<DD>
+This method returns in vector <CODE>v</CODE> the velocity of the direction
+(given in local coordinates) <CODE>d</CODE> (based on the current angular
+velocity).
+
+<DT><CODE>void DL_geo::assign(DL_geo *g, void *c)</CODE>
+<DD>
+This method assigns geo <CODE>g</CODE> to itself, and updates itself to be the
+companion of geometric object <CODE>c</CODE> now.
+
+<DT><CODE>boolean DL_geo::is_dyna()</CODE>
+<DD>
+Returns if this geometry is dynamically controlled or not (it returns if
+the dynamic type of the geo is a general geo, or a dyna specialization).
+The dynamic type of a geo depends on how it was created: as a dyna, or
+as a geo by the <CODE>register_geo</CODE> method of the dyna system.
+
+<DT><CODE>void DL_geo set_elasticity(DL_Scalar el)</CODE>
+<DD>
+Sets this geometries collision elasticity to el (which should have a
+value between zero and one). A zero value stands for a completely
+inelastic collision behaviour, and a value of one stands for completely
+elastic collision behaviour. Initially a geometry has a collision
+elasticity coefficient of one.
+
+<DT><CODE>DL_Scalar DL_geo::get_elasticity()</CODE>
+<DD>
+This method returns the collision elasticity of the geometry
+
+<DT><CODE>DL_geo::DL_geo(void *c)</CODE>
+<DD>
+The constructor of the geo, which sets the geo up to be a companion of
+geometric object <CODE>c</CODE>.
+
+</DL>
+
+
+
+<H2><A NAME="SEC22" HREF="DLdoc_toc.html#TOC22">Dyna</A></H2>
+
+<P>
+A dyna is a dynamically controlled geo. Next to the motion state, a dyna
+also administrates the geo's mass and moments of inertia, which it needs
+to calculate the motion behaviour according to its inertia and the
+applied forces and torques.
+
+</P>
+<P>
+For the correct calculation of the motion of the dyna, it is assumed
+that the origin of the dyna's local coordinate system is the dyna's
+center of mass, and that the axis of the local coordinate system are the
+major inertia axis. This is something to take into account when setting
+up the local coordinate system of the companion of the dyna.
+
+</P>
+
+<PRE>
+class <B>DL_dyna</B> : public <B>DL_geo</B> {
+    void  assign(DL_dyna*,void*);
+
+    void      set_inertiatensor(DL_Scalar,DL_Scalar,DL_Scalar);
+    DL_Scalar get_inertiamoment(int);
+    void      set_mass(DL_Scalar);
+    DL_Scalar get_mass();
+                          
+    void      set_velodamping(DL_Scalar);
+    DL_Scalar get_velodamping();
+
+    DL_Scalar kinenergy();
+    DL_Scalar potenergy();
+    DL_Scalar totenergy();
+
+    void  applyforce(DL_point*, DL_geo*, DL_vector*);
+    void  applycenterforce(DL_vector*);
+    void  applytorque(DL_vector*);
+    void  applyimpulse(DL_point*, DL_geo*, DL_vector*);
+
+          DL_dyna(void*);
+          ~DL_dyna();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void dyna::assign(DL_dyna *d, void *c)</CODE>
+<DD>
+This method assigns dyna <CODE>d</CODE> to itself, and updates itself to be the
+companion of geometric object <CODE>c</CODE> now.
+
+<DT><CODE>void DL_dyna::set_inertiatensor(DL_Scalar Ixx, DL_Scalar Iyy, DL_Scalar Izz)</CODE>
+<DD>
+This method allows you to set the moments of inertia for the object.
+
+<DT><CODE>DL_Scalar DL_dyna::get_inertiamoment(int i)</CODE>
+<DD>
+This method returns the i-th moment of inertia (i=0,1,2)
+
+<DT><CODE>void DL_dyna::set_mass(DL_Scalar m)</CODE>
+<DD>
+This method allows you to specify the dyna's mass
+
+<DT><CODE>DL_Scalar DL_dyna::get_mass()</CODE>
+<DD>
+This method returns the dyna's mass.
+                          
+<DT><CODE>void DL_dyna::set_velodamping(DL_Scalar vd)</CODE>
+<DD>
+This methods sets the velocity damping of the dyna to <CODE>vd</CODE>. The
+velocity damping is a coefficient which is applied to the inertia of the
+dyna: 0 for no inertia, and 1 for full inertia. Its effect can be seen
+as a very rough approximation of friction since velocity damping
+dissipates kinetic energy.
+
+<DT><CODE>DL_Scalar DL_dyna::get_velodamping()</CODE>
+<DD>
+This method returns the current velocity damping
+
+<DT><CODE>DL_Scalar DL_dyna::kinenergy()</CODE>
+<DD>
+This method returns the kinetic energy of the dyna
+
+<DT><CODE>DL_Scalar DL_dyna::potenergy()</CODE>
+<DD>
+This method returns the potential energy of the dyna (with respect to
+the central components of external forces, including the gravity)
+
+<DT><CODE>DL_Scalar DL_dyna::totenergy()</CODE>
+<DD>
+This method returns the total (kinetic plus potential) energy of the
+dyna (with respect to external forces, including the gravity)
+
+<DT><CODE>void DL_dyna::applyforce(DL_point *p, DL_geo *g, DL_vector *f)</CODE>
+<DD>
+This method is used to apply force <CODE>f</CODE> (given in world coordinates)
+to the point of the dyna with coordinates <CODE>p</CODE> (specified in the
+local coordinate system of <CODE>g</CODE>).
+
+<DT><CODE>void DL_dyna::applycenterforce(DL_vector *f)</CODE>
+<DD>
+This method is used to apply a force <CODE>f</CODE> (given in world
+coordinates) to center of mass of the dyna.
+
+<DT><CODE>void DL_dyna::applytorque(DL_vector *t)</CODE>
+<DD>
+This method is used to apply a torque <CODE>t</CODE> to the dyna.
+
+<DT><CODE>void DL_dyna::applyimpulse(DL_point *p, DL_geo *g, DL_vector *i)</CODE>
+<DD>
+This method is used to a change of impulse <CODE>i</CODE> (given in world
+coordinates) to the point of the dyna with coordinates <CODE>p</CODE>
+(specified in the local coordinate system of <CODE>g</CODE>).
+
+<DT><CODE>DL_dyna::DL_dyna(void *c)</CODE>
+<DD>
+This is the constructor of the dyna, which sets the dyna up to be a
+companion of geometric object <CODE>c</CODE>.
+
+</DL>
+
+
+
+<H2><A NAME="SEC23" HREF="DLdoc_toc.html#TOC23">Motion Integrator</A></H2>
+
+<P>
+The dynas calculate their motions by integrating Newton's Law
+`<EM>F=m a</EM>' (and a similar law for orientation). By providing the
+integrator used in this calculation separately, we can choose the
+integrator used at runtime. Several integrators are available, each with
+their own advantages and disadvantages. The <CODE>DL_m_integrator</CODE> class
+functions as an interface specification for all these integrators, so
+that they can be addressed uniformly. Here is its API:
+
+</P>
+
+<PRE>
+class <B>DL_m_integrator</B> {
+    DL_Scalar stepsize();
+    DL_Scalar halfstepsize();
+    void      set_stepsize(DL_Scalar);
+    
+    DL_m_integrator();
+    ~DL_m_integrator();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_m_integrator::stepsize()</CODE>
+<DD>
+This method returns the current step size of the integration.
+
+<DT><CODE>DL_Scalar DL_m_integrator::halfstepsize()</CODE>
+<DD>
+This method returns the half the current step size of the integration.
+
+<DT><CODE>void DL_m_integrator::set_stepsize(DL_Scalar h)</CODE>
+<DD>
+Using this method one can specify the step size of the integration. Each
+call to the <CODE>dynamics</CODE> method of the dyna system advances the time
+by this step size.
+
+</DL>
+
+<P>
+There are currently four kinds of motion integrators: two variants of
+the first order Euler integrator, and second and fourth order Runge
+Kutta integrators.
+
+</P>
+
+
+
+<H3><A NAME="SEC24" HREF="DLdoc_toc.html#TOC24">Euler</A></H3>
+
+<P>
+The Euler motion integrator is a rather fast, but not so accurate motion
+integrator. Its error is linear in the step size of the integration. Its
+API is defined by the motion integrator API:
+
+</P>
+
+<PRE>
+class <B>DL_euler</B> : public <B>DL_m_integrator</B> {
+    DL_euler();
+    ~DL_euler();
+}
+</PRE>
+
+
+
+<H3><A NAME="SEC25" HREF="DLdoc_toc.html#TOC25">Double Euler</A></H3>
+
+<P>
+The double euler motion integrator takes two euler integration steps of
+half the step size for each of its integration steps. It is therefore
+about twice as expensive as the euler integrator (making it
+approximately as fast as the Runge Kutta 2 integrator), and still of
+linear order. Its API is defined by the motion integrator API:
+
+</P>
+
+<PRE>
+class <B>DL_double_euler</B> : public <B>DL_m_integrator</B> {
+    DL_double_euler();
+    ~DL_double_euler();
+}
+</PRE>
+
+
+
+<H3><A NAME="SEC26" HREF="DLdoc_toc.html#TOC26">Runge Kutta 2</A></H3>
+
+<P>
+The Runge Kutta 2 integrator is a second order integrator which (like
+the double euler integrator) costs about twice as much as the euler
+integrator. It is more accurate than the double euler integrator, and
+therefore preferable to it.  Its API is defined by the motion integrator
+API:
+
+</P>
+
+<PRE>
+class <B>DL_rungekutta2</B> : public <B>DL_m_integrator</B> {
+    DL_rungekutta2();
+    ~DL_rungekutta2();
+}
+</PRE>
+
+
+
+<H3><A NAME="SEC27" HREF="DLdoc_toc.html#TOC27">Runge Kutta 4</A></H3>
+
+<P>
+The Runge Kutta 4 motion integrator is a fourth order motion
+integrator. It is very accurate, but at about four times the price of
+the euler integrator.  Its API is defined by the motion integrator API:
+
+</P>
+
+<PRE>
+class <B>DL_rungekutta4</B> : public <B>DL_m_integrator</B> {
+    DL_rungekutta4();
+    ~DL_rungekutta4();
+}
+</PRE>
+
+
+
+<H1><A NAME="SEC28" HREF="DLdoc_toc.html#TOC28">Inverse dynamics classes</A></H1>
+
+
+
+<H2><A NAME="SEC29" HREF="DLdoc_toc.html#TOC29">Constraint Manager</A></H2>
+
+<P>
+The constraint manager is a one-of-a-kind object that controls the
+inverse dynamics calculations. Constraints register themselves
+automatically, and the dyna system will signal the constraint manager
+each time constraint correction needs to take place. Its API only
+provides access to the attributes that hold the parameter values that
+control the constraint correction process. The default values for these
+parameters should be fine in most cases, but for the more advanced
+users they are available for fine-tuning. Here is the API:
+
+</P>
+
+<PRE>
+class <B>DL_constraint_manager</B> {
+    boolean analytical;
+    int       MaxIter;
+    DL_Scalar max_error;
+    int       NrSkip;
+    DL_Scalar error;
+    int       nriter;
+    int       max_collisionloops;
+
+    int     get_nr_constraints();
+    int     get_dof();
+
+    void    solve_using_lud();
+    boolean solving_using_lud();
+    void    solve_using_cg();
+    boolean solving_using_cg();
+    void    solve_using_svd();
+    boolean solving_using_svd();
+
+    void    show_constraint_forces();
+    void    hide_constraint_forces();
+    boolean showing_constraint_forces();
+
+            DL_constraint_manager();
+            ~DL_constraint_manager();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>boolean DL_constraint_manager::analytical</CODE>
+<DD>
+This boolean determines how the constraint manager will determine how
+changes in the reaction forces will change the constraint error:
+analytically or empirically (using test forces). The analytical method
+is faster, so by default the boolean is <CODE>true</CODE>
+
+<DT><CODE>int DL_constraint_manager::MaxIter</CODE>
+<DD>
+The constraint manager adjusts the reaction forces in an iterative
+manner, trying to decrease the constraint error in each step. The
+<CODE>MaxIter</CODE> attribute specifies the maximum number of iterations per
+frame (note that less iteration steps may actually be taken, if the
+constraint error decreases below the thresh hold set by the
+<CODE>max_error</CODE> attribute before the maximum number of iterations is
+reached).
+
+<DT><CODE>DL_Scalar DL_constraint_manager::max_error</CODE>
+<DD>
+This attribute governs the number of iterations used in the constraint
+correction, together with the <CODE>MaxIter</CODE> attribute. It provides an
+error thresh hold for the constraint error: as soon as the constraint
+error is less than this thresh hold, constraint correction stops. Note
+that iteration is also stopped if the maximum number of iterations as
+determined by the <CODE>MaxIter</CODE> attribute is reached: the
+<CODE>max_error</CODE> attribute therefore only provides a guaranty that the
+final constraint error is indeed smaller than the thresh hold, if
+<CODE>MaxIter</CODE> is sufficiently high.
+
+<DT><CODE>int DL_constraint_manager::NrSkip</CODE>
+<DD>
+This attribute governs the recalculation of the dependencies between the
+reaction forces and the constraint errors: this dependency is calculated
+once every <CODE>NrSkip+1</CODE> frames. These dependencies are used to
+determine how to change the reaction forces to bring the constraint
+error to zero: the more accurate the dependencies are, the more faster
+the constraint error will converge to zero. The default value is zero,
+so the dependency is recalculated at the start of every frame.
+
+<DT><CODE>DL_Scalar DL_constraint_manager::error</CODE>
+<DD>
+This attribute provides the most recently calculated constraint
+error. This information can be used in adjusting the <CODE>MaxIter</CODE> and
+<CODE>max_error</CODE> attributes, or to study the constraint correction
+process itself. It is meant as a read-only attribute: changing it will
+not have an effect.
+
+<DT><CODE>int DL_constraint_manager::nriter</CODE>
+<DD>
+This attribute provides the actual number of iteration steps taken in the
+last frame, so it provides an indication of the converge speed of the
+constraint correction process. It is meant as a read-only attribute.
+
+<DT><CODE>int DL_constraint_manager::max_collisionloops</CODE>
+<DD>
+When collision detection is used, this attribute governs the number of
+times the collision detection routines are called to determine if there
+are any secondary collisions. The default value of this attribute is
+one, so there is no secondary collision detection within one frame by
+default.
+
+<DT><CODE>int DL_constraint_manager::get_nr_constraints();</CODE>
+<DD>
+This method returns the number of active constraints.
+
+<DT><CODE>int DL_constraint_manager::get_dof();</CODE>
+<DD>
+This method returns the number of restricted degrees of freedom that the
+constraint manager is currently managing.
+
+<DT><CODE>void DL_constraint_manager::solve_using_lud()</CODE>
+<DD>
+Solve for the reaction forces using LU decomposition and backward
+substitution. Advantages of this method are that it is fast and the
+processing time does not depend much on the configuration, so the frame
+rate will be stable as far as solving is concerned. Disadvantage is
+that it can only handle configuartaion which have exactly one solution
+for the constraint forces.
+
+<DT><CODE>boolean DL_constraint_manager::solving_using_lud()</CODE>
+<DD>
+This method returns if the constraints are being solved using
+LU decomposition and backward substitution.
+
+<DT><CODE>void DL_constraint_manager::solve_using_cg()</CODE>
+<DD>
+Solve for the reaction forces using conjugate gradient. This method can
+handle configurations which have one or more solutions configurations,
+but the required processing time depends on the configuration: it might
+be very fast for "easy" configuration, but rather slow for "hard"
+situations, thereby giving a large variance in framerate. In general it
+is significantly slower than using LU decomposition, but more stable.
+
+<DT><CODE>boolean DL_constraint_manager::solving_using_cg()</CODE>
+<DD>
+This method returns if the constraints are being solved using conjugate
+gradient solving
+
+<DT><CODE>void DL_constraint_manager::solve_using_svd()</CODE>
+<DD>
+Solve for the reaction forces using singular value decomposition. This
+method can handle configurations with zero or more solutions (although
+configurations with zero solutions, i.e. configurations with conflicting
+constraints, can give rise to very large reaction forces), but in
+general it is rather slow. So this is the most stable, though usually
+slowest solution finding method.
+
+<DT><CODE>boolean DL_constraint_manager::solving_using_svd()</CODE>
+<DD>
+This method returns if the constraints are being solved using the singular
+value decomposition method
+
+<DT><CODE>void DL_constraint_manager::show_constraint_forces()</CODE>
+<DD>
+This method calls <CODE>show_forces</CODE> for all constraints that are
+present in the system, and will make sure that it is called for any
+constraint that is added in the future.
+
+<DT><CODE>void DL_constraint_manager::hide_constraint_forces()</CODE>
+<DD>
+This method calls <CODE>hide_forces</CODE> for all constraints that are
+present in the system, and will make sure that it is called for any
+constraint that is added in the future.
+
+<DT><CODE>boolean DL_constraint_manager::showing_constraint_forces()</CODE>
+<DD>
+This method returns if constraint forces are shown or not.
+
+</DL>
+
+
+
+<H2><A NAME="SEC30" HREF="DLdoc_toc.html#TOC30">Constraint</A></H2>
+
+<P>
+The <CODE>DL-constraint</CODE> class is the generic constraint class (which
+also doubles as the <EM>empty</EM> constraint which does not constrain
+anything). It provides the common API for all inverse dynamics
+constraints:
+
+</P>
+
+<PRE>
+class <B>DL_constraint</B> : public <B>DL_force_drawable</B> {
+  DL_Scalar stiffness;
+  void  init();
+  void  activate();
+  void  deactivate();
+  int   get_dim();
+  void  soft();
+  void  hard();
+  void  autosofthard();
+  void  autosofthard(int);
+  
+        DL_constraint();
+        ~DL_constraint();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_constraint::stiffness</CODE>
+<DD>
+This attribute specifies the stiffness of the constraint. The stiffness
+of a constraint is a factor which determines how much of the constraint's
+error the constraint manager will attempt to correct in each iteration
+step. The default value is one: attempt to correct all error in the
+constraint. Lower (but non-negative) values will "soften" the
+constraint with respect to other constraints (at a cost penalty, since
+it will take the constraint error longer to converge to a value lower
+than the constraint manager's <CODE>max_error</CODE> value).
+
+<DT><CODE>void DL_constraint::init()</CODE>
+<DD>
+Initialize the constraint. This method is only for when the constraint
+is used as an empty constraint (which does not influence anything...).
+it should not be used to initialize any of the specializations of the
+constraint class: these have their own initialization methods.
+
+<DT><CODE>void DL_constraint::activate()</CODE>
+<DD>
+Activates the constraint (if it had been de-activated before:
+constraints activate themselves upon initialization).
+
+<DT><CODE>void DL_constraint::deactivate()</CODE>
+<DD>
+Deactivate the constraint.
+
+<DT><CODE>int DL_constraint::get_dim()</CODE>
+<DD>
+This method returns the dimension of the constraint: the number of
+degrees of freedom the constraint restricts.
+
+<DT><CODE>void DL_constraint::soft()</CODE>
+<DD>
+This method softens constraints that are based on positional information
+by also taking velocity into account: positions do not have to match if
+there is a velocity that will make sure they match in the next
+frame. This method makes sure that such velocity-terms are added for the
+constraint correction from now on. Normally, velocity-terms are
+only added (automatically) when required (velocity terms also help in
+stabilizing some numerical artifact caused by the time discretization).
+Softening constraints can be used in situations where constraints are
+not valid initially, but are used for self assembling purposes. In such
+cases, the self assembling proces will go smooth, instead of
+instantanious (with the accompanying very large forces which can
+destabelize calculations).
+
+<DT><CODE>void DL_constraint::hard()</CODE>
+<DD>
+This method is the counterpart of the <CODE>soft()</CODE> method: it makes
+sure that the constraint is "hardened" by making sure that no velocity
+terms are added from now on.
+
+<DT><CODE>void DL_constraint::auto_softhard()</CODE>
+<DD>
+This method can be used after invocation of soft() or hard() to
+revert back to the automatic addition of velocity terms.
+
+<DT><CODE>void DL_constraint::auto_softhard(int i)</CODE>
+<DD>
+This method specifies that this constraint is to be made soft once every
+<CODE>i</CODE> frames from now on.
+
+</DL>
+
+
+
+<H2><A NAME="SEC31" HREF="DLdoc_toc.html#TOC31">Point-to-point constraint</A></H2>
+
+<P>
+The point-to-point constraint specifies that the coordinates of two
+points (from different dynas, or from a dyna and a geometry) should have
+the same coordinates. This constraint imposes a ball-joint connection
+between the dyna and the geo. Here is its API:
+
+</P>
+
+<PRE>
+class <B>DL_ptp</B> : public <B>DL_constraint</B> {
+  DL_Scalar maxforce;
+  
+  void init(DL_dyna*, DL_point*, DL_geo*, DL_point*);
+  void reactionforce(DL_vector*);
+
+  DL_dyna* get_dyna();
+  void     get_dyna_point(DL_point*);
+  void     set_dyna_point(DL_point*);
+  DL_geo*  get_geo();
+  void     get_geo_point(DL_point*);
+  void     set_geo_point(DL_point*);
+
+           DL_ptp();
+           ~DL_ptp();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_ptp::maxforce</CODE>
+<DD>
+With this attribute, a maximum reaction force for the constraint can be
+specified: if this maximum reaction force is exceed the constraint will
+deactivate itself, so the connection `breaks'. A <CODE>maxforce</CODE> value
+of zero or smaller indicates that there is no limit to the reaction
+force magnitude. The default value is zero.
+  
+<DT><CODE>void DL_ptp::init(DL_dyna *d, DL_point *pd, DL_geo *g, DL_point *pg)</CODE>
+<DD>
+This method initializes the constraint and activates it. It specifies
+that the point-to-point constraint should keep the point of dyna
+<CODE>d</CODE> with local coordinates <CODE>pd</CODE>, at the same position as the
+point of geo <CODE>g</CODE> (which may be a dyna, since dyna inherits from
+geo) with local coordinates <CODE>pg</CODE>.
+
+<DT><CODE>void DL_ptp::reactionforce(DL_vector *f);</CODE>
+<DD>
+This method returns a copy of the reaction force (in world coordinates)
+in vector <CODE>f</CODE> (for visualization or for stress-evaluation for
+example).
+
+<DT><CODE>DL_dyna* DL_ptp::get_dyna()</CODE>
+<DD>
+This method returns a reference to the dyna with which the constraint was
+initialized.
+
+<DT><CODE>void DL_ptp::get_dyna_point(DL_point *dp)</CODE>
+<DD>
+This method returns in <CODE>dp</CODE> a copy of the current attachment point
+in the dyna.
+
+<DT><CODE>void DL_ptp::set_dyna_point(DL_point *dp)</CODE>
+<DD>
+This method allows you to change the attachment point in the dyna. Use
+this method with caution, since too large jumps in the attachment
+points can lead to very strong reaction forces which may cause
+instabilities.
+
+<DT><CODE>DL_geo* DL_ptp::get_geo()</CODE>
+<DD>
+This method returns a copy of the geo with which the constraint was
+initialized.
+
+<DT><CODE>void DL_ptp::get_geo_point(DL_point *gp)</CODE>
+<DD>
+This method returns in <CODE>gp</CODE> a copy of the current attachment point
+in the geo.
+
+<DT><CODE>void DL_ptp::set_geo_point(DL_point *gp)</CODE>
+<DD>
+This method allows you to change the attachment point in the geo. Use
+this method with caution, since too large jumps in the attachment
+points can lead to very strong reaction forces which may cause
+instabilities.
+
+</DL>
+
+
+
+<H2><A NAME="SEC32" HREF="DLdoc_toc.html#TOC32">Velocity-to-velocity constraint</A></H2>
+
+<P>
+The velocity-to-velocity constraint specifies that the velocities of two
+points (from different dynas, or from a dyna and a geometry) should
+remain the same. This constraint has a very similar effect as the
+point-to-point constraint, except for some possible drift due to
+residual errors after each frame's constraint correction, and except for
+the behaviour in a situation where the constraint is not valid
+initially. Since this constraint is not based on positional behaviour,
+the <CODE>soft()</CODE> and <CODE>hard()</CODE> methods have no effect on this
+constraint. Here is its API:
+
+</P>
+
+<PRE>
+class <B>DL_vtv</B> : public <B>DL_constraint</B> {
+  DL_Scalar maxforce;
+  
+  void init(DL_dyna*, DL_point*, DL_geo*, DL_point*);
+  void reactionforce(DL_vector*);
+
+  DL_dyna* get_dyna();
+  void     get_dyna_point(DL_point*);
+  void     set_dyna_point(DL_point*);
+  DL_geo*  get_geo();
+  void     get_geo_point(DL_point*);
+  void     set_geo_point(DL_point*);
+
+           DL_vtv();
+           ~DL_vtv();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_vtv::maxforce</CODE>
+<DD>
+With this attribute, a maximum reaction force for the constraint can be
+specified: if this maximum reaction force is exceed the constraint will
+deactivate itself, so the connection `breaks'. A <CODE>maxforce</CODE> value
+of zero or smaller indicates that there is no limit to the reaction
+force magnitude. The default value is zero.
+  
+<DT><CODE>void DL_vtv::init(DL_dyna *d, DL_point *pd, DL_geo *g, DL_point *pg)</CODE>
+<DD>
+This method initializes the constraint and activates it. It specifies
+that the velocity-to-velocity constraint should keep the velocity of the
+point of dyna <CODE>d</CODE> with local coordinates <CODE>pd</CODE>, the same as the
+velocity of the point of geo <CODE>g</CODE> with local coordinates <CODE>pg</CODE>.
+
+<DT><CODE>void DL_vtv::reactionforce(DL_vector *f);</CODE>
+<DD>
+This method returns a copy of the reaction force (in world coordinates)
+in vector <CODE>f</CODE> (for visualization or for stress-evaluation for
+example).
+
+<DT><CODE>DL_dyna* DL_vtv::get_dyna()</CODE>
+<DD>
+This method returns a reference to the dyna with which the constraint was
+initialized.
+
+<DT><CODE>void DL_vtv::get_dyna_point(DL_point *dp)</CODE>
+<DD>
+This method returns in <CODE>dp</CODE> a copy of the current attachment point
+in the dyna.
+
+<DT><CODE>void DL_vtv::set_dyna_point(DL_point *dp)</CODE>
+<DD>
+This method allows you to change the attachment point in the dyna. Use
+this method with caution, since too large jumps in the attachment
+points can lead to very strong reaction forces which may cause
+instabilities.
+
+<DT><CODE>DL_geo* DL_vtv::get_geo()</CODE>
+<DD>
+This method returns a copy of the geo with which the constraint was
+initialized.
+
+<DT><CODE>void DL_vtv::get_geo_point(DL_point *gp)</CODE>
+<DD>
+This method returns in <CODE>gp</CODE> a copy of the current attachment point
+in the geo.
+
+<DT><CODE>void DL_vtv::set_geo_point(DL_point *gp)</CODE>
+<DD>
+This method allows you to change the attachment point in the geo. Use
+this method with caution, since too large jumps in the attachment
+points can lead to very strong reaction forces which may cause
+instabilities.
+
+</DL>
+
+
+
+<H2><A NAME="SEC33" HREF="DLdoc_toc.html#TOC33">Line-hinge constraint</A></H2>
+
+<P>
+The line-hinge constraint specifies that a dyna and a geo share a line,
+thereby imposing a line hinge (also called a pin joint) between the two
+geometries. Here is its API:
+
+</P>
+
+<PRE>
+class <B>DL_linehinge</B> : public <B>DL_constraint</B> {
+  DL_Scalar maxforce;
+  void init(DL_dyna*, DL_point*, DL_point*, DL_geo*, DL_point*, DL_point*);
+
+  DL_dyna* get_dyna();
+  void get_dyna_point0(DL_point*);
+  void set_dyna_point0(DL_point*);
+  void get_dyna_point1(DL_point*);
+  void set_dyna_point1(DL_point*);
+  DL_geo* get_geo();
+  void get_geo_point0(DL_point*);
+  void set_geo_point0(DL_point*);
+  void get_geo_point1(DL_point*);
+  void set_geo_point1(DL_point*);
+
+  void reactionforce0(DL_vector*);
+  void reactionforce1(DL_vector*);
+  void reactionforce2(DL_vector*);
+
+  DL_Scalar reactionforce();
+
+        DL_linehinge();
+        ~DL_linehinge();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_linehinge::maxforce</CODE>
+<DD>
+Using this attribute, you can specify a maximum reaction force for the
+constraint. If the reaction force exceeds the maximum force, the
+constraint deactivates itself: the connection `breaks'. A
+<CODE>maxforce</CODE> value of zero or smaller indicates that there is no
+limit to the reaction force magnitude. The default value is zero. The
+reaction force is taken as the magnitude of the 5-D vector that contains
+the magnitudes of the force components.
+
+<DT><CODE>void DL_linehinge::init(DL_dyna *d, DL_point *pd0, DL_point *pd1,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_point *pg0, DL_point *pg1)</CODE>
+<DD>
+This method initializes and activates the line-hinge constraint. It
+specifies that the point with local coordinates <CODE>pd0</CODE> in dyna
+<CODE>d</CODE> should coincide with the point with local coordinates
+<CODE>pg0</CODE> in geo <CODE>g</CODE>, and that the point with local coordinates
+<CODE>pd1</CODE> in dyna <CODE>d</CODE> should coincide with the point with local
+coordinates <CODE>pg1</CODE> in geo <CODE>g</CODE>, effectively fixing the whole
+line between <CODE>pd0</CODE> and <CODE>pd1</CODE> to the line between <CODE>pg0</CODE>
+and <CODE>pg1</CODE>. The same effect can not be reached with two
+point-to-point constraints, since two point-to-point constraints try to
+restrict six degrees of freedom, whereas a linehinge only restricts
+five. The two attachment point pairs should be sufficiently far apart
+to prevent large torques in the hinge.
+
+<DT><CODE>DL_dyna* DL_linehinge::get_dyna()</CODE>
+<DD>
+This method returns a reference to the dyna with which the constraint was
+initialized.
+
+<DT><CODE>void DL_linehinge::get_dyna_point0(DL_point *dp)</CODE>
+<DD>
+This method returns in <CODE>dp</CODE> a copy of the local coordinates
+of the first attachment point in the dyna.
+
+<DT><CODE>void DL_linehinge::set_dyna_point0(DL_point *dp)</CODE>
+<DD>
+This method allows you to change the first attachment point in the
+dyna. Use this method with caution, since too large jumps in the
+attachment points can lead to very strong reaction forces which may
+cause instabilities.
+
+<DT><CODE>void DL_linehinge::get_dyna_point1(DL_point *dp)</CODE>
+<DD>
+This method returns in <CODE>dp</CODE> a copy of the local coordinates
+of the second attachment point in the dyna.
+
+<DT><CODE>void DL_linehinge::set_dyna_point1(DL_point *dp)</CODE>
+<DD>
+This method allows you to change the second attachment point in the
+dyna. Use this method with caution, since too large jumps in the
+attachment points can lead to very strong reaction forces which may
+cause instabilities.
+
+<DT><CODE>DL_geo* DL_linehinge::get_geo()</CODE>
+<DD>
+This method returns a reference to the geo with which the constraint was
+initialized.
+
+<DT><CODE>void DL_linehinge::get_geo_point0(DL_point *gp)</CODE>
+<DD>
+This method returns in <CODE>gp</CODE> a copy of the local coordinates
+of the second attachment point in the geo.
+
+<DT><CODE>void DL_linehinge::set_geo_point0(DL_point *gp)</CODE>
+<DD>
+This method allows you to change the first attachment point in the
+geo. Use this method with caution, since too large jumps in the
+attachment points can lead to very strong reaction forces which may
+cause instabilities.
+
+<DT><CODE>void DL_linehinge::get_geo_point1(DL_point *gp)</CODE>
+<DD>
+This method returns in <CODE>gp</CODE> a copy of the local coordinates
+of the second attachment point in the geo.
+
+<DT><CODE>void DL_linehinge::set_geo_point1(DL_point *gp)</CODE>
+<DD>
+This method allows you to change the second attachment point in the
+geo. Use this method with caution, since too large jumps in the
+attachment points can lead to very strong reaction forces which may
+cause instabilities.
+
+<DT><CODE>void DL_linehinge::reactionforce0(DL_vector *f)</CODE>
+<DD>
+This method returns in vector <CODE>f</CODE> a copy of the current reaction
+force in the first attachment point, perpendicular to the hinge line.
+
+<DT><CODE>void DL_linehinge::reactionforce1(DL_vector *f)</CODE>
+<DD>
+This method returns in vector <CODE>f</CODE> a copy of the current reaction
+force in the second attachment point, perpendicular to the hinge line.
+
+<DT><CODE>void DL_linehinge::reactionforce2(DL_vector *f)</CODE>
+<DD>
+This method returns in vector <CODE>f</CODE> a copy of the current reaction
+force in the direction of the hinge line.
+
+<DT><CODE>DL_Scalar DL_linehinge::reactionforce()</CODE>
+<DD>
+This method returns the magnitude of the current 5-D restriction vector
+(which is used to measure the reaction force magnitude)
+
+</DL>
+
+
+
+<H2><A NAME="SEC34" HREF="DLdoc_toc.html#TOC34">Orientation constraint</A></H2>
+
+<P>
+The orientation constraint class provides a type of constraint that can
+be used to make sure that the relative orientation of two geometric
+objects (at least one of which is a dyna) remains constant. The
+constraint does not impose any restrictions on the relative position.
+Here is its API:
+
+</P>
+
+<PRE>
+class <B>DL_orientation</B> : public <B>DL_constraint</B> {
+  DL_Scalar maxtorque;  
+  void  init(DL_dyna*, DL_vector*, DL_vector*, DL_geo*, DL_vector*, DL_vector*);
+  void  reactiontorque(DL_vector*);
+
+  DL_dyna* get_dyna();
+  void     get_dyna_vector0(DL_vector*);
+  void     set_dyna_vector0(DL_vector*);
+  void     get_dyna_vector1(DL_vector*);
+  void     set_dyna_vector1(DL_vector*);
+  DL_geo*  get_geo();
+  void     get_geo_vector1(DL_vector*);
+  void     set_geo_vector1(DL_vector*);
+  void     get_geo_vector2(DL_vector*);
+  void     set_geo_vector2(DL_vector*);
+
+           DL_orientation();
+           ~DL_orientation();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar maxtorque</CODE>
+<DD>
+Using this attribute, you can specify a maximum torque for the
+constraint. If the reaction torque exceeds the maximum torque, the
+constraint deactivates itself: the connection `breaks'. A value equal to
+or smaller than zero means that there is no boundary for the reaction
+torque. The default value is zero.
+  
+<DT><CODE>void DL_orientation::init(DL_dyna *d, DL_vector *v0, DL_vector *v1,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_vector *w1, DL_vector *w2);</CODE>
+<DD>
+This method initializes the constraint. It provides the orientation with
+two perpendicular direction vectors <CODE>v0</CODE> and <CODE>v1</CODE> (both expressed
+in local coordinates of <CODE>d</CODE>) in <CODE>d</CODE>, and two perpendicular
+direction vectors <CODE>w1</CODE> and <CODE>w2</CODE> (both expressed in local
+coordinates of <CODE>g</CODE>) in <CODE>g</CODE>. The constraint expresses that
+<CODE>v0</CODE> remains perpendicular to both <CODE>w1</CODE> and <CODE>w2</CODE>, and
+that <CODE>v1</CODE> remains perpendicular to <CODE>w2</CODE>, effectively fixing the
+relative orientations of <CODE>d</CODE> and <CODE>g</CODE>.
+
+<DT><CODE>void DL_orientation::reactiontorque(DL_vector *t)</CODE>
+<DD>
+This method returns in vector <CODE>f</CODE> a copy of the reaction torque
+(in world coordinates).
+
+<DT><CODE>DL_dyna* DL_orientation::get_dyna()</CODE>
+<DD>
+This method returns a reference to the dyna with which the constraint was
+initialized.
+
+<DT><CODE>void DL_orientation::get_dyna_vector0(DL_vector *v0)</CODE>
+<DD>
+This method returns in <CODE>v0</CODE> a copy of the first direction vector
+in the dyna (expressed in local coordinates).
+
+<DT><CODE>void DL_orientation::set_dyna_vector0(DL_vector *v0)</CODE>
+<DD>
+This method allows you to change the first direction vector in the
+dyna. Use this method with caution, since too large jumps in the
+relative orientation can lead to very strong reaction torques which may
+cause instabilities.
+
+<DT><CODE>void DL_orientation::get_dyna_vector1(DL_vector *v1)</CODE>
+<DD>
+This method returns in <CODE>v1</CODE> a copy of the second direction vector
+in the dyna (expressed in local coordinates).
+
+<DT><CODE>void DL_orientation::set_dyna_vector1(DL_vector *v1)</CODE>
+<DD>
+This method allows you to change the second direction vector in the
+dyna. Use this method with caution, since too large jumps in the
+relative orientation can lead to very strong reaction torques which may
+cause instabilities.
+
+<DT><CODE>DL_geo* DL_orientation::get_geo()</CODE>
+<DD>
+This method returns a reference to the geo with which the constraint was
+initialized.
+
+<DT><CODE>void DL_orientation::get_geo_vector1(DL_vector *w1)</CODE>
+<DD>
+This method returns in <CODE>w1</CODE> a copy of the first direction vector
+in the geo (expressed in local coordinates).
+
+<DT><CODE>void DL_orientation::set_geo_vector1(DL_vector *w1)</CODE>
+<DD>
+This method allows you to change the first direction vector in the
+geo. Use this method with caution, since too large jumps in the
+relative orientation can lead to very strong reaction torques which may
+cause instabilities.
+
+<DT><CODE>void DL_orientation::get_geo_vector2(DL_vector *w2)</CODE>
+<DD>
+This method returns in <CODE>w2</CODE> a copy of the second direction vector
+in the geo (expressed in local coordinates).
+
+<DT><CODE>void DL_orientation::set_geo_vector2(DL_vector *w2)</CODE>
+<DD>
+This method allows you to change the second direction vector in the
+geo. Use this method with caution, since too large jumps in the
+relative orientation can lead to very strong reaction torques which may
+cause instabilities.
+
+</DL>
+
+
+
+<H2><A NAME="SEC35" HREF="DLdoc_toc.html#TOC35">Connector constraint</A></H2>
+
+<P>
+The connector constraint class provides a type of constraint that can be
+used to completely restrict the relative motion of a dyna and a geo. It
+uses a point-to-point and an orientation constraint to accomplish its
+goals. In general it is more efficient to model those two objects as
+one, except that now the <CODE>maxforce</CODE> and <CODE>maxtorque</CODE> attributes
+can be used to assign a given strength to the connection, allowing it to
+break under stress. Here is its API:
+
+</P>
+
+<PRE>
+class <B>DL_connector</B> : public <B>DL_constraint</B> {
+  DL_ptp *myptp;
+  DL_orientation *myorient;
+  void init(DL_dyna*, DL_point*, DL_point*, DL_point*,
+            DL_geo* , DL_point*, DL_point*, DL_point*);
+
+       DL_connector();
+       ~DL_connector();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_ptp* DL_connector::myptp</CODE>
+<DD>
+This attribute contains a reference to the point-to-point constraint
+of the connector constraint (the point-to-point constraint is created
+and initialized by the <CODE>init</CODE> method).
+
+<DT><CODE>DL_orientation* DL_connector::myorient</CODE>
+<DD>
+This attribute contains a reference to the orientation constraint of the
+connector constraint (the orientation constraint is created and
+initialized by the <CODE>init</CODE> method).
+
+<DT><CODE>void DL_connector::init(DL_dyna *d, DL_point *pd0, DL_point *pd1, DL_point *pd2,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_point* pg0, DL_point *pg1, DL_point *pg2)</CODE>
+<DD>
+This method initializes the connector constraint. The constraint is
+created such that the points with local coordinates <CODE>pd0</CODE>,
+<CODE>pd1</CODE> and <CODE>pd2</CODE> in <CODE>d</CODE> will always coincide with the
+points in <CODE>g</CODE> with local coordinates <CODE>pg0</CODE>, <CODE>pg1</CODE>, and
+<CODE>pg2</CODE>.
+
+</DL>
+
+
+
+<H2><A NAME="SEC36" HREF="DLdoc_toc.html#TOC36">Cylinder constraint</A></H2>
+
+<P>
+The cylinder constraint class provides a constraint that can be uses to
+connect a dyna and a geo such that their only relative motion is
+uncoupled translation and rotation along a given common axis. The
+connection is similar to a line-hinge, but the two geometries can now
+also translate along the hinge line (with respect to each other). Here
+is the API of the constraint:
+
+</P>
+
+<PRE>
+class <B>DL_cyl</B> : public <B>DL_constraint</B> {
+  DL_Scalar maxforce;
+  void init(DL_dyna*, DL_point*, DL_point*, DL_geo*, DL_point*, DL_point*);
+
+  DL_dyna* get_dyna();
+  void get_dyna_point0(DL_point*);
+  void set_dyna_point0(DL_point*);
+  void get_dyna_point1(DL_point*);
+  void set_dyna_point1(DL_point*);
+  DL_geo* get_geo();
+  void get_geo_point0(DL_point*);
+  void set_geo_point0(DL_point*);
+  void get_geo_point1(DL_point*);
+  void set_geo_point1(DL_point*);
+
+  void reactionforce0(DL_vector*);
+  void reactionforce1(DL_vector*);
+
+  DL_Scalar reactionforce();
+
+        DL_cyl();
+        ~DL_cyl();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_cyl::maxforce</CODE>
+<DD>
+Using this attribute, you can specify a maximum reaction force for the
+constraint. If the reaction force exceeds the maximum force, the
+constraint deactivates itself: the connection `breaks'. A value equal to
+or smaller than zero means that there is no boundary for the reaction
+force. The default value is zero. The reaction force is taken as the
+magnitude of the 4-D vector that contains the magnitudes of the force
+components.
+
+<DT><CODE>void DL_cyl::init(DL_dyna *d, DL_point *pd0, DL_point *pd1,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_point *pg0, DL_point *pg1)</CODE>
+<DD>
+This method initializes and activates the cylinder constraint. It
+specifies that the line in <CODE>d</CODE> through the points with local
+coordinates <CODE>pd0</CODE> and <CODE>pd1</CODE> should coincide with the line in
+<CODE>g</CODE> through the points with local coordinates <CODE>pg0</CODE> and
+<CODE>pg1</CODE> (allowing for relative rotations and translations along this
+line).  The two attachment point pairs should be sufficiently far apart
+to prevent large torques in the hinge.
+
+<DT><CODE>DL_dyna* DL_cyl::get_dyna()</CODE>
+<DD>
+This method returns a reference to the dyna with which the constraint was
+initialized.
+
+<DT><CODE>void DL_cyl::get_dyna_point0(DL_point *dp)</CODE>
+<DD>
+This method returns in <CODE>dp</CODE> a copy of the local coordinates
+of the first attachment point in the dyna.
+
+<DT><CODE>void DL_cyl::set_dyna_point0(DL_point *dp)</CODE>
+<DD>
+This method allows you to change the first attachment point in the
+dyna. Use this method with caution, since too large jumps in the
+attachment points can lead to very strong reaction forces which may
+cause instabilities.
+
+<DT><CODE>void DL_cyl::get_dyna_point1(DL_point *dp)</CODE>
+<DD>
+This method returns in <CODE>dp</CODE> a copy of the local coordinates
+of the second attachment point in the dyna.
+
+<DT><CODE>void DL_cyl::set_dyna_point1(DL_point *dp)</CODE>
+<DD>
+This method allows you to change the second attachment point in the
+dyna. Use this method with caution, since too large jumps in the
+attachment points can lead to very strong reaction forces which may
+cause instabilities.
+
+<DT><CODE>DL_geo* DL_cyl::get_geo()</CODE>
+<DD>
+This method returns a reference to the geo with which the constraint was
+initialized.
+
+<DT><CODE>void DL_cyl::get_geo_point0(DL_point *gp)</CODE>
+<DD>
+This method returns in <CODE>gp</CODE> a copy of the local coordinates
+of the first attachment point in the geo.
+
+<DT><CODE>void DL_cyl::set_geo_point0(DL_point *gp)</CODE>
+<DD>
+This method allows you to change the first attachment point in the
+geo. Use this method with caution, since too large jumps in the
+attachment points can lead to very strong reaction forces which may
+cause instabilities.
+
+<DT><CODE>void DL_cyl::get_geo_point1(DL_point *gp)</CODE>
+<DD>
+This method returns in <CODE>gp</CODE> a copy of the local coordinates
+of the second attachment point in the geo.
+
+<DT><CODE>void DL_cyl::set_geo_point1(DL_point *gp)</CODE>
+<DD>
+This method allows you to change the second attachment point in the
+geo. Use this method with caution, since too large jumps in the
+attachment points can lead to very strong reaction forces which may
+cause instabilities.
+
+<DT><CODE>void DL_cyl::reactionforce0(DL_vector *f)</CODE>
+<DD>
+This method returns in vector <CODE>f</CODE> a copy of the current reaction
+force in the first attachment point, perpendicular to the hinge line.
+
+<DT><CODE>void DL_cyl::reactionforce1(DL_vector *f)</CODE>
+<DD>
+This method returns in vector <CODE>f</CODE> a copy of the current reaction
+force in the second attachment point, perpendicular to the hinge line.
+
+<DT><CODE>DL_Scalar DL_cyl::reactionforce()</CODE>
+<DD>
+This method returns the magnitude of the current 4-D restriction vector
+(which is used to measure the reaction force magnitude used for
+comparing to the <CODE>maxforce</CODE> attribute)
+
+</DL>
+
+
+
+<H2><A NAME="SEC37" HREF="DLdoc_toc.html#TOC37">Plane constraint</A></H2>
+
+<P>
+The plane constraint class provides a constraint type that can be used
+to connect a dyna and a geo in such a way that they have a plane in
+common. This means that their relative motion is restricted to
+translations within the plane, and rotations around the plane normal.
+Here is its API:
+
+</P>
+
+<PRE>
+class <B>DL_plc</B> : public <B>DL_constraint</B> {
+  DL_Scalar maxforce;
+  DL_Scalar maxtorque;
+  void init(DL_dyna*, DL_point*, DL_vector*, DL_geo*, DL_point*, DL_vector*);
+
+  DL_dyna* get_dyna();
+  DL_geo* get_geo();
+
+  void reactionforce(DL_vector*);
+  void reactiontorque(DL_vector*);
+
+       DL_plc();
+       ~DL_plc();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_plc::maxforce</CODE>
+<DD>
+With this attribute, a maximum reaction force for the constraint can be
+specified: if this maximum reaction force is exceed the constraint will
+deactivate itself, so the connection `breaks'. A <CODE>maxforce</CODE> value
+of zero or smaller indicates that there is no limit to the reaction
+force magnitude. The default value is zero.
+  
+<DT><CODE>DL_Scalar DL_plc::maxtorque</CODE>
+<DD>
+With this attribute, a maximum reaction torque for the constraint can be
+specified: if this maximum reaction torque is exceed the constraint will
+deactivate itself, so the connection `breaks'. A <CODE>maxtorque</CODE> value
+of zero or smaller indicates that there is no limit to the reaction
+torque. The default value is zero.
+  
+<DT><CODE>void DL_plc::init(DL_dyna *d, DL_point *pd, DL_vector *nd,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_point *pg, DL_vector *ng);</CODE>
+<DD>
+This method initializes the plane constraint, specifying that the plane
+in dyna <CODE>d</CODE> through the point with local coordinates <CODE>pd</CODE> and
+with normal <CODE>pn</CODE> (also given in local coordinates), should coincide
+with the plane in geo <CODE>g</CODE> through the point with local coordinates
+<CODE>pg</CODE> and with normal <CODE>ng</CODE> (also given in local
+coordinates). This leaves two translation degrees of freedom (only
+relative translation perpendicular to the plane is prohibited), and one
+rotational degree of freedom (rotations along the plane's normal are allowed).
+
+<DT><CODE>DL_dyna* DL_plc::get_dyna()</CODE>
+<DD>
+This method returns a reference to the dyna with which the constraint was
+initialized.
+
+<DT><CODE>DL_geo* DL_plc::get_geo()</CODE>
+<DD>
+This method returns a reference to the geo with which the constraint was
+initialized.
+
+<DT><CODE>void DL_plc::reactionforce(DL_vector *f)</CODE>
+<DD>
+This method returns in <CODE>f</CODE>, a copy of the reaction force that is
+applied to <CODE>pd</CODE> (see the <CODE>init</CODE> method) and (inverted) to
+<CODE>pg</CODE>.
+
+<DT><CODE>void DL_plc::reactiontorque(DL_vector *t)</CODE>
+<DD>
+This method returns in <CODE>t</CODE> a copy of the reaction torque that is
+applied to the dyna and (inverted) to the geo.
+
+</DL>
+
+
+
+<H2><A NAME="SEC38" HREF="DLdoc_toc.html#TOC38">Prism constraint</A></H2>
+
+<P>
+The prism constraint class provides a connection constraint where a dyna
+and a geo have as only relative freedom of motion translation along a
+pre-defined axis.
+
+</P>
+
+<PRE>
+class <B>DL_pris</B> : public <B>DL_constraint</B> {
+  DL_orientation *myorient;
+  DL_Scalar maxforce;
+
+  void init(DL_dyna*,DL_point*,DL_vector*,DL_geo*,DL_point*,DL_vector*);
+
+  DL_dyna* get_dyna();
+  DL_geo* get_geo();
+
+  void reactionforce(DL_vector*);
+
+       DL_pris();
+       ~DL_pris();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_orientation* DL_pris::myorient</CODE>
+<DD>
+This method returns a reference to the orientation constraint that this
+constraint uses to maintain the proper orientation between the dyna and
+the geo.
+
+<DT><CODE>DL_Scalar DL_pris::maxforce</CODE>
+<DD>
+With this attribute, a maximum reaction force for the constraint can be
+specified: if this maximum reaction force is exceed the constraint will
+deactivate itself, so the connection `breaks'. A <CODE>maxforce</CODE> value
+of zero or smaller indicates that there is no limit to the reaction
+force magnitude. The default value is zero.
+  
+<DT><CODE>void DL_pris::init(DL_dyna *d, DL_point *pd, DL_vector *ld, DL_vector *rd,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_point *pg, DL_vector *lg, DL_vector *rg)</CODE>
+<DD>
+This method initializes the constraint, specifying that the only
+relative motion between <CODE>d</CODE> and <CODE>g</CODE> is translation along the
+axis which in the local coordinate system of <CODE>d</CODE> is defined by
+point <CODE>pd</CODE> and direction vector <CODE>ld</CODE>, and which in the local
+coordinate system of <CODE>g</CODE> is defined by point <CODE>pg</CODE> and
+direction <CODE>lg</CODE>. The relative orientation is such that vectors
+<CODE>rd</CODE> and <CODE>rg</CODE> also coincide (so l, r and their cross product
+form a basis in both the geo and the dyna and these two basis are kept
+at the same orientation). Vectors <CODE>l</CODE> and <CODE>r</CODE> should be
+perpendicular.
+
+<DT><CODE>DL_dyna* DL_pris::get_dyna()</CODE>
+<DD>
+This method returns a reference to the dyna with which the constraint was
+initialized.
+
+<DT><CODE>DL_geo* DL_pris::get_geo()</CODE>
+<DD>
+This method returns a reference to the geo with which the constraint was
+initialized.
+
+<DT><CODE>void DL_pris::reactionforce(DL_vector *f)</CODE>
+<DD>
+This method returns in <CODE>f</CODE> a copy of the reaction force which is
+being applied to point <CODE>pd</CODE> in <CODE>d</CODE> (see the<CODE>init</CODE>
+method), and (inverted) to point <CODE>pg</CODE> in <CODE>g</CODE>.
+
+</DL>
+
+
+
+<H2><A NAME="SEC39" HREF="DLdoc_toc.html#TOC39">Point-to-curve constraint</A></H2>
+
+<P>
+The point-to-curve constraint class provides a connection constraint
+that specifies that a given point of a given geo should lie on a given
+curve (for the curve class, see section <A HREF="DLdoc.html#SEC46">Curves</A>). This means that the
+constraint will calculate and apply a reaction force that will pull the
+point towards the curve, but which will allow unrestricted motion along
+the curve. The constraint will deactivate itself if the connection point
+reaches outside the domain of the curve. The curve should be continuous
+and differentiable in all the points of its domain. Here is the API of
+the class:
+
+</P>
+
+<PRE>
+class <B>DL_ptc</B> : public <B>DL_constraint</B> {
+  DL_Scalar maxforce;
+
+  void init(DL_geo*, DL_point*, DL_curve*);
+  void reactionforce(DL_vector*);
+
+  DL_geo* get_geo();
+  void get_point(DL_point*);
+  void set_point(DL_point*);
+
+  DL_curve* get_curve();
+  DL_Scalar get_s();
+
+        DL_ptc();
+        ~DL_ptc();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_ptc::maxforce</CODE>
+<DD>
+With this attribute, a maximum reaction force for the constraint can be
+specified: if this maximum reaction force is exceed the constraint will
+deactivate itself, so the connection `breaks'. A maximum force value of
+zero or smaller indicates that there is no maximum. The default value is
+zero.
+
+<DT><CODE>void DL_ptc::init(DL_geo *g, DL_point *p, DL_curve *c)</CODE>
+<DD>
+This method initializes the constraint, specifying that point <CODE>p</CODE>
+(given in local coordinates) of geo <CODE>g</CODE> should lie on curve
+<CODE>c</CODE>. For the constraint to be able to apply its reaction force,
+either the curve should be part of a dyna, or <CODE>g</CODE> should be a dyna.
+
+<DT><CODE>void DL_ptc::reactionforce(DL_vector *f)</CODE>
+<DD>
+This method returns in <CODE>f</CODE> a copy of the reaction force used to
+keep the constraint valid.
+
+<DT><CODE>DL_geo* DL_ptc::get_geo()</CODE>
+<DD>
+This method returns a copy of the geo with which the constraint was
+initialized.
+
+<DT><CODE>void DL_ptc::get_point(DL_point *p)</CODE>
+<DD>
+This method returns in <CODE>p</CODE> a copy of the current attachment point
+in the geo.
+
+<DT><CODE>void DL_ptc::set_point(DL_point *p)</CODE>
+<DD>
+This method allows you to change the attachment point in the geo. Use
+this method with caution, since too large jumps in the attachment
+points can lead to very strong reaction forces which may cause
+instabilities.
+
+<DT><CODE>DL_curve* DL_ptc::get_curve()</CODE>
+<DD>
+This method returns a reference to the curve the constraint was
+initialized with.
+
+<DT><CODE>DL_Scalar DL_ptc::get_s()</CODE>
+<DD>
+This method returns the current curve-parameter corresponding to the
+attachment point.
+
+</DL>
+
+
+
+<H2><A NAME="SEC40" HREF="DLdoc_toc.html#TOC40">Point-to-surface constraint</A></H2>
+
+<P>
+The point-to-surface constraint class provides a connection constraint
+that specifies that a given point of a given geo should lie on a given
+surface (for the surface class, see section <A HREF="DLdoc.html#SEC55">Surfaces</A>). This means that the
+constraint will calculate and apply a reaction force that will pull the
+point towards the surface, but which will allow unrestricted motion
+within the surface. The constraint will deactivate itself if the
+connection point reaches outside the domain of the surface. The surface
+should be C-1 in all the points of its domain. Here is the API of the
+class:
+
+</P>
+
+<PRE>
+class <B>DL_pts</B> : public <B>DL_constraint</B> {
+  DL_Scalar maxforce;
+
+  void init(DL_geo*, DL_point*, DL_surface*);
+  void reactionforce(DL_vector*);
+
+  DL_geo* get_geo();
+  void get_point(DL_point*);
+  void set_point(DL_point*);
+
+  DL_surface* get_surface();
+  DL_Scalar get_s();
+  DL_Scalar get_t();
+
+        DL_pts();
+        ~DL_pts();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_pts::maxforce</CODE>
+<DD>
+With this attribute, a maximum reaction force for the constraint can be
+specified: if this maximum reaction force is exceed the constraint will
+deactivate itself, so the connection `breaks'. A <CODE>maxforce</CODE> value
+of zero or smaller indicates that there is no limit to the reaction
+force magnitude. The default value is zero.
+
+<DT><CODE>void DL_pts::init(DL_geo *g, DL_point *p, DL_surface *s)</CODE>
+<DD>
+This method initializes the constraint, specifying that geo <CODE>g</CODE>
+should remain connected to surface <CODE>s</CODE> in the point with local
+coordinates <CODE>p</CODE>. For the constraint to be able to apply its
+reaction force, either the surface should be part of a dyna, or <CODE>g</CODE>
+should be a dyna. 
+
+<DT><CODE>void DL_pts::reactionforce(DL_vector *f)</CODE>
+<DD>
+This method returns in <CODE>f</CODE> a copy of the reaction force used to
+keep the constraint valid.
+
+<DT><CODE>DL_geo* DL_pts::get_geo()</CODE>
+<DD>
+This method returns a copy of the geo with which the constraint was
+initialized.
+
+<DT><CODE>void DL_pts::get_point(DL_point *p)</CODE>
+<DD>
+This method returns in <CODE>p</CODE> a copy of the current attachment point
+in the geo.
+
+<DT><CODE>void DL_pts::set_point(DL_point *p)</CODE>
+<DD>
+This method allows you to change the attachment point in the geo. Use
+this method with caution, since too large jumps in the attachment
+points can lead to very strong reaction forces which may cause
+instabilities.
+
+<DT><CODE>DL_surface* DL_pts::get_surface()</CODE>
+<DD>
+This method returns a reference to the surface the constraint was
+initialized with.
+
+<DT><CODE>DL_Scalar DL_pts::get_s()</CODE>
+<DD>
+<DT><CODE>DL_Scalar DL_pts::get_t()</CODE>
+<DD>
+These two methods return the surface parameters corresponding to
+the current attachment point.
+
+</DL>
+
+
+
+<H2><A NAME="SEC41" HREF="DLdoc_toc.html#TOC41">The bar (rope) constraint</A></H2>
+
+<P>
+The bar constraint class provides objects that can be used to model
+ropes or bars between two attachment points. In essence, it acts as
+a length constraint between the two attachment points.
+
+</P>
+
+<PRE>
+class <B>DL_bar</B> : public <B>DL_constraint</B> {
+  DL_Scalar maxforce;
+  boolean rope;
+  
+  void init(DL_dyna*, DL_point*, DL_geo*, DL_point*, DL_Scalar);
+  void reactionforce(DL_vector*);
+ 
+  DL_dyna* get_dyna();
+  void get_dyna_point(DL_point*);
+  void set_dyna_point(DL_point*);
+  DL_geo* get_geo();
+  void get_geo_point(DL_point*);
+  void set_geo_point(DL_point*);
+ 
+  void set_length(DL_Scalar);
+  DL_Scalar get_length();
+ 
+             DL_bar();
+             ~DL_bar();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_bar::maxforce</CODE>
+<DD>
+With this attribute, a maximum reaction force for the constraint can be
+specified: if this maximum reaction force is exceed the constraint will
+deactivate itself, so the connection `breaks'. A <CODE>maxforce</CODE> value
+of zero or smaller indicates that there is no limit to the reaction
+force magnitude. The default value is zero.
+  
+<DT><CODE>boolean DL_bar::rope</CODE>
+<DD>
+This boolean indicates if the constraint should model a rope or a bar. A
+bar can excert both pulling and pushing forces, and can hence always
+make sure that the bar retains its length, while a rope can only exert
+pulling forces: meaning that it cannot prevent the distance between the
+two attachment points to become less than the length of the rope. The
+default value for this attribute is <CODE>false</CODE>
+  
+<DT><CODE>void DL_bar::init(DL_dyna *d, DL_point *pd, DL_geo *g, DL_point *pg, DL_Scalar l)</CODE>
+<DD>
+This method initializes the constraint and activates it. It specifies
+that a bar (or rope) with length <CODE>l</CODE> is attached on the one side to
+the point of dyna <CODE>d</CODE> with local coordinates <CODE>pd</CODE>, and on the
+other side to the point of geo <CODE>g</CODE> with local coordinates
+<CODE>pg</CODE>. The bar/rope in itself is weightless, and thus acts as a
+(partial) length constraint.
+
+<DT><CODE>void DL_bar::reactionforce(DL_vector *f)</CODE>
+<DD>
+This method returns a copy of the reaction force (in world coordinates)
+in vector <CODE>f</CODE> (for visualization or for stress-evaluation for
+example).
+
+<DT><CODE>DL_dyna* DL_bar::get_dyna()</CODE>
+<DD>
+This method returns a reference to the dyna with which the constraint was
+initialized.
+
+<DT><CODE>void DL_bar::get_dyna_point(DL_point *dp)</CODE>
+<DD>
+This method returns in <CODE>dp</CODE> a copy of the current attachment point
+in the dyna.
+
+<DT><CODE>void DL_bar::set_dyna_point(DL_point *dp)</CODE>
+<DD>
+This method allows you to change the attachment point in the dyna. Use
+this method with caution, since too large jumps in the attachment
+points can lead to very strong reaction forces which may cause
+instabilities.
+
+<DT><CODE>DL_geo* DL_bar::get_geo()</CODE>
+<DD>
+This method returns a copy of the geo with which the constraint was
+initialized.
+
+<DT><CODE>void DL_bar::get_geo_point(DL_point *gp)</CODE>
+<DD>
+This method returns in <CODE>gp</CODE> a copy of the current attachment point
+in the geo.
+
+<DT><CODE>void DL_bar::set_geo_point(DL_point *gp)</CODE>
+<DD>
+This method allows you to change the attachment point in the geo. Use
+this method with caution, since too large jumps in the attachment
+points can lead to very strong reaction forces which may cause
+instabilities.
+
+<DT><CODE>void DL_bar::set_length(DL_Scalar l)</CODE>
+<DD>
+This method sets the length of the bar/rope to <CODE>l</CODE>. Use this method
+with caution, since too large changes in the length can lead to very
+strong reaction forces which may cause instabilities.
+
+<DT><CODE>DL_Scalar DL_bar::get_length()</CODE>
+<DD>
+This method returns the length of the rope.
+
+</DL>
+
+
+
+<H2><A NAME="SEC42" HREF="DLdoc_toc.html#TOC42">The multibar (rope) constraint</A></H2>
+
+<P>
+The multibar constraint class provides objects that can be used to model
+ropes or bars between two or more attachment points. In essence, it acts as
+a constraint trying to preserve the total length of the sum of the
+distances between the attachment points.
+
+</P>
+
+<PRE>
+class <B>DL_multi_bar</B> : public <B>DL_constraint</B> {
+  DL_Scalar maxforce;
+  boolean rope;
+  
+  void init(int);
+  void addpair(DL_geo*,DL_point*);
+  
+  void reactionforce(int, DL_vector*);
+
+  DL_geo* get_geo(int);
+  void get_point(int, DL_point*);
+  void set_point(int, DL_point*);
+
+  void set_length(DL_Scalar);
+  DL_Scalar rest_length();
+  DL_Scalar actual_length();
+
+             DL_multi_bar();
+	     ~DL_multi_bar();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_multibar::maxforce</CODE>
+<DD>
+With this attribute, a maximum reaction force for the constraint can be
+specified: if this maximum reaction force is exceed the constraint will
+deactivate itself, so the connection `breaks'. A <CODE>maxforce</CODE> value
+of zero or smaller indicates that there is no limit to the reaction
+force magnitude. The default value is zero.
+  
+<DT><CODE>boolean DL_multibar::rope</CODE>
+<DD>
+  
+This boolean indicates if the constraint should model a multirope or a
+multibar. A multibar can excert both pulling and pushing forces, and can
+hence always make sure that it retains its length, while a multirope can
+only exert pulling forces: meaning that it cannot prevent the sum of
+distances between the attachment points to become less than the length
+of the multirope. The default value for this attribute is <CODE>false</CODE>
+  
+<DT><CODE>void DL_multibar::init(int nr)</CODE>
+<DD>
+This method initializes the multibar constraint, and specifies that
+there will be at most <CODE>nr</CODE> attachment points. The multibar
+maintains a list of attachment points. The multibar/rope is strung between
+the subsequent attachment points in the list. Before actual use,
+attachment points can be added using the <CODE>addpair</CODE> method.
+
+<DT><CODE>void DL_multibar::addpair(DL_geo*,DL_point*)</CODE>
+<DD>
+This method adds an attachment point to the end of the list. The rest
+length of the rope is set to the current length.
+
+<DT><CODE>void DL_multibar::reactionforce(int i, DL_vector *f)</CODE>
+<DD>
+This method assigns to f, the reaction force in the segment between
+attachment points <CODE>i</CODE> and <CODE>i+1</CODE>.
+
+<DT><CODE>DL_geo* DL_multibar::get_geo(int i)</CODE>
+<DD>
+This method returns a reference to the geometry of the <CODE>i</CODE>-th
+attachment point.
+
+<DT><CODE>void DL_multibar::get_point(int i, DL_point *dp)</CODE>
+<DD>
+This method returns in <CODE>dp</CODE> a copy of the coordinates of the
+<CODE>i</CODE>-th attachment point (in local coordinates of <CODE>get_geo(i)</CODE>).
+
+<DT><CODE>void DL_multibar::set_point(int i, DL_point *dp)</CODE>
+<DD>
+This method sets the coordinates of the <CODE>i</CODE>-th attachment point (in
+local coordinates of <CODE>get_geo(i)</CODE>) to <CODE>dp</CODE>.
+
+<DT><CODE>void DL_multibar::set_length(DL_Scalar)</CODE>
+<DD>
+This method sets the rest length of the multibar/rope.
+
+<DT><CODE>DL_Scalar DL_multibar::rest_length()</CODE>
+<DD>
+This method returns the rest length of the multibar/rope.
+
+<DT><CODE>DL_Scalar DL_multibar::actual_length()</CODE>
+<DD>
+This method returns the actual length of the multibar. In case of the
+multibar being a rope, this length can actually be less than the rest
+length.
+
+</DL>
+
+
+
+<H2><A NAME="SEC43" HREF="DLdoc_toc.html#TOC43">Wheel constraint</A></H2>
+
+<P>
+The wheel constraint class provides a constraint type that can be used
+to model the contact of a wheel with the surface it is rolling over. The
+constraint will calculate a reaction force such that the wheel rolls
+without slipping (either sideways or in the rolling direction).
+
+</P>
+
+<PRE>
+class <B>DL_wheel</B> : public <B>DL_constraint</B> {
+  DL_Scalar maxforce;
+  
+  void init(DL_dyna*, DL_vector*, DL_point*, DL_Scalar,
+            DL_surface*, DL_Scalar, DL_Scalar);
+  void reactionforce(DL_vector*);
+  DL_dyna* get_dyna();
+  void get_contact_point(DL_point*);
+
+       DL_wheel();
+       ~DL_wheel();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_wheel::maxforce</CODE>
+<DD>
+  
+With this attribute, a maximum reaction force for the constraint can be
+specified: if this maximum reaction force is exceed the constraint will
+deactivate itself, so the connection `breaks'. A <CODE>maxforce</CODE> value
+of zero or smaller indicates that there is no limit to the reaction
+force magnitude. The default value is zero.
+
+<DT><CODE>void DL_wheel::init(DL_dyna *w, DL_vector *n, DL_point *c, DL_Scalar r,</CODE>
+<DD>
+<DT><CODE>DL_surface *sf, DL_Scalar s, DL_Scalar t)</CODE>
+<DD>
+This method initializes the constraint. The first four parameters
+specify the wheel: <CODE>w</CODE> is the dyna, point <CODE>c</CODE> gives (in local
+coordinates) the center of the wheel (normally this is point
+<CODE>(0,0,0)</CODE>), vector <CODE>n</CODE> gives the normal of the wheel-plane,
+and <CODE>r</CODE> is the radius of the wheel. The last three parameters
+specify the <EM>road</EM> the wheel is rolling on: surface <CODE>sf</CODE>
+describes this <EM>road</EM>, and the pair <CODE>(s,t)</CODE> gives the initial
+position of the contact point of the wheel in the surface.
+
+<DT><CODE>void DL_wheel::reactionforce(DL_vector *f)</CODE>
+<DD>
+This method returns in <CODE>f</CODE> a copy of the current reaction force
+used to keep the constraint valid.
+
+<DT><CODE>DL_dyna* DL_wheel::get_dyna();</CODE>
+<DD>
+This method retruns a reference to the dyna that is the wheel.
+
+<DT><CODE>void DL_wheel::get_contact_point(DL_point *p);</CODE>
+<DD>
+This method returns in p the coordinates of the contact point
+between the wheel and the surface (in local coordinates of the wheel);.
+
+</DL>
+
+
+
+<H2><A NAME="SEC44" HREF="DLdoc_toc.html#TOC44">Collision constraint</A></H2>
+
+<P>
+The collision constraint class provides a constraint type that can
+be used for collision handling of point-point collisions. A collision
+detector can create collision constraints when it has detected that a
+collision is taking place, and then the collision constraint will calculate
+and apply the appropriate collision forces. A collision constraint
+always deletes itself at the end of the frame, when it has been handled.
+Here is its (current) API:
+
+</P>
+
+<PRE>
+class <B>DL_collision</B> : public <B>DL_constraint</B> {
+      DL_collision(DL_geo*, DL_point*,
+                   DL_geo*, DL_point*,
+                   DL_vector*, int mode=1);
+      ~DL_collision();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_collision::DL_collision(DL_geo *g0, DL_point *p0,</CODE>
+<DD>
+<DT><CODE>DL_geo *g1, DL_point *p1, DL_vector *n, int mode=0)</CODE>
+<DD>
+The constructor of the collision constraint class is also used to
+initialize the constraint. It specifies that a collision between geo
+<CODE>g0</CODE> and <CODE>g1</CODE> (at least one of which should be a dyna) will be
+handled. The contact point in the first geo is given by local
+coordinates <CODE>p0</CODE>. The contact point in the second geo is given by
+local coordinates <CODE>p1</CODE>.
+
+Vector <CODE>n</CODE> is the collision normal which is used to determine the
+direction of the collision reaction force. For a point-plane collision
+this is the normal of the plane for example. It does not matter to
+which side of the plane the normal points.
+
+The <CODE>mode</CODE> parameter is optional. It allows control over the way the
+collision is handled: a value of 1 signifies handling via a velocity
+constraint only. A value larger than one adds positional constraints.
+A value smaller than 1 lets the collision constraint decide whether
+to imploy the extra positional constraint or not (this is the default
+behaviour).
+
+The elasticity of the collision is determined from the elasticity values
+given for the colliding geometries.
+
+</DL>
+
+
+
+<H1><A NAME="SEC45" HREF="DLdoc_toc.html#TOC45">Miscellaneous classes</A></H1>
+
+<P>
+In this section the remaining classes in the Dynamo library are
+presented. First, the curve and the surface classes are discussed which
+can be used to model the curves and surfaces required by the
+point-to-curve and the point-to-surface constraints. Then the generic
+controller class and the one controller (for modeling dampers and
+(damped) springs).
+
+</P>
+
+
+
+<H2><A NAME="SEC46" HREF="DLdoc_toc.html#TOC46">Curves</A></H2>
+
+<P>
+The curve classes are used to model explicit curves: functions from
+one curve parameter to 3-D points. These are the curves that are use by the
+point-to-curve constraint (see section <A HREF="DLdoc.html#SEC39">Point-to-curve constraint</A>). With each curve, a geo is
+associated: the curve is expressed in the local coordinate system of
+that geo (or in world coordinates if the geo-reference happens to be the
+<CODE>NULL</CODE> pointer).  In case the geo is a dyna, the point-to-curve
+constraint's reaction forces are also applied to this geo. The
+<CODE>DL_curve</CODE> class is the generic explicit curve class which presents the
+general curve-API, while the other classes presented here are actual
+implementations of specific types of curves.
+
+</P>
+
+
+
+<H3><A NAME="SEC47" HREF="DLdoc_toc.html#TOC47">Curve</A></H3>
+
+<P>
+The generic explicit curve class provides the generic API for
+curves. It should be considered an abstract class, and only the
+curve specializations provide an initialization method.
+
+</P>
+
+<PRE>
+class <B>DL_curve</B> {
+  void assign(DL_curve*);
+
+  boolean pos(DL_Scalar,DL_point*);
+  boolean deriv(DL_Scalar,DL_vector*);
+  boolean indomain(DL_Scalar);
+  DL_Scalar closeto(DL_point*);
+
+  DL_geo* get_geo();
+  DL_Scalar get_minparam();
+  DL_Scalar get_maxparam();
+
+        DL_curve();
+        ~DL_curve();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_curve::assign(DL_curve *c)</CODE>
+<DD>
+This method assigns curve <CODE>c</CODE> to this curve
+
+<DT><CODE>boolean DL_curve::pos(DL_Scalar s, DL_point *p)</CODE>
+<DD>
+This method assigns the position (in the local coordinate system of the
+geo associated with the curve) for curve parameter <CODE>s</CODE> to
+<CODE>p</CODE>. It returns if <CODE>s</CODE> is within the curve domain.
+
+<DT><CODE>boolean DL_curve::deriv(DL_Scalar s, DL_vector *d)</CODE>
+<DD>
+This method assigns the derivative (in the local coordinate system of
+the geo associated with the curve) for curve parameter <CODE>s</CODE> to
+<CODE>d</CODE>. It returns if <CODE>s</CODE> is within the curve domain.
+
+<DT><CODE>boolean DL_curve::indomain(DL_Scalar s)</CODE>
+<DD>
+This method returns whether s is within the curve domain or not
+
+<DT><CODE>DL_Scalar DL_curve::closeto(DL_point *p)</CODE>
+<DD>
+This method returns a curve-parameter which is such that the distance
+between that point on the curve and point <CODE>p</CODE> (given in world
+coordinates) is minimal.
+
+<DT><CODE>DL_geo* DL_curve::get_geo()</CODE>
+<DD>
+This method returns the geo associated with this curve.
+
+<DT><CODE>DL_Scalar DL_curve::get_minparam()</CODE>
+<DD>
+<DT><CODE>DL_Scalar DL_curve::get_maxparam()</CODE>
+<DD>
+These two methods return the two curve parameters that are the boundaries
+for the curve domain. Some curve specializations may also provide
+methods to change these boundaries, but not all of them will want to
+allow this.
+
+</DL>
+
+
+
+<H3><A NAME="SEC48" HREF="DLdoc_toc.html#TOC48">Line</A></H3>
+
+<P>
+The line curve class provides a curve specification for straight lines
+(without restrictions on the domain). Here is its API:
+
+</P>
+
+<PRE>
+class <B>DL_line</B> : public <B>DL_curve</B> {
+  void assign(DL_line*);  
+  void init(DL_geo*, DL_point*, DL_vector*);
+  void set_minparam(DL_Scalar);
+  void set_maxparam(DL_Scalar);
+  
+       DL_line();
+       ~DL_line();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_line::assign(DL_line *l)</CODE>
+<DD>
+This method assigns line <CODE>l</CODE> to this line.
+
+<DT><CODE>void DL_line::init(DL_geo *g, DL_point *p, DL_vector *l)</CODE>
+<DD>
+This method initializes the curve. The geo associated with it, is
+provided in reference <CODE>g</CODE>, and the line is the line through point
+<CODE>p</CODE>, and with direction vector <CODE>l</CODE>.
+
+<DT><CODE>void DL_line::set_minparam(DL_Scalar m)</CODE>
+<DD>
+<DT><CODE>void DL_line::set_maxparam(DL_Scalar m)</CODE>
+<DD>
+These two methods allow setting the domain boundaries for the
+line. These are only used by the <EM>line segment</EM> specialization, but
+may be for example be useful when adding a method that provides a
+topology for the curve: only the piece of the line specified by the
+domain parameters can then be visualized.
+
+</DL>
+
+
+
+<H3><A NAME="SEC49" HREF="DLdoc_toc.html#TOC49">Line segment</A></H3>
+
+<P>
+The line segment curve class is a specialization of the line curve. Its
+initialization method takes different parameters, and the curve is only
+defined for a limited domain.
+
+</P>
+
+<PRE>
+class <B>DL_linesegment</B> : public <B>DL_line</B> {
+  void assign(DL_linesegment*);
+  void init(DL_geo*, DL_point*, DL_point*);
+
+       DL_linesegment();
+       ~DL_linesegment();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_linesegment::assign(DL_linesegment *l)</CODE>
+<DD>
+This method assigns line segment <CODE>l</CODE> to this line segment.
+
+<DT><CODE>void DL_linesegment::init(DL_geo *g, DL_point *p0, DL_point *p1)</CODE>
+<DD>
+This method initializes the line segment, and specifies its two
+end points as <CODE>p0</CODE> and <CODE>p1</CODE>.
+
+</DL>
+
+
+
+<H3><A NAME="SEC50" HREF="DLdoc_toc.html#TOC50">Circle</A></H3>
+
+<P>
+The circle curve class provides a curve definition for a circle. Its
+domain delimiters are specified at zero and two pi (for ease of for
+example visualization), but any curve-parameter is considered valid and
+with the curve domain.
+
+</P>
+
+<PRE>
+class <B>DL_circle</B> : public <B>DL_curve</B> {
+  void assign(DL_circle*);
+  void init(DL_geo*, DL_point*, DL_Scalar, DL_vector*);
+
+       DL_circle();
+       ~DL_circle();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_circle::assign(DL_circle *c)</CODE>
+<DD>
+This method assigns circle <CODE>c</CODE> to this circle.
+
+<DT><CODE>void DL_circle::init(DL_geo *g, DL_point *p, DL_Scalar r, DL_vector *n)</CODE>
+<DD>
+This method initializes the circle. The circle has point <CODE>p</CODE> as its
+center. It has radius <CODE>r</CODE>, and the plane it lies in had normal
+<CODE>n</CODE>.
+
+</DL>
+
+
+
+<H3><A NAME="SEC51" HREF="DLdoc_toc.html#TOC51">B-spline segment</A></H3>
+
+<P>
+The B-spline segment curve class provides cubic B-splines with exactly
+four control points. It is designed for use by the B-spline class, so it
+also has parameters <CODE>t</CODE> and <CODE>dt</CODE> which model the start and the
+duration of the interval within the larger B-spline's parameter space.
+
+</P>
+
+<PRE>
+class DL_bsplinesegment : public DL_curve {
+  void assign(DL_bsplinesegment*)
+  void init(DL_geo*,DL_point*,DL_point*,DL_point*,DL_point*);
+  void update_control_point(int,DL_point*);
+  boolean deriv2(DL_Scalar,DL_vector*);
+  void set_interval(DL_Scalar,DL_Scalar);
+  DL_Scalar t();
+  DL_Scalar dt();
+  
+        DL_bsplinesegment();
+        ~DL_bsplinesegment();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_bsplinesegment::assign(DL_bsplinesegment *b)</CODE>
+<DD>
+This method assigns B-spline segment <CODE>b</CODE> to this B-spline segment.
+
+<DT><CODE>void DL_bsplinesegment::init(DL_geo *g, DL_point *p0, DL_point *p1, DL_point *p2, DL_point *p3)</CODE>
+<DD>
+This method initializes the B-spline as a B-spline with geo <CODE>g</CODE>
+associated to it, and control points <CODE>p0, p1, p2</CODE> and <CODE>p3</CODE>.
+
+<DT><CODE>void DL_bsplinesegment::update_control_point(int i, DL_point *p)</CODE>
+<DD>
+This method assigns new coordinates <CODE>p</CODE> to the <CODE>i</CODE>-th control
+point.
+
+<DT><CODE>void DL_bsplinesegment::deriv2(DL_Scalar s, DL_vector *v)</CODE>
+<DD>
+This method returns the second derivative at curve parameter <CODE>s</CODE>
+in vector <CODE>v</CODE>.
+
+<DT><CODE>void DL_bsplinesegment::set_interval(DL_Scalar t, DL_Scalar dt)</CODE>
+<DD>
+This method sets the parameter space interval for which this B-spline
+segment is valid within any larger B-spline. It also sets the minimal
+domain parameter to <CODE>t</CODE> and the maximum domain parameter to
+<EM><CODE>t</CODE>+<CODE>dt</CODE></EM>.
+
+<DT><CODE>DL_Scalar DL_bsplinesegment::t()</CODE>
+<DD>
+This method returns the minimum curve parameter for this spline segment.
+
+<DT><CODE>DL_Scalar DL_bsplinesegment::dt()</CODE>
+<DD>
+This method returns the size of the curve parameter interval for this
+spline segment.
+
+</DL>
+
+
+
+<H3><A NAME="SEC52" HREF="DLdoc_toc.html#TOC52">B-spline</A></H3>
+
+<P>
+The B-spline curve class allows you to specify B-splines with any number
+(greater than one) control points. The spline consists of a series of B-spline
+segments. The spline can be cyclic meaning that there is also a
+spline segment between the last and the first control points specified.
+
+</P>
+
+<PRE>
+class <B>DL_bspline</B> : public <B>DL_curve</B> {
+  void assign(DL_bspline*)
+  void init(DL_geo*,DL_List*,boolean);
+  void update_control_point(int,DL_point*);
+  boolean deriv2(DL_Scalar,DL_vector*);
+
+       DL_bspline();
+       ~DL_bspline();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_bspline::assign(DL_bspline *b)</CODE>
+<DD>
+This method assigns B-spline <CODE>b</CODE> to this B-spline.
+
+<DT><CODE>void DL_bspline::init(DL_geo *g, DL_List *p, boolean c)</CODE>
+<DD>
+This method initializes the B-spline with control points as listed in
+list <CODE>p</CODE>, and with boolean <CODE>c</CODE> indicating if the B-spline has
+to be cyclic or not.
+
+<DT><CODE>void DL_bsplinesegment::update_control_point(int i, DL_point *p)</CODE>
+<DD>
+This method assigns new coordinates <CODE>p</CODE> to the <CODE>i</CODE>-th control
+point.
+
+<DT><CODE>void DL_bspline::deriv2(DL_Scalar s, DL_vector *v)</CODE>
+<DD>
+This method returns the second derivative at curve parameter <CODE>s</CODE>
+in vector <CODE>v</CODE>.
+
+</DL>
+
+
+
+<H3><A NAME="SEC53" HREF="DLdoc_toc.html#TOC53">C-spline segment</A></H3>
+
+<P>
+The C-spline segment curve class provides cubic C-splines with exactly
+four control points. It is designed for use by the C-spline class, so it
+also has parameters <CODE>t</CODE> and <CODE>dt</CODE> which model the start and the
+duration of the interval within the larger C-spline's parameter space.
+
+</P>
+
+<PRE>
+class DL_csplinesegment : public DL_curve {
+  void assign(DL_csplinesegment*)
+  void init(DL_geo*,DL_point*,DL_point*,DL_point*,DL_point*);
+  void update_control_point(int,DL_point*);
+  boolean deriv2(DL_Scalar,DL_vector*);
+  void set_interval(DL_Scalar,DL_Scalar);
+  DL_Scalar t();
+  DL_Scalar dt();
+  
+        DL_csplinesegment();
+        ~DL_csplinesegment();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_csplinesegment::assign(DL_csplinesegment *b)</CODE>
+<DD>
+This method assigns C-spline segment <CODE>b</CODE> to this C-spline segment.
+
+<DT><CODE>void DL_csplinesegment::init(DL_geo *g, DL_point *p0, DL_point *p1, DL_point *p2, DL_point *p3)</CODE>
+<DD>
+This method initializes the C-spline as a C-spline with geo <CODE>g</CODE>
+associated to it, and control points <CODE>p0, p1, p2</CODE> and <CODE>p3</CODE>.
+
+<DT><CODE>void DL_csplinesegment::update_control_point(int i, DL_point *p)</CODE>
+<DD>
+This method assigns new coordinates <CODE>p</CODE> to the <CODE>i</CODE>-th control
+point.
+
+<DT><CODE>void DL_csplinesegment::deriv2(DL_Scalar s, DL_vector *v)</CODE>
+<DD>
+This method returns the second derivative at curve parameter <CODE>s</CODE>
+in vector <CODE>v</CODE>.
+
+<DT><CODE>void DL_csplinesegment::set_interval(DL_Scalar t, DL_Scalar dt)</CODE>
+<DD>
+This method sets the parameter space interval for which this C-spline
+segment is valid within any larger C-spline. It also sets the minimal
+domain parameter to <CODE>t</CODE> and the maximum domain parameter to
+<EM><CODE>t</CODE>+<CODE>dt</CODE></EM>.
+
+<DT><CODE>DL_Scalar DL_csplinesegment::t()</CODE>
+<DD>
+This method returns the minimum curve parameter for this spline segment.
+
+<DT><CODE>DL_Scalar DL_csplinesegment::dt()</CODE>
+<DD>
+This method returns the size of the curve parameter interval for this
+spline segment.
+
+</DL>
+
+
+
+<H3><A NAME="SEC54" HREF="DLdoc_toc.html#TOC54">C-spline</A></H3>
+
+<P>
+The C-spline curve class allows you to specify C-splines with any number
+(greater than one) control points. The spline consists of a series of C-spline
+segments. The spline can be cyclic meaning that there is also a
+spline segment between the last and the first control points specified.
+
+</P>
+
+<PRE>
+class <B>DL_cspline</B> : public <B>DL_curve</B> {
+  void assign(DL_cspline*)
+  void init(DL_geo*,DL_List*,boolean);
+  boolean deriv2(DL_Scalar,DL_vector*);
+
+       DL_cspline();
+       ~DL_cspline();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_cspline::assign(DL_cspline *b)</CODE>
+<DD>
+This method assigns C-spline <CODE>b</CODE> to this C-spline.
+
+<DT><CODE>void DL_cspline::init(DL_geo *g, DL_List *p, boolean c)</CODE>
+<DD>
+This method initializes the C-spline with control points as listed in
+list <CODE>p</CODE>, and with boolean <CODE>c</CODE> indicating if the C-spline has
+to be cyclic or not.
+
+<DT><CODE>void DL_cspline::update_control_point(int i, DL_point *p)</CODE>
+<DD>
+This method assigns new coordinates <CODE>p</CODE> to the <CODE>i</CODE>-th control
+point.
+
+<DT><CODE>void DL_cspline::deriv2(DL_Scalar s, DL_vector *v)</CODE>
+<DD>
+This method returns the second derivative at curve parameter <CODE>s</CODE>
+in vector <CODE>v</CODE>.
+
+</DL>
+
+
+
+<H2><A NAME="SEC55" HREF="DLdoc_toc.html#TOC55">Surfaces</A></H2>
+
+<P>
+The surface classes are used to model explicit surfaces: functions from
+one surface parameter pair to 3-D points. These are the surfaces that
+are use by the point-to-surface constraint (see section <A HREF="DLdoc.html#SEC40">Point-to-surface constraint</A>). With each
+surface, a geo is associated: the surface is expressed in the local
+coordinate system of that geo (or in world coordinates if the
+geo-reference happens to be the <CODE>NULL</CODE> pointer). In case the geo is a
+dyna, the point-to-surface constraint's reaction force is also applied
+to this geo. The <CODE>DL_surface</CODE> class is the generic surface class
+which presents the general explicit surface-API, while the other classes
+discussed here are actual implementations of specific types of surfaces.
+
+</P>
+
+
+
+<H3><A NAME="SEC56" HREF="DLdoc_toc.html#TOC56">Surface</A></H3>
+
+<P>
+The generic explicit surface class provides the generic API for
+surfaces. It should be considered an abstract class, and only the
+surface specializations provide an initialization method.
+
+</P>
+
+<PRE>
+class <B>DL_surface</B> {
+  void assign(DL_surface*);
+  boolean pos(DL_Scalar,DL_Scalar,DL_point*);
+  boolean deriv0(DL_Scalar,DL_Scalar,DL_vector*);
+  boolean deriv1(DL_Scalar,DL_Scalar,DL_vector*);
+  boolean indomain(DL_Scalar,DL_Scalar);
+  boolean closeto(DL_point*,DL_Scalar*,DL_Scalar*);
+
+  DL_geo* get_geo();
+  DL_Scalar get_minparam0();
+  DL_Scalar get_maxparam0();
+  DL_Scalar get_minparam1();
+  DL_Scalar get_maxparam1();
+
+        DL_surface();
+        ~DL_surface();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_surface::assign(DL_surface *s)</CODE>
+<DD>
+This method assigns surface <CODE>s</CODE> to this surface
+
+<DT><CODE>boolean DL_surface::pos(DL_Scalar s, DL_Scalar t, DL_point *p)</CODE>
+<DD>
+This method assigns the position (in the local coordinate system of the
+geo associated with the surface) for surface parameter pair <CODE>(s,t)</CODE>
+to <CODE>p</CODE>. It returns if <CODE>(s,t)</CODE> is within the surface domain.
+
+<DT><CODE>boolean DL_surface::deriv0(DL_Scalar s, DL_Scalar t, DL_vector *d)</CODE>
+<DD>
+This method assigns the derivative in the first surface parameter (given
+in the local coordinate system of the geo associated with the surface)
+for surface parameter pair <CODE>(s,t)</CODE> to <CODE>d</CODE>. It returns if
+<CODE>(s,t)</CODE> is within the surface domain.
+
+<DT><CODE>boolean DL_surface::deriv1(DL_Scalar s, DL_Scalar t, DL_vector *d)</CODE>
+<DD>
+This method assigns the derivative in the second surface parameter
+(given in the local coordinate system of the geo associated with the
+surface) for surface parameter pair <CODE>(s,t)</CODE> to <CODE>d</CODE>. It returns
+if <CODE>(s,t)</CODE> is within the surface domain.
+
+<DT><CODE>boolean DL_surface::indomain(DL_Scalar s, DL_Scalar t)</CODE>
+<DD>
+This method returns whether surface parameter pair <CODE>(s,t)</CODE> is
+within the surface domain.
+
+<DT><CODE>boolean DL_surface::closeto(DL_point *p, DL_Scalar *s, DL_Scalar *t)</CODE>
+<DD>
+This method returns in <CODE>*s</CODE> and <CODE>*t</CODE> a surface parameter pair
+which is such that the distance between that point on the surface and
+point <CODE>p</CODE> (given in world coordinates) is minimal.
+
+<DT><CODE>DL_geo* DL_surface::get_geo()</CODE>
+<DD>
+This method returns a reference to the geo that is associated with this
+surface.
+
+<DT><CODE>DL_Scalar DL_surface::get_minparam0()</CODE>
+<DD>
+<DT><CODE>DL_Scalar DL_surface::get_maxparam0()</CODE>
+<DD>
+<DT><CODE>DL_Scalar DL_surface::get_minparam1()</CODE>
+<DD>
+<DT><CODE>DL_Scalar DL_surface::get_maxparam1()</CODE>
+<DD>
+These methods return the minimum and maximum values for the two surface
+parameters. These values determine the domain of the surface. Some
+surface specializations may offer methods that allow you to also change
+these values, but not all surface types may want to allow this.
+
+</DL>
+
+
+
+<H3><A NAME="SEC57" HREF="DLdoc_toc.html#TOC57">Flat surface (plane)</A></H3>
+
+<P>
+The flat surface class provides a surface definition for a plane
+(without restrictions on the domain). Here is its API:
+
+</P>
+
+<PRE>
+class <B>DL_flatsurface</B> : public <B>DL_surface</B> {
+  void assign(DL_flatsurface*);
+
+  void init(DL_geo*,DL_point*,DL_vector*);
+  void init(DL_geo*,DL_point*,DL_vector*,DL_vector*);
+
+  void set_minparam0(DL_Scalar);
+  void set_maxparam0(DL_Scalar);
+  void set_minparam1(DL_Scalar);
+  void set_maxparam1(DL_Scalar);
+  
+       DL_flatsurface();
+       ~DL_flatsurface();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_flatsurface::assign(DL_flatsurface *f)</CODE>
+<DD>
+This method assigns flat surface <CODE>f</CODE> to this surface.
+
+<DT><CODE>void DL_flatsurface::init(DL_geo *g, DL_point *p, DL_vector *n)</CODE>
+<DD>
+This method initializes the plane as the plane in <CODE>g</CODE>, through
+point <CODE>p</CODE> and with normal <CODE>n</CODE>.
+
+<DT><CODE>void DL_flatsurface::init(DL_geo *g, DL_point *p, DL_vector *v, DL_vector *w)</CODE>
+<DD>
+This method initializes the plane as the plane in <CODE>g</CODE>, through
+point <CODE>p</CODE> and spanned by vectors <CODE>v</CODE> and <CODE>w</CODE> (this has as
+advantage above the other <CODE>init</CODE> method that there is more control
+over the directions governed by the surface parameters).
+
+<DT><CODE>void DL_flatsurface::set_minparam0(DL_Scalar m)</CODE>
+<DD>
+<DT><CODE>void DL_flatsurface::set_maxparam0(DL_Scalar m)</CODE>
+<DD>
+<DT><CODE>void DL_flatsurface::set_minparam1(DL_Scalar m)</CODE>
+<DD>
+<DT><CODE>void DL_flatsurface::set_maxparam1(DL_Scalar m)</CODE>
+<DD>
+These methods provide a means of setting the domain boundaries. These
+are not actually used by the surface itself, but might be used by for
+example a visualization routine which only visualizes part of the
+(infinite) surface.
+
+</DL>
+
+
+
+<H3><A NAME="SEC58" HREF="DLdoc_toc.html#TOC58">Ellipsoid</A></H3>
+
+<P>
+The ellipsoid surface class provides an explicit surface definition for
+an ellipsoid surface. Due to the explicit nature, there are two points on
+the ellipsoid (at the tips of the second major axis) that have no clearly
+defined derivative. So any point-to-surface constraint which happens to
+visit either of these two points will fail.
+
+</P>
+
+<PRE>
+class <B>DL_ellipsoid</B> : public <B>DL_surface</B> {
+  void assign(DL_ellipsoid*);
+  void init(DL_geo*,DL_point*,DL_vector*,DL_vector*,DL_vector*);
+
+       DL_ellipsoid();
+       ~DL_ellipsoid();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_ellipsoid::assign(DL_ellipsoid *e)</CODE>
+<DD>
+This method assigns ellipsoid <CODE>e</CODE> to this ellipsoid.
+
+<DT><CODE>void DL_ellipsoid::init(DL_geo *g, DL_point *c,</CODE>
+<DD>
+<DT><CODE>DL_vector *x, DL_vector *y, DL_vector *z)</CODE>
+<DD>
+This method initializes the ellipsoid. It is associates with geo
+<CODE>g</CODE>, and has point <CODE>c</CODE> as its center. The three major axis are
+vectors <CODE>x, y</CODE> and <CODE>z</CODE>. The surface is defined as
+<EM>sin(s)x+cos(s)cos(t)y+sin(t)z</EM> for surface parameter pairs
+<EM>(s,t)</EM>.
+
+</DL>
+
+
+
+<H2><A NAME="SEC59" HREF="DLdoc_toc.html#TOC59">Sensors</A></H2>
+
+<P>
+The sensor class provides a uniform way to take measurements in the
+simulated system (via the <CODE>sense</CODE> method). Each sensor provides
+one scalar value as its sensor reading. Sensors are used by some of the
+<CODE>controller</CODE> classes, which try to steer the system (though
+<CODE>actuator</CODE>s) in such a way that the sensor reading equals a given
+reference signal.
+
+</P>
+<P>
+Here is the sensor interface description:
+
+</P>
+
+<PRE>
+class <B>DL_sensor</B> {
+protected:
+public:
+  virtual DL_Scalar sense();
+  
+       DL_sensor();
+       ~DL_sensor();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_sensor::sense()</CODE>
+<DD>
+This method lets the sensor take a measurement and returns the
+sensor reading.
+
+</DL>
+
+
+
+<H3><A NAME="SEC60" HREF="DLdoc_toc.html#TOC60">Sensor_dist_v</A></H3>
+
+<P>
+A sensor measuring distance in a given direction:
+
+</P>
+
+<PRE>
+class <B>DL_sensor_dist_v</B>: public <B>DL_sensor</B> {
+  void init(DL_dyna*, DL_point*, DL_vector*, DL_geo*, DL_point*);
+
+       DL_sensor_dist_v();
+       ~DL_sensor_dist_v();
+
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_sensor_dist_v::init(DL_dyna *d, DL_point *pd, DL_vector *rd,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_point *pg)</CODE>
+<DD>
+This method initialises the sensor to measure the distance between point
+<CODE>pd</CODE> in <CODE>d</CODE>, and point <CODE>pg</CODE> in <CODE>g</CODE>, in direction
+<CODE>rd</CODE> in <CODE>d</CODE>.
+
+</DL>
+
+
+
+<H3><A NAME="SEC61" HREF="DLdoc_toc.html#TOC61">Sensor_velo_v</A></H3>
+
+<P>
+A sensor measuring velocity in a given direction:
+
+</P>
+
+<PRE>
+class <B>DL_sensor_velo_v</B>: public <B>DL_sensor</B> {
+  void init(DL_dyna*, DL_point*, DL_vector*, DL_geo*, DL_point*);
+
+       DL_sensor_velo_v();
+       ~DL_sensor_velo_v();
+
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_sensor_velo_v::init(DL_dyna *d, DL_point *pd, DL_vector *rd,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_point *pg)</CODE>
+<DD>
+This method initialises the sensor to measure the relative velocity
+between point <CODE>pd</CODE> in <CODE>d</CODE>, and point <CODE>pg</CODE> in <CODE>g</CODE>,
+in direction <CODE>rd</CODE> in <CODE>d</CODE>.
+
+</DL>
+
+
+
+<H3><A NAME="SEC62" HREF="DLdoc_toc.html#TOC62">Sensor_angle_v</A></H3>
+
+<P>
+A sensor measuring the angle between two vectors around an axis with a
+given direction:
+
+</P>
+
+<PRE>
+class <B>DL_sensor_angle_v</B>: public <B>DL_sensor</B> {
+  void init(DL_dyna*, DL_vector*, DL_vector*, DL_geo*, DL_vector*);
+  void initw(DL_dyna*, DL_vector*, DL_vector*, DL_geo*, DL_vector*);
+  
+       DL_sensor_angle_v();
+       ~DL_sensor_angle_v();
+
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_sensor_angle_v::init(DL_dyna *d, DL_vector *dd, DL_vector *rd,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_vector *dg);</CODE>
+<DD>
+This method initialises the sensor to measure the relative angle around
+the axis with direction <CODE>rd</CODE> in <CODE>d</CODE>, between vectors <CODE>dd</CODE>
+in <CODE>d</CODE> and <CODE>dg</CODE> in <CODE>g</CODE>.
+
+<DT><CODE>void DL_sensor_angle_v::initw(DL_dyna *d, DL_vector *dd, DL_vector *rd,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_vector *dg);</CODE>
+<DD>
+This method does the same as the <CODE>init</CODE> method above, but now the
+three vectors are given in world coordinates (the method will convert
+them to local coordinates).
+
+</DL>
+
+
+
+<H3><A NAME="SEC63" HREF="DLdoc_toc.html#TOC63">Sensor_avelo_v</A></H3>
+
+<P>
+A sensor measuring angular velocity between two vectors around an axis with a
+given direction:
+
+</P>
+
+<PRE>
+class <B>DL_sensor_avelo_v</B>: public <B>DL_sensor</B> {
+  void init(DL_dyna*, DL_vector*, DL_vector*, DL_geo*, DL_vector*);
+  void initw(DL_dyna*, DL_vector*, DL_vector*, DL_geo*, DL_vector*);
+  
+       DL_sensor_avelo_v();
+       ~DL_sensor_avelo_v();
+
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_sensor_avelo_v::init(DL_dyna *d, DL_vector *dd, DL_vector *rd,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_vector *dg);</CODE>
+<DD>
+This method initialises the sensor to measure the relative angular
+velocity around the axis with direction <CODE>rd</CODE> in <CODE>d</CODE>, between
+vectors <CODE>dd</CODE> in <CODE>d</CODE> and <CODE>dg</CODE> in <CODE>g</CODE>.
+
+<DT><CODE>void DL_sensor_avelo_v::initw(DL_dyna *d, DL_vector *dd, DL_vector *rd,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_vector *dg);</CODE>
+<DD>
+This method does the same as the <CODE>init</CODE> method above, but now the
+three vectors are given in world coordinates (the method will convert
+them to local coordinates).
+
+</DL>
+
+
+
+<H2><A NAME="SEC64" HREF="DLdoc_toc.html#TOC64">Actuators</A></H2>
+
+<P>
+The actuator class provides a uniform way to apply different forces,
+torques and impulses in a simulated system (via the <CODE>apply</CODE>
+method). Each actuator transforms one scalar value to an applied force,
+torque or impulse and applies it. Sensors are used by some of the
+<CODE>controller</CODE> classes, which try to steer the system though
+<CODE>actuator</CODE>s in such a way that certain <CODE>sensor</CODE> readings equal
+given reference signals.
+
+</P>
+<P>
+In order to make it easy to visualise the calculated forces, torques and
+impulses, the <CODE>actuator</CODE> class inherits from the
+<CODE>force_drawable</CODE> class.
+
+</P>
+<P>
+Here is the actuator interface description:
+
+</P>
+
+<PRE>
+class <B>DL_actuator</B>: public <B>DL_force_drawable</B> {
+protected:
+public:
+  virtual void apply(DL_Scalar);
+
+  void set_max_actuator(DL_Scalar);
+  DL_Scalar get_max_actuator();
+
+       DL_actuator();
+       ~DL_actuator();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_actuator::apply(DL_Scalar a)</CODE>
+<DD>
+This method lets the actuator apply its forces, torques and/or impulses
+based on actuator value <CODE>a</CODE>.
+
+<DT><CODE>void DL_actuator::set_max_actuator(DL_Scalar m)</CODE>
+<DD>
+Using this method, a maximum actuator value can be given (no limit if
+the value is smaller or equal than zero). If a value larger than this
+value is provided in the <CODE>apply</CODE> method, it is replaced with the
+maximum. The default is no maximum (a value of 0).
+
+<DT><CODE>DL_Scalar DL_actuator::get_max_actuator()</CODE>
+<DD>
+This method returns the current maximum actuator value.
+
+</DL>
+
+
+
+<H3><A NAME="SEC65" HREF="DLdoc_toc.html#TOC65">Actuator_fv</A></H3>
+
+<P>
+An actuator that applies a force in a given direction:
+
+</P>
+
+<PRE>
+class <CODE>DL_actuator_fv</CODE>: public <CODE>DL_actuator</CODE> {
+  void init(DL_dyna*, DL_point*, DL_vector*, DL_geo*, DL_point*);
+  
+       DL_actuator_fv();
+       ~DL_actuator_fv();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_actuator_fv::init(DL_dyna *d, DL_point *pd, DL_vector *rd,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_point *pg)</CODE>
+<DD>
+This method initialises the actuator. The <CODE>apply</CODE> method will
+calculate a force in the direction of <CODE>rd</CODE> in <CODE>d</CODE> with a
+magnitude of the scalar given as a parameter to the <CODE>apply</CODE> method.
+This force is then applied to point <CODE>pd</CODE> of <CODE>d</CODE>, and
+-inverted- to point <CODE>pg</CODE> of <CODE>g</CODE>.
+
+</DL>
+
+
+
+<H3><A NAME="SEC66" HREF="DLdoc_toc.html#TOC66">Actuator_tv</A></H3>
+
+<P>
+An actuator that applies torques in a given direction:
+
+</P>
+
+<PRE>
+class <CODE>DL_actuator_tv</CODE>: public <CODE>DL_actuator</CODE> {
+  void init(DL_dyna*, DL_vector*, DL_geo*);
+  void initw(DL_dyna*, DL_vector*, DL_geo*);
+  
+       DL_actuator_tv();
+       ~DL_actuator_tv();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_actuator_tv::init(DL_dyna *d, DL_vector *rd, DL_geo *g)</CODE>
+<DD>
+This method initialised the actuator. The <CODE>apply</CODE> method will
+calculate a torque in the direction of <CODE>rd</CODE> in <CODE>d</CODE> with a
+magnitude of the scalar given as a parameter to the <CODE>apply</CODE> method.
+This torque is then applied to <CODE>d</CODE>, and -inverted- to <CODE>g</CODE>.
+
+<DT><CODE>void DL_actuator_tv::initw(DL_dyna *d, DL_vector *rd, DL_geo *g)</CODE>
+<DD>
+This method does the same as the <CODE>init</CODE> method above, but now
+vector rd is given in world coordinates (the method will convert
+it to local coordinates).
+
+</DL>
+
+
+
+<H2><A NAME="SEC67" HREF="DLdoc_toc.html#TOC67">Controllers</A></H2>
+
+<P>
+Controllers are objects that calculate and apply controller forces once
+each frame, in contrast to constraints which --within a frame-- can
+repeatedly improve on the reaction forces and can also `look ahead' at
+the results of the application of the forces. As a result of this,
+controllers are usually of a `slower', less exact nature than
+constraints, but they also take less computational effort. Often
+a controller is used in concert with a constraint to regulate the degrees
+of freedom that the constraint leaves free.
+
+</P>
+
+
+
+<H3><A NAME="SEC68" HREF="DLdoc_toc.html#TOC68">Controller</A></H3>
+
+<P>
+The controller class provides a base-class for controllers.  This base
+class makes sure that controllers are registered with the dyna system,
+and that they indeed are prompted once a frame to calculate and apply
+their controller force. The `deactivate' and `activate' methods can be
+used to (temporarily) deactivate and reactivate the controller. Only the
+controller's descendants should be instantiated.
+
+</P>
+
+<PRE>
+class <B>DL_controller</B> : public <B>DL_force_drawable</B> {
+  void activate();
+  void deactivate();
+
+       DL_controller();
+       ~DL_controller();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_controller::activate()</CODE>
+<DD>
+This method activates the controller (it is usually automatically
+invoked by the initialization methods of specific controllers, so it is
+usually only used explicitly to reactivate a constraint after it has
+been deactivated.
+
+<DT><CODE>void DL_controller::deactivate()</CODE>
+<DD>
+this method deactivates the controller: it will not calculate or apply
+controller forces until it is activated again.
+
+</DL>
+
+
+
+<H3><A NAME="SEC69" HREF="DLdoc_toc.html#TOC69">Spring (/damper)</A></H3>
+
+<P>
+The spring class is used to model (dampened) springs. As with
+connection constraints, upon initialization the two connection-points
+should be supplied, optionally with the rest-length of the spring, the spring
+constant, and -if required- a damping factor. This class can also be
+used to model dampers: in that case a spring constant of zero and a non-zero
+damping constant are used.
+
+</P>
+
+<PRE>
+class <B>DL_spring</B> : public <B>DL_controller</B> {
+  DL_Scalar maxforce;
+  DL_Scalar l,c,dc;
+  boolean el;
+
+  void init(DL_dyna*, DL_point*, DL_geo*, DL_point*);
+  void init(DL_dyna*, DL_point*, DL_geo*, DL_point*,DL_Scalar,DL_Scalar);
+  void init(DL_dyna*, DL_point*, DL_geo*, DL_point*,DL_Scalar,DL_Scalar,DL_Scalar);
+
+  void springforce(DL_vector*);
+     
+       DL_spring();
+       ~DL_spring();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_spring::maxforce</CODE>
+<DD>
+With this attribute, a maximum spring force for the controller can be
+specified: if this maximum force is exceed the controller will
+deactivate itself, so the connection `breaks'. A <CODE>maxforce</CODE> value
+of zero indicates that there is no limit to the spring force
+magnitude. For a negative <CODE>maxforce</CODE> value, the spring does not
+deactivate itself when the maxforce magnitude is exceeded, but the
+portion of the force exceeding the maxforce value is not applied. The
+default value for <CODE>maxforce</CODE> is zero.
+
+<DT><CODE>DL_Scalar DL_spring::l</CODE>
+<DD>
+This attribute specifies the rest length of the spring (initial value: 0)
+
+<DT><CODE>DL_Scalar DL_spring::c</CODE>
+<DD>
+This attribute specifies the spring constant (initial value: 0)
+
+<DT><CODE>DL_Scalar DL_spring::dc</CODE>
+<DD>
+This attribute specifies the damping constant (initial value: 0)
+
+<DT><CODE>boolean DL_spring::el</CODE>
+<DD>
+This attribute specifies if the spring acts like a rubber band: if true
+the spring will only exert pulling forces (no pushing forces are
+applied). The initial value for this attribute is false.
+
+<DT><CODE>void DL_spring::init(DL_dyna *d, DL_point *pd, DL_geo *g, DL_point *pg)</CODE>
+<DD>
+This method initializes the spring with attachment points <CODE>pd</CODE> in
+<CODE>d</CODE>, and <CODE>pg</CODE> in <CODE>g</CODE> (both points in local coordinates of
+their respective geometries). This method leaves the rest length, and
+the spring and damping constants at their current value.
+
+<DT><CODE>void DL_spring::init(DL_dyna *d, DL_point *pd, DL_geo *g, DL_point *pg,</CODE>
+<DD>
+<DT><CODE>DL_Scalar l, DL_Scalar c)</CODE>
+<DD>
+This method initializes the spring just like the method above, but also
+specifies the new rest length to be <CODE>l</CODE>, and the new spring
+constant to be <CODE>c</CODE>.
+
+<DT><CODE>void DL_spring::init(DL_dyna *d, DL_point *pd, DL_geo *g, DL_point *pg,</CODE>
+<DD>
+<DT><CODE>DL_Scalar l, DL_Scalar c, DL_Scalar dc)</CODE>
+<DD>
+This method initializes the spring just like the method above, but also
+specifies the new damping constant to be <CODE>dc</CODE>.
+
+<DT><CODE>void DL_spring::springforce(DL_vector *f)</CODE>
+<DD>
+This method assigns the most recently calculated spring force to <CODE>f</CODE>.
+
+</DL>
+
+
+
+<H3><A NAME="SEC70" HREF="DLdoc_toc.html#TOC70">Torquespring (/damper)</A></H3>
+
+<P>
+The torquespring class is used to model (dampened) rotational springs
+that try to enforce a relative orientation of two vectors around a given
+axis. Upon initialization the three evctors have to be given, optionally
+with the rest-angle of the spring, the spring constant, and -if
+required- a damping factor. This class can also be used to model
+dampers: in that case a spring constant of zero and a non-zero damping
+constant are used.
+
+</P>
+
+<PRE>
+class <B>DL_torquespring</B> : public <B>DL_controller</B> {
+  DL_Scalar maxtorque;
+  DL_Scalar a,c,dc;
+
+  void init(DL_dyna*, DL_vector*, DL_vector*, DL_geo*, DL_vector*);
+  void init(DL_dyna*, DL_vector*, DL_vector*, DL_geo*, DL_vector*,
+              DL_Scalar,DL_Scalar);
+  void init(DL_dyna*, DL_vector*, DL_vector*, DL_geo*, DL_vector*,
+              DL_Scalar,DL_Scalar,DL_Scalar);
+
+  void springtorque(DL_vector*);
+     
+       DL_torquespring();
+       ~DL_torquespring();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>DL_Scalar DL_torquespring::maxtorque</CODE>
+<DD>
+With this attribute, a maximum spring torque for the controller can be
+specified: if this maximum force is exceed the controller will
+deactivate itself, so the connection `breaks'. A <CODE>maxtorque</CODE> value
+of zero indicates that there is no limit to the spring torque
+magnitude. For a negative <CODE>maxtorque</CODE> value, the spring does not
+deactivate itself when the maxtorque magnitude is exceeded, but the
+portion of the torque exceeding the maxtorque value is not applied. The
+default value for <CODE>maxtorque</CODE> is zero.
+
+<DT><CODE>DL_Scalar DL_torquespring::a</CODE>
+<DD>
+This attribute specifies the rest angle of the spring (initial value: 0)
+
+<DT><CODE>DL_Scalar DL_torquespring::c</CODE>
+<DD>
+This attribute specifies the spring constant (initial value: 0)
+
+<DT><CODE>DL_Scalar DL_torquespring::dc</CODE>
+<DD>
+This attribute specifies the damping constant (initial value: 0)
+
+<DT><CODE>void DL_torquespring::init(DL_dyna *d, DL_vector *dd, DL_vector *dir,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_vector *dg)</CODE>
+<DD>
+This method initializes the spring, specifying that the angle is to be
+determined between vector <CODE>dd</CODE> in <CODE>d</CODE> and vector <CODE>dg</CODE> in
+<CODE>g</CODE>, around vector <CODE>dir</CODE> in <CODE>d</CODE> (all vectors in local
+coordinates of their respective geometries). This method leaves the rest
+length, and the spring and damping constants at their current value.
+
+<DT><CODE>void DL_torquespring::init(DL_dyna *d, DL_vector *dd, DL_vector *dir,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_vector *dg,</CODE>
+<DD>
+<DT><CODE>DL_Scalar a, DL_Scalar c)</CODE>
+<DD>
+This method initializes the spring just like the method above, but also
+specifies the new rest angle to be <CODE>a</CODE>, and the new spring
+constant to be <CODE>c</CODE>.
+
+<DT><CODE>void DL_torquespring::init(DL_dyna *d, DL_vector *dd, DL_vector *dir,</CODE>
+<DD>
+<DT><CODE>DL_geo *g, DL_vector *dg,</CODE>
+<DD>
+<DT><CODE>DL_Scalar a, DL_Scalar c, DL_Scalar dc)</CODE>
+<DD>
+This method initializes the spring just like the method above, but also
+specifies the new damping constant to be <CODE>dc</CODE>.
+
+<DT><CODE>void DL_torquespring::springtorque(DL_vector *t)</CODE>
+<DD>
+This method assigns the most recently calculated spring torque to <CODE>t</CODE>.
+
+</DL>
+
+
+
+<H3><A NAME="SEC71" HREF="DLdoc_toc.html#TOC71">PID Controller</A></H3>
+
+<P>
+The PID controller class is a class of controllers that works in
+conjunction with the sensor and actuator classes. It tries to activate
+the actuator in such a way that the sensor reading from the sensor
+matches a given target signal (which may be varying over time). It does
+so by measuring the error between the target value and the sensor value
+and steering the actuator proportionally to that error, its integral,
+and/or it's derivative.
+
+</P>
+<P>
+The PID class can be used in two different ways:
+
+<OL>
+<LI>With the sensors and actuators from this class library.
+
+      This method is used when the controller is provided with a
+      sensor and an actuator upon contruction. The controller is
+      the automatically activated and will start reading its sensor
+      and applying its calculates actuator values.
+<LI>With external means for measuring and applying actuator values.
+
+      This method is used when the controller is not given a sensor and
+      actuator upon contruction. The controller is not activated then,
+      but a user can still call the <CODE>sens2act()</CODE> method each frame
+      providing the controller with a sensor reading and getting the
+      appropriate actuator value in return.
+</OL>
+
+<P>
+For example, the <CODE>sensor_dist_v</CODE> (or <CODE>sensor_velo_v</CODE>) sensor
+and the <CODE>actuator_fv</CODE> actuator can be combined with the PID
+controller class to govern the left-over degree of freedom of the prism
+constraint.
+In the same manner, the <CODE>sensor_angle_v</CODE> (or <CODE>sensor_avelo_v</CODE>)
+sensor and the <CODE>actuator_tv</CODE> actuator can be combined to control
+the remaining degree of freedom of the linehinge constraint.
+
+</P>
+<P>
+Here is the PID controller interface:
+
+</P>
+
+<PRE>
+class <B>DL_pid</B> : public <B>DL_controller</B> {
+  void	init_coefs(DL_Scalar, DL_Scalar, DL_Scalar);
+
+  void set_target(DL_Scalar);
+  DL_Scalar get_target();
+
+  void set_pcoef(DL_Scalar);
+  DL_Scalar get_pcoef();
+  void set_icoef(DL_Scalar);
+  DL_Scalar get_icoef();
+  void set_dcoef(DL_Scalar);
+  DL_Scalar get_dcoef();
+
+  DL_Scalar sens2act(DL_Scalar);
+  
+             DL_pid(DL_sensor*, DL_actuator*);
+             DL_pid();
+	     ~DL_pid();
+}
+</PRE>
+
+<DL COMPACT>
+
+<DT><CODE>void DL_pid::init_coefs(DL_Scalar pc, DL_Scalar ic, DL_Scalar dc)</CODE>
+<DD>
+This method sets the proportional coefficient to <CODE>pc</CODE>, the
+coefficient for the integrated error to <CODE>ic</CODE>, and the coefficient
+for the derivative of the error to <CODE>dc</CODE>.
+
+<DT><CODE>void DL_pid::set_target(DL_Scalar t)</CODE>
+<DD>
+This method sets the current controller target to <CODE>t</CODE>.
+
+<DT><CODE>DL_Scalar DL_pid::get_target()</CODE>
+<DD>
+This method returns the current controller target.
+
+<DT><CODE>void DL_pid::set_pcoef(DL_Scalar pc)</CODE>
+<DD>
+This method sets the proportional coefficient to <CODE>pc</CODE>.
+
+<DT><CODE>DL_Scalar DL_pid::get_pcoef()</CODE>
+<DD>
+This methods returns the current proportional coefficient.
+
+<DT><CODE>void DL_pid::set_icoef(DL_Scalar ic)</CODE>
+<DD>
+This method sets the coefficient for the integrated error to <CODE>ic</CODE>.
+
+<DT><CODE>DL_Scalar DL_pid::get_icoef()</CODE>
+<DD>
+This methods returns the current coefficient for the integrated error.
+
+<DT><CODE>void DL_pid::set_dcoef(DL_Scalar dc)</CODE>
+<DD>
+This method sets the coefficient for the derivative of the error to <CODE>dc</CODE>.
+
+<DT><CODE>DL_Scalar DL_pid::get_dcoef()</CODE>
+<DD>
+This methods returns the current coefficient for the derivative of the error.
+
+<DT><CODE>DL_Scalar sens2act(DL_Scalar)</CODE>
+<DD>
+This method returns the actuator value for the given sensor reading
+(to be called each frame when no sensor and actuator were provided to
+the controller at construction time.
+  
+</DL>
+
+<P><HR><P>
+This document was generated on 19 April 2000 using the
+<A HREF="http://wwwinfo.cern.ch/dis/texi2html/">texi2html</A>
+translator version 1.52.</P>
+</BODY>
+</HTML>

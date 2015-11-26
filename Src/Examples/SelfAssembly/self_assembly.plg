@@ -1,0 +1,94 @@
+--------------------Configuration: self_assembly - Win32 Release--------------------
+Begining build with project "C:\Tue\Dynamo_dir\Dynamo\Src\Examples\SelfAssembly\self_assembly.dsp", at root.
+Active configuration is Win32 (x86) Application (based on Win32 (x86) Application)
+
+Project's tools are:
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /G5 /ML /W3 /GX /Ot /Oa /Ow /Oi /Op /Oy /Ob2 /I "..\..\Inc" /I "..\Shared" /I "c:\mssdk\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /Fp"Release/self_assembly.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c "
+			"OLE Type Library Maker" with flags "/nologo /D "NDEBUG" /mktyplib203 /o NUL /win32 "
+			"Win32 Resource Compiler" with flags "/l 0x409 /d "NDEBUG" "
+			"Browser Database Maker" with flags "/nologo /o"Release/self_assembly.bsc" "
+			"COFF Linker for 80x86" with flags "kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib d3dim.lib ddraw.lib dxguid.lib winmm.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/self_assembly.pdb" /machine:I386 /out:"../bin/self_assembly.exe" /libpath:"c:\mssdk\lib" "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating temp file "C:\WINDOWS\TEMP\RSP73B3.TMP" with contents </nologo /G5 /ML /W3 /GX /Ot /Oa /Ow /Oi /Op /Oy /Ob2 /I "..\..\Inc" /I "..\Shared" /I "c:\mssdk\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /Fp"Release/self_assembly.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\constraint.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\constraint_manager.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\containerlist.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\dyna.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\dyna_system.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\euler.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\force_drawable.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\force_drawer.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\geo.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\largematrix.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\largevector.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\m_integrator.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\matrix.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\pointvector.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\ptp.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\rungekutta2.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\rungekutta4.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Examples\SelfAssembly\selfassembly.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\supvec.cpp"
+"C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\vector4.cpp"
+>
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP73B3.TMP" 
+Creating temp file "C:\WINDOWS\TEMP\RSP73B4.TMP" with contents <kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib d3dim.lib ddraw.lib dxguid.lib winmm.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/self_assembly.pdb" /machine:I386 /out:"../bin/self_assembly.exe" /libpath:"c:\mssdk\lib" 
+.\Release\constraint.obj
+.\Release\constraint_manager.obj
+.\Release\containerlist.obj
+.\Release\dyna.obj
+.\Release\dyna_system.obj
+.\Release\euler.obj
+.\Release\force_drawable.obj
+.\Release\force_drawer.obj
+.\Release\geo.obj
+.\Release\largematrix.obj
+.\Release\largevector.obj
+.\Release\m_integrator.obj
+.\Release\matrix.obj
+.\Release\pointvector.obj
+.\Release\ptp.obj
+.\Release\rungekutta2.obj
+.\Release\rungekutta4.obj
+.\Release\selfassembly.obj
+.\Release\supvec.obj
+.\Release\vector4.obj>
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP73B4.TMP" 
+Compiling...
+constraint.cpp
+constraint_manager.cpp
+containerlist.cpp
+dyna.cpp
+dyna_system.cpp
+euler.cpp
+force_drawable.cpp
+force_drawer.cpp
+geo.cpp
+largematrix.cpp
+largevector.cpp
+m_integrator.cpp
+matrix.cpp
+C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\matrix.cpp(311) : warning C4056: overflow in floating-point constant arithmetic
+pointvector.cpp
+ptp.cpp
+rungekutta2.cpp
+rungekutta4.cpp
+C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\rungekutta4.cpp(66) : warning C4056: overflow in floating-point constant arithmetic
+selfassembly.cpp
+..\Shared\render.cpp(98) : warning C4056: overflow in floating-point constant arithmetic
+..\Shared\render.cpp(282) : warning C4056: overflow in floating-point constant arithmetic
+C:\Tue\Dynamo_dir\Dynamo\Src\Examples\SelfAssembly\selfassembly.cpp(100) : warning C4056: overflow in floating-point constant arithmetic
+C:\Tue\Dynamo_dir\Dynamo\Src\Examples\SelfAssembly\selfassembly.cpp(100) : warning C4056: overflow in floating-point constant arithmetic
+supvec.cpp
+vector4.cpp
+C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\vector4.cpp(155) : warning C4056: overflow in floating-point constant arithmetic
+C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\vector4.cpp(177) : warning C4056: overflow in floating-point constant arithmetic
+C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\vector4.cpp(182) : warning C4056: overflow in floating-point constant arithmetic
+C:\Tue\Dynamo_dir\Dynamo\Src\Cpp\vector4.cpp(187) : warning C4056: overflow in floating-point constant arithmetic
+Linking...
+
+
+
+self_assembly.exe - 0 error(s), 10 warning(s)

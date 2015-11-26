@@ -1,0 +1,1216 @@
+This is Info file DLdoc.info, produced by Makeinfo version 1.68 from
+the input file DLdoc.texi.
+
+
+File: DLdoc.info,  Node: matrices,  Next: lists,  Prev: vectors,  Up: General classes
+
+Matrices
+========
+
+Here is the API for the 3 by 3 matrix class:
+
+     class DL_matrix {
+         DL_vector c0;
+         DL_vector c1;
+         DL_vector c2;
+     
+         void  makeone();
+         void  makezero();
+         void  normalize();
+     
+         void  assign(DL_matrix*);
+         void  assign(DL_vector*,DL_vector*,DL_vector*);
+         void  assign(DL_Scalar,DL_Scalar,DL_Scalar,
+                      DL_Scalar,DL_Scalar,DL_Scalar,
+                      DL_Scalar,DL_Scalar,DL_Scalar);
+     
+         DL_Scalar get(int,int);
+         void  set(int,int,DL_Scalar);
+     
+         void  plus(DL_matrix*,DL_matrix*);
+         void  minus(DL_matrix*,DL_matrix*);
+     
+         void  plusis(DL_matrix*);
+         void  minusis(DL_matrix*);
+         void  timesis(DL_Scalar);
+     
+         void  times(DL_matrix*,DL_matrix*);
+         void  times(DL_Scalar,DL_matrix*);
+         void  times(DL_vector*,DL_vector*);
+         void  times(DL_point*,DL_point*);
+         void  invert(DL_matrix*);
+         void  transpose(DL_matrix*);
+         void  timestranspose(DL_matrix*, DL_matrix*);
+         void  transposetimes(DL_vector*, DL_vector*);
+         void  jacobi(DL_matrix*,DL_vector*);
+         void  diag_transpose_vec(DL_vector*,DL_vector*,DL_vector*);
+         void  negcrossdiagcross(DL_point*,DL_vector*,DL_point*);
+         void  diagcrosstranspose(DL_vector*,DL_point*,DL_matrix*);
+     
+         void  tensor(DL_vector*,DL_vector*);
+     
+         DL_matrix();
+         DL_matrix(DL_vector*,DL_vector*,DL_vector*);
+         ~DL_matrix();
+     }
+
+`DL_vector DL_matrix::c0'
+`DL_vector DL_matrix::c1'
+`DL_vector DL_matrix::c2'
+     These attributes hold the three column vectors that constitute the
+     matrix.
+
+`void DL_matrix::makeone()'
+     This method assigns the unit matrix to this matrix
+
+`void DL_matrix::makeone()'
+     This method assigns the zero matrix to this matrix
+
+`void DL_matrix::normalize()'
+     This method normalizes each of the three column vectors of the
+     matrix.
+
+`void DL_matrix::assign(DL_matrix *A)'
+     This method assigns matrix `A' to this matrix.
+
+`void DL_matrix::assign(DL_vector *v0, DL_vector *v1, DL_vector *v2)'
+     This method assigns the three vectors `v0, v1' and `v2' to the
+     three column vectors of this matrix.
+
+`void DL_matrix::assign(DL_Scalar c0x, DL_Scalar c1x, DL_Scalar c2x,'
+`                       DL_Scalar c0y, DL_Scalar c1y, DL_Scalar c2y,'
+`                       DL_Scalar c0z, DL_Scalar c1z, DL_Scalar c2z)'
+     This method assigns the given DL_Scalars to the elements of this
+     matrix
+
+`DL_Scalar DL_matrix::get(int i, int j)'
+     This method returns the `i'-th coordinate of the `j'-th column of
+     this matrix (i,j=0,1,2).
+
+`void DL_matrix::set(int i, int j,DL_Scalar f)'
+     This method assigns DL_Scalar `f' to the element at the `i'-th
+     coordinate of the `j'-th column of this matrix (i,j=0,1,2)
+
+`void DL_matrix::plus(DL_matrix *A, DL_matrix *sum)'
+     This method assigns to `sum' the sum of this matrix and matrix `A'.
+
+`void DL_matrix::minus(DL_matrix *A, DL_matrix *diff)'
+     This method assigns to `diff' the difference between this matrix
+     and matrix `A'.
+
+`void DL_matrix::times(DL_matrix *A, DL_matrix *prod)'
+     This method assigns to `prod' the product of this matrix and matrix
+     `A'.
+
+`void DL_matrix::plusis(DL_matrix *A)'
+     This method adds matrix `A' to this matrix
+
+`void DL_matrix::minusis(DL_matrix *A)'
+     This method substracts matrix `A' from this matrix.
+
+`void DL_matrix::timesis(DL_Scalar f)'
+     This method multiplies this matrix by factor `f'.
+
+`void DL_matrix::times(DL_vector *v, DL_vector *prod)'
+     This method assigns to `prod' the product of this matrix and vector
+     `v'.
+
+`void DL_matrix::times(DL_point *p, DL_point *prod)'
+     This method assigns to `prod' the product of this matrix and point
+     `p'.
+
+`void DL_matrix::times(DL_Scalar f, DL_matrix *prod)'
+     This method assigns to `prod' the product of this matrix and
+     DL_Scalar `f'.
+
+`void DL_matrix::invert(DL_matrix *A)'
+     This method assigns the inverse of this matrix to matrix `A'.
+
+`void DL_matrix::transpose(DL_matrix *AT)'
+     This method assign the transpose of this matrix to matrix `AT'.
+
+`void DL_matrix::timestranspose(DL_matrix *A, DL_matrix *prod)'
+     This method assigns the product of this matrix and the transpose of
+     matrix `A' to matrix `prod'.
+
+`void DL_matrix::transposetimes(DL_vector *v, DL_vector *prod)'
+     This method assigns the product of the transpose of this matrix and
+     vector `v' to vector `prod'
+
+`void DL_matrix::jacobi(DL_matrix *A, DL_vector *v)'
+     This method performs a jacobi decomposition on this matrix,
+     calculating `A' and `v' such that the product of `A' and `diag(v)'
+     and the transpose of `A' is this matrix. Here `diag(v)' is the
+     diagonal matrix containing the eigenvalues of this matrix.
+
+`void DL_matrix::diag_transpose_vec(DL_vector *d, DL_vector *v, DL_vector *r)'
+     This method assigns to vector `r' the product of `diag(d)', the
+     transpose of this matrix and `v'
+
+`void DL_matrix::negcrossdiagcross(DL_point *p, DL_vector *d, DL_point *q);'
+     This method assigns to this matrix the negation of the crossmatrix
+     induced by `p' times the diagonal matrix induced by `d' and
+     crossmatrix induced by `q'.
+
+`void DL_matrix::diagcrosstranspose(DL_vector *d, DL_point *q, DL_matrix *m);'
+     This method assigns to this matrix the product of the diagonal
+     matrix induced by `d', the crossmatrix induced by `q', and the
+     transpose of `m'.
+
+`void DL_matrix::tensor(DL_vector *v, DL_vector *w)'
+     This method assigns the tensor matrix of `v' and `w' to this
+     matrix.
+
+
+File: DLdoc.info,  Node: lists,  Prev: matrices,  Up: General classes
+
+Lists
+=====
+
+The next two classes provide support for storing objects in linked
+lists. Each of the object will have to have DL_ListElem as one of its
+ancestors, and then the DL_List class can be used to list such items. An
+item can only occur in one list at a time.
+
+The list element class does not have any public methods (only methods
+visible to DL_List), so its API is rather simple:
+
+     class DL_ListElem {
+         DL_ListElem();
+         ~DL_ListElem();
+     }
+
+The DL_List is the actual list class which can store elements of type
+`DL_ListElem'. Here is its API:
+
+     class DL_List {
+        void addelem(DL_ListElem*);
+        void addbefore(DL_ListElem*,DL_ListElem*);
+        void addafter(DL_ListElem*,DL_ListElem*);
+        void remelem(DL_ListElem*);
+        void delete_all();
+        int length();
+     
+        DL_ListElem* getfirst();
+        DL_ListElem* getnext(DL_ListElem*);
+        DL_ListElem* getlast();
+        DL_ListElem* getprev(DL_ListElem*);
+        DL_ListElem* element(int);
+     
+           DL_List();
+           ~DL_List();
+     }
+
+`void DL_List::addelem(DL_ListElem *e)'
+     This method adds element `e' to the end of the list.
+
+`void DL_List::addbefore(DL_ListElem *le, DL_ListElem *el)'
+     This methods adds element `le' to the list, in the position before
+     element `el' (or at the tail of the list if `el' is `NULL').
+
+`void DL_List::addafter(DL_ListElem *le, DL_ListElem *el)'
+     This methods adds element `le' to the list, in the position after
+     element `el' (or at the head of the list if `el' is `NULL').
+
+`void DL_List::remelem(DL_ListElem *e)'
+     This method removes element `e' from the list
+
+`void DL_List::delete_all()'
+     This method deletes all elements in the list (thereby making the
+     list empty). The elements are actually deleted, not just removed
+     from the list.
+
+`int DL_List::length()'
+     This method returns the number of elements stored in the list.
+
+`DL_ListElem* DL_List::getfirst()'
+     This method returns a reference to the first element in the list
+     (or `NULL' if the list is empty). Use this method in combination
+     with `getnext' to traverse this list elements
+
+`DL_ListElem* DL_List::getnext(DL_ListElem *e)'
+     This method returns a reference to the element in the list
+     following element `e'. This method is often used to traverse the
+     list in the following way (`T' is a type inheriting from
+     `DL_ListElem'):
+              T *my_elem=my_list->getfirst();
+              while (my_elem) {
+                 // do something with my_elem
+                 my_elem=(T*)my_list->getnext(my_elem);
+              }
+
+`DL_ListElem* DL_List::getlast()'
+     This method returns a reference to the last element in the list (or
+     `NULL' if the list is empty). Use this method in combination with
+     `getprev' to traverse this list elements in reverse order.
+
+`DL_ListElem* DL_List::getprev(DL_ListElem *e)'
+     This method returns a reference to the element in the list
+     preceding element `e'. This method is used in combination with the
+     `getlast()' method to traverse the list in reverse order.
+
+`DL_ListElem* DL_List::element(int i)'
+     This method returns a reference to the `i'-th element in the list
+     (or `NULL' if such an element does not exist).
+
+
+File: DLdoc.info,  Node: Forward dynamics classes,  Next: Inverse dynamics classes,  Prev: General classes,  Up: Top
+
+Forward dynamics classes
+************************
+
+The forward dynamics subsystem handles everything that has to do with
+making geometric objects respond to forces, torques and inertia. The
+main component is the dyna system, which manages all the dynas and
+geos, and which will make sure that the motions of the dynas are
+calculated and communicated to their companions.
+
+The following classes are present in the forward dynamics subsystem:
+
+* Menu:
+
+* force_drawables::    objects which have forces to be visualised
+* force_drawer::       the class that manages force_drawables
+* dyna_system::        the Dyna System class
+* geo::                the companion class for non-dynamically controlled
+                       geometric objects
+* dyna::               the companion class for dynamically controlled
+                       geometric objects
+* m_integrator::       the Motion Integrator class
+
+
+File: DLdoc.info,  Node: force_drawables,  Next: force_drawer,  Up: Forward dynamics classes
+
+Force Drawables
+===============
+
+Since the dynamics system revolves around (the effects) of forces,
+torques and impulse exchanges, such `actuators' will often have to be
+visualised. Visualisation is handled by the host system, but
+force_drawables provides a uniform interface for controlling if forces,
+torques and impulse exchanges are visualised.
+
+* Menu:
+
+* force_drawable:: the base class for objects which have forces to be visualised
+* usr_force_drawable:: an implementation of force_drawable for objects
+                       that do not inherit from force_drawable
+
+
+File: DLdoc.info,  Node: force_drawable,  Next: usr_force_drawable,  Up: force_drawables
+
+Force Drawable
+--------------
+
+The `DL_force_drawable class' is used as base class for for example the
+controller and constraint classes and any otehr classes that have
+`actuators' that might need to be visualised.
+
+     class DL_force_drawable {
+         virtual void show_forces();
+         virtual void hide_forces();
+     
+         virtual void get_fd_info(int&,int&);
+         virtual void get_force_info(int, DL_actuator_type&,
+     			        DL_dyna*&, DL_point*, DL_vector*);
+     
+            DL_force_drawable();  // constructor
+            ~DL_force_drawable(); // destructor
+     }
+
+`void DL_force_drawable::show_forces()'
+     This method registers this force_drawable with the force_drawer so
+     that its `actuators' are visualised.
+
+`void DL_force_drawable::hide_forces()'
+     This method removes this force_drawable from the force_drawer so
+     that its `actuators' are not visualised anymore.
+
+`void DL_force_drawable::get_fd_info(int& nrf, int& tf)'
+     This method is used by the force_drawer to retrieve the number of
+     actuators that should be drawn. A difference is made between forces
+     and reaction forces, torques and reaction torques etc. The
+     actuators are numbered from zero to `nrf', and the reaction
+     actuators are numbered from `nrf' to `tf'. For each of the
+     actuators between zero and `tf' the `get_force_method' can then be
+     called to retrieve the actual information about the actuator.
+
+     By default this method returns two zeros indicating that no
+     actuators are to be shown: it should be overriden in any
+     descendant of `DL_force_drawable' that wants actuators to be
+     visualised.
+
+`void DL_force_drawable::get_force_info(int i, DL_actuator_type& at,'
+
+`                                       DL_dyna*& d, DL_point *p, DL_vector *f)'
+     This method is used by the force_drawer to retrieve the actual
+     information about the `i'-th actuator of this force_drawable. It
+     returns in `at' the type of actuator using the enumeration type:
+     `enum DL_actuator_type {none, force, torque, impulse}' In `d' and
+     `p' the attachement point of the actuator is specified, and in `f'
+     the actuator itself.
+
+     This method should be implemented by each descendant that wants to
+     visualise its actuators: by default it returns actuator type `none'
+     regardless of `i'.
+
+
+File: DLdoc.info,  Node: usr_force_drawable,  Prev: force_drawable,  Up: force_drawables
+
+User Force Drawable
+-------------------
+
+For existing classes that do not inherit from force_drawable, this class
+provides a means to still visualise its `actuators'. It can create a
+`usr_force_drawable' object and set its attributes to visualise one
+`actuator'.
+
+     class DL_usr_force_drawable : public DL_force_drawable {
+         boolean reaction;
+         DL_actuator_type at;
+         DL_dyna *d;
+         DL_point p;
+         DL_vector f;
+     
+            DL_usr_force_drawable();  // constructor
+            ~DL_usr_force_drawable(); // destructor
+     }
+
+`boolean DL_usr_force_drawable::reaction'
+     This boolean indicates if the force is a reaction-force or not
+     (the forcedrawer might give reaction forces a different appearance
+     from the corresponding force).
+
+`DL_actuator_type DL_usr_force_drawable::at'
+     This attribute signifies what type of actuator has to be visualised
+     here: its value is of the following enumeration type:
+
+     `enum DL_actuator_type {none, force, torque, impulse}'
+
+`DL_dyna DL_usr_force_drawable::*d'
+
+`DL_point DL_usr_force_drawable::p'
+     These two attributes specify the attachment point of the
+     `actuator': it is the point with local coordinates `p' in dyna `d'.
+
+`DL_vector DL_usr_force_drawable::f'
+     This attribute finally specifies the `actuator' vector (in world
+     coordinates).
+
+
+File: DLdoc.info,  Node: force_drawer,  Next: dyna_system,  Prev: force_drawables,  Up: Forward dynamics classes
+
+Force Drawer
+============
+
+The force_drawer class is the manager of force_drawable objects. It
+provides the methods `register_fd' and `remove_fd' using which
+DL_force_drawable objects can make sure their forces are visualised or
+not (these are used in the `show_forces' and `hide_forces' methods of
+such objects). The implementation of a force_drawer should maintain a
+list of registered force_drawables, the `actuators' of which should be
+visualised each frame. The class also provides a few methods that
+enable any object to visualise an `actuator' for one frame (though this
+is relatively expensive: if such an object has to visualise forces for
+an extensive period of time, it had better use a `usr_force_drawable'
+object). The class is ment as a base class for the actual
+implementation in the host system which can do the actual visualisation
+using the host system's visualisation primitives.
+
+     class DL_force_drawer {
+       virtual void draw_force(DL_dyna*,DL_point*,DL_vector*);
+       virtual void draw_torque(DL_dyna*,DL_vector*);
+       virtual void draw_impulse(DL_dyna*,DL_point*,DL_vector*);
+     
+       virtual void draw_reaction_force(DL_dyna*,DL_point*,DL_vector*);
+       virtual void draw_reaction_torque(DL_dyna*,DL_vector*);
+       virtual void draw_reaction_impulse(DL_dyna*,DL_point*,DL_vector*);
+     
+       virtual void register_fd(DL_force_drawable*);
+       virtual void remove_fd(DL_force_drawable*);
+     
+            DL_force_drawer();  // constructor
+            ~DL_force_drawer(); // destructor
+     }
+
+`void DL_force_drawer::draw_force(DL_dyna *d, DL_point *p, DL_vector *f)'
+     This method is used to tell the force_drawer to visualise force `f'
+     applied to point `p' of dyna `d' for the coming frame.
+
+`void DL_force_drawer::draw_torque(DL_dyna *d, DL_vector *t)'
+     This method is used to tell the force_drawer to visualise torque
+     `t' applied to dyna `d' for the coming frame.
+
+`void DL_force_drawer::draw_impulse(DL_dyna *d, DL_point *p, DL_vector *i)'
+     This method is used to tell the force_drawer to visualise impulse
+     change `i' applied to point `p' of dyna `d' for the coming frame.
+
+`void DL_force_drawer::draw_reaction_force(DL_dyna *d, DL_point *p, DL_vector *f)'
+     This method is used to tell the force_drawer to visualise reaction
+     force `f' applied to point `p' of dyna `d' for the coming frame.
+
+`void DL_force_drawer::draw_reaction_torque(DL_dyna *d, DL_vector *t)'
+     This method is used to tell the force_drawer to visualise reaction
+     torque `t' applied to dyna `d' for the coming frame.
+
+`void DL_force_drawer::draw_reaction_impulse(DL_dyna *d, DL_point *p, DL_vector *i)'
+     This method is used to tell the force_drawer to visualise reaction
+     impulse change `i' applied to point `p' of dyna `d' for the coming
+     frame.
+
+`void DL_force_drawer::register_fd(DL_force_drawable *fd)'
+     This is the method that is used in `DL_force_drawable::show_forces'
+     to tell the force_drawer to visualise `fd''s actuators from now on.
+
+`void DL_force_drawer::remove_fd(DL_force_drawable *fd)'
+     This is the method that is used in `DL_force_drawable::hide_forces'
+     to tell the force_drawer to stop visualising `fd''s actuators from
+     now on.
+
+
+File: DLdoc.info,  Node: dyna_system,  Next: geo,  Prev: force_drawer,  Up: Forward dynamics classes
+
+Dyna System
+===========
+
+The dyna system is a one-of-a-kind object that steers the whole dynamics
+process. It keeps track of all the dynas and the geos in the system, and
+makes sure that they are activated properly. If there is a constraint
+manager, the dyna system object will also invoke the inverse dynamics
+routine, so that constraints are corrected along the way as well. Here
+is its API:
+
+     class DL_dyna_system {
+         DL_dyna_system_callbacks* get_companion();
+     
+         void dynamics();
+     
+         DL_geo* register_geo(void*);
+         void remove_geo(DL_geo*);
+     
+         void set_gravity(DL_vector*);
+         void get_gravity(DL_vector*);
+         void set_integrator(DL_m_integrator*);
+         DL_m_integrator* get_integrator();
+         DL_Scalar kinenergy();
+         DL_Scalar potenergy();
+         DL_Scalar totenergy();
+     
+         int frame_number();
+         DL_Scalar time();
+     
+         void show_controller_forces();
+         void hide_controller_forces();
+         boolean showing_controller_forces();
+     
+         DL_dyna_system(DL_dyna_system_callbacks*,DL_m_integrator*);
+         ~DL_dyna_system();
+     }
+
+`DL_dyna_system_callbacks* DL_dyna_system::get_companion()'
+     As explained in *Note Installation::, the dyna system has a
+     companion of type `DL_dyna_system_callbacks' which is used for the
+     callbacks. This method provides easy access to that object (which
+     was provided to the dyna system in its constructor)
+
+`void DL_dyna_system::dynamics()'
+     This method is the entry point for the whole Dynamo library. Call
+     this method once a frame to have the dyna system update the
+     positions and orientations of all the dynamically controlled
+     geometric objects with respect to their inertia, applied forces
+     and torques, and the constraints imposed on them.
+
+`DL_geo* DL_dyna_system::register_geo(void *g)'
+     This method is provided for establishing the links between a geo
+     and its companion. It takes a reference to a geometric object as an
+     argument, and will check if there is already a `DL_geo' companion
+     for this object. If so, it will return a reference to this object,
+     if not, it will create a companion for the object and return a
+     reference to it.
+
+     The method is typically used when initializing constraints in case
+     the constraint acts on a geometric object that is not dynamically
+     controlled. The constraints require a `DL_geo' as parameter, and
+     this method can be used to make sure that that geo is known to the
+     library, and to obtain the reference to it.
+
+     Note that dynas add and remove themselves to and from the dyna
+     system upon their creation and deletion, but for geos (many of
+     which are probably not of interest for the dynamics calculations)
+     this is inefficient, since the `get_new_geo_info' callback is
+     called each frame for each of the registered geos.
+
+`void DL_dyna_system::remove_geo(DL_geo*)'
+     if a geometric object is no longer required by the Dynamo library
+     (and it was made known to it using the `register_geo()' method,
+     its companion can be removed from the dyna system using this
+     method. This removes some overhead since the dyna systems inquires
+     about the new position and orientation of each geo at the
+     beginning of each time step.
+
+`void DL_dyna_system::set_gravity(DL_vector *g)'
+     This method sets the global gravity to `g'. This gravity
+     acceleration will be applied to all dynas in each frame of the
+     animation/simulation.
+
+`void DL_dyna_system::get_gravity(DL_vector *g)'
+     This method assigns a copy of the current gravity vector to `g'.
+
+`void DL_dyna_system::set_integrator(DL_m_integrator *mi)'
+     This method sets the motion integrator used by all the dyna to
+     `mi'. The step size from the previous motion integrator will be
+     retained. Use this method to switch to a different (faster or more
+     accurate) type of integrator.
+
+`DL_m_integrator* DL_dyna_system::get_integrator()'
+     This method returns a reference to the current motion integrator.
+
+`DL_Scalar DL_dyna_system::kinenergy()'
+     This methods returns the total amount of kinetic energy in the
+     system (i.e. of all dynas).
+
+`DL_Scalar DL_dyna_system::potenergy()'
+     This methods returns the total amount of potential energy in the
+     system (i.e. of all dynas).
+
+`DL_Scalar DL_dyna_system::totenergy()'
+     This methods returns the total amount of kinetic and potential
+     energy in the system (i.e. of all dynas).
+
+`int DL_dyna_system::frame_number()'
+     This method returns the number of times the `dynamics' method has
+     been called.
+
+`DL_Scalar DL_dyna_system::time()'
+     This method returns the current virtual time: the sum of stepsizes
+     of each of the calls to `dynamics'.
+
+`void DL_dyna_system::show_controller_forces()'
+     This method calls `show_forces' for all controllers that are
+     present in the system, and will make sure that it is called for any
+     controller that is added in the future.
+
+`void DL_dyna_system::hide_controller_forces()'
+     This method calls `hide_forces' for all controllers that are
+     present in the system, and will make sure that it is called for any
+     controller that is added in the future.
+
+`boolean DL_dyna_system::showing_controller_forces()'
+     This method returns if controller forces are shown or not.
+
+`DL_dyna_system::DL_dyna_system(DL_dyna_system_callbacks *c, DL_m_integrator *i)'
+     This is the constructor of the dyna system. The dyna system needs a
+     (reference to) a `DL_dyna_system_callbacks' object, so it can
+     communicate with its environment (*note Installation::.). It also
+     needs a reference to a motion integrator, so it knows in what
+     manner to integrate the motions of the dynas.
+
+
+File: DLdoc.info,  Node: geo,  Next: dyna,  Prev: dyna_system,  Up: Forward dynamics classes
+
+Geo
+===
+
+Objects from the `DL_geo' class are companions to the geometric objects
+in the host application. The class only functions to administrate the
+two motion states (containing the position, velocity, orientation and
+angular velocity at time `t' (the current time) and at time `t+h' (the
+next time)) of such geometries, and provides an interface to the Dynamo
+library to access that state, and to transform points and vectors from
+world-coordinates to coordinates in the local coordinate system
+(induced by the geo's position and the orientation).  Here is its API:
+
+     class DL_geo {
+         void*      get_companion();
+     
+         void       set_position(DL_point*);
+         DL_point*  get_position();
+         void       set_velocity(DL_vector*);
+         DL_vector* get_velocity();
+         void       set_orientation(DL_matrix*);
+         DL_matrix* get_orientation();
+         void       set_angvelocity(DL_vector*);
+         DL_vector* get_angvelocity();
+     
+         void move(DL_point*,DL_matrix*);
+     
+         void to_world(DL_point*,DL_point*);
+         void to_world(DL_vector*,DL_vector*);
+         void to_local(DL_point*,DL_geo*,DL_point*);
+         void to_local(DL_vector*,DL_geo*,DL_vector*);
+         void get_velocity(DL_point*,DL_vector*);
+         void get_velocity(DL_vector*,DL_vector*);
+     
+         void assign(DL_geo*,void*);
+         boolean is_dyna();
+     
+         void set_elasticity(DL_Scalar);
+         DL_Scalar get_elasticity();
+     
+         DL_geo(void*);
+         ~DL_geo();
+     }
+
+`void* DL_geo::get_companion()'
+     This method returns a reference to the companion object (which was
+     provided in the constructor of the geo).
+
+`void DL_geo::set_position(DL_point *p)'
+     This methods assigns `p' to the geo's current position
+
+`DL_point* DL_geo::get_position()'
+     This methods returns a reference to the geo's current position
+
+`void DL_geo::set_velocity(DL_vector *v)'
+     This method assigns `v' to the geo's current velocity
+
+`DL_vector* DL_geo::get_velocity()'
+     This method returns a reference to the geo's current velocity
+
+`void DL_geo::set_orientation(DL_matrix *o)'
+     This method assigns `o' to the current orientation of the geo
+
+`DL_matrix* DL_geo::get_orientation()'
+     This method returns a reference to the geo's current orientation
+
+`void DL_geo::set_angvelocity(DL_vector *w)'
+     This method assigns `w' to the current angular velocity of the geo
+
+`DL_vector* DL_geo::get_angvelocity()'
+     This method returns a reference to the geo's current angular
+     velocity
+
+`void DL_geo::move(DL_point *p, DL_matrix *o)'
+     This method sets the geo's position to `p' and its orientation to
+     `o', while updating the velocity and angular velocity according to
+     the previous values of the position and orientation, and the
+     current integration step size
+
+`void DL_geo::to_world(DL_point *pl, DL_point *pw)'
+     This method converts the coordinates of point `pl' which are given
+     in local coordinates, to world coordinates (using the current
+     motion state), and returns the result in point `pw'
+
+`void DL_geo::to_world(DL_vector *vl, DL_vector *vw)'
+     This method converts the coordinates of vector `vl' which are given
+     in local coordinates, to world coordinates (using the current
+     motion state), and returns the result in vector `vw'
+
+`void DL_geo::to_local(DL_point *p ,DL_geo *g, DL_point *pl)'
+     This method converts the coordinates of point `p' (given in the
+     current local coordinate system of geo `g') to local coordinates,
+     and returns these local coordinates in point `pl'.
+
+`void DL_geo::to_local(DL_vector *v, DL_geo *g, DL_vector *vl)'
+     This method converts the direction vector `v' (given in the current
+     local coordinate system of geo `g') to local coordinates, and
+     returns these local coordinates in vector `vl'.
+
+`void DL_geo::get_velocity(DL_point *p, DL_vector *v)'
+     This method returns in vector `v' the velocity of the point with
+     local coordinates `p' (based on the current translational velocity
+     and angular velocity of the geo).
+
+`void DL_geo::get_velocity(DL_vector *d, DL_vector *v)'
+     This method returns in vector `v' the velocity of the direction
+     (given in local coordinates) `d' (based on the current angular
+     velocity).
+
+`void DL_geo::assign(DL_geo *g, void *c)'
+     This method assigns geo `g' to itself, and updates itself to be the
+     companion of geometric object `c' now.
+
+`boolean DL_geo::is_dyna()'
+     Returns if this geometry is dynamically controlled or not (it
+     returns if the dynamic type of the geo is a general geo, or a dyna
+     specialization).  The dynamic type of a geo depends on how it was
+     created: as a dyna, or as a geo by the `register_geo' method of
+     the dyna system.
+
+`void DL_geo set_elasticity(DL_Scalar el)'
+     Sets this geometries collision elasticity to el (which should have
+     a value between zero and one). A zero value stands for a completely
+     inelastic collision behaviour, and a value of one stands for
+     completely elastic collision behaviour. Initially a geometry has a
+     collision elasticity coefficient of one.
+
+`DL_Scalar DL_geo::get_elasticity()'
+     This method returns the collision elasticity of the geometry
+
+`DL_geo::DL_geo(void *c)'
+     The constructor of the geo, which sets the geo up to be a
+     companion of geometric object `c'.
+
+
+File: DLdoc.info,  Node: dyna,  Next: m_integrator,  Prev: geo,  Up: Forward dynamics classes
+
+Dyna
+====
+
+A dyna is a dynamically controlled geo. Next to the motion state, a dyna
+also administrates the geo's mass and moments of inertia, which it needs
+to calculate the motion behaviour according to its inertia and the
+applied forces and torques.
+
+For the correct calculation of the motion of the dyna, it is assumed
+that the origin of the dyna's local coordinate system is the dyna's
+center of mass, and that the axis of the local coordinate system are the
+major inertia axis. This is something to take into account when setting
+up the local coordinate system of the companion of the dyna.
+
+     class DL_dyna : public DL_geo {
+         void  assign(DL_dyna*,void*);
+     
+         void      set_inertiatensor(DL_Scalar,DL_Scalar,DL_Scalar);
+         DL_Scalar get_inertiamoment(int);
+         void      set_mass(DL_Scalar);
+         DL_Scalar get_mass();
+     
+         void      set_velodamping(DL_Scalar);
+         DL_Scalar get_velodamping();
+     
+         DL_Scalar kinenergy();
+         DL_Scalar potenergy();
+         DL_Scalar totenergy();
+     
+         void  applyforce(DL_point*, DL_geo*, DL_vector*);
+         void  applycenterforce(DL_vector*);
+         void  applytorque(DL_vector*);
+         void  applyimpulse(DL_point*, DL_geo*, DL_vector*);
+     
+               DL_dyna(void*);
+               ~DL_dyna();
+     }
+
+`void dyna::assign(DL_dyna *d, void *c)'
+     This method assigns dyna `d' to itself, and updates itself to be
+     the companion of geometric object `c' now.
+
+`void DL_dyna::set_inertiatensor(DL_Scalar Ixx, DL_Scalar Iyy, DL_Scalar Izz)'
+     This method allows you to set the moments of inertia for the
+     object.
+
+`DL_Scalar DL_dyna::get_inertiamoment(int i)'
+     This method returns the i-th moment of inertia (i=0,1,2)
+
+`void DL_dyna::set_mass(DL_Scalar m)'
+     This method allows you to specify the dyna's mass
+
+`DL_Scalar DL_dyna::get_mass()'
+     This method returns the dyna's mass.
+
+`void DL_dyna::set_velodamping(DL_Scalar vd)'
+     This methods sets the velocity damping of the dyna to `vd'. The
+     velocity damping is a coefficient which is applied to the inertia
+     of the dyna: 0 for no inertia, and 1 for full inertia. Its effect
+     can be seen as a very rough approximation of friction since
+     velocity damping dissipates kinetic energy.
+
+`DL_Scalar DL_dyna::get_velodamping()'
+     This method returns the current velocity damping
+
+`DL_Scalar DL_dyna::kinenergy()'
+     This method returns the kinetic energy of the dyna
+
+`DL_Scalar DL_dyna::potenergy()'
+     This method returns the potential energy of the dyna (with respect
+     to the central components of external forces, including the
+     gravity)
+
+`DL_Scalar DL_dyna::totenergy()'
+     This method returns the total (kinetic plus potential) energy of
+     the dyna (with respect to external forces, including the gravity)
+
+`void DL_dyna::applyforce(DL_point *p, DL_geo *g, DL_vector *f)'
+     This method is used to apply force `f' (given in world coordinates)
+     to the point of the dyna with coordinates `p' (specified in the
+     local coordinate system of `g').
+
+`void DL_dyna::applycenterforce(DL_vector *f)'
+     This method is used to apply a force `f' (given in world
+     coordinates) to center of mass of the dyna.
+
+`void DL_dyna::applytorque(DL_vector *t)'
+     This method is used to apply a torque `t' to the dyna.
+
+`void DL_dyna::applyimpulse(DL_point *p, DL_geo *g, DL_vector *i)'
+     This method is used to a change of impulse `i' (given in world
+     coordinates) to the point of the dyna with coordinates `p'
+     (specified in the local coordinate system of `g').
+
+`DL_dyna::DL_dyna(void *c)'
+     This is the constructor of the dyna, which sets the dyna up to be a
+     companion of geometric object `c'.
+
+
+File: DLdoc.info,  Node: m_integrator,  Prev: dyna,  Up: Forward dynamics classes
+
+Motion Integrator
+=================
+
+The dynas calculate their motions by integrating Newton's Law `F=m a'
+(and a similar law for orientation). By providing the integrator used
+in this calculation separately, we can choose the integrator used at
+runtime. Several integrators are available, each with their own
+advantages and disadvantages. The `DL_m_integrator' class functions as
+an interface specification for all these integrators, so that they can
+be addressed uniformly. Here is its API:
+
+     class DL_m_integrator {
+         DL_Scalar stepsize();
+         DL_Scalar halfstepsize();
+         void      set_stepsize(DL_Scalar);
+     
+         DL_m_integrator();
+         ~DL_m_integrator();
+     }
+
+`DL_Scalar DL_m_integrator::stepsize()'
+     This method returns the current step size of the integration.
+
+`DL_Scalar DL_m_integrator::halfstepsize()'
+     This method returns the half the current step size of the
+     integration.
+
+`void DL_m_integrator::set_stepsize(DL_Scalar h)'
+     Using this method one can specify the step size of the
+     integration. Each call to the `dynamics' method of the dyna system
+     advances the time by this step size.
+
+There are currently four kinds of motion integrators: two variants of
+the first order Euler integrator, and second and fourth order Runge
+Kutta integrators.
+
+* Menu:
+
+* euler::         the Euler motion integrator class
+* double_euler::  the Double Euler motion integrator class
+* rungekutta2::   the second order Runge Kutta integrator class
+* rungekutta4::   the fourth order Runge Kutta integrator class
+
+
+File: DLdoc.info,  Node: euler,  Next: double_euler,  Up: m_integrator
+
+Euler
+-----
+
+The Euler motion integrator is a rather fast, but not so accurate motion
+integrator. Its error is linear in the step size of the integration. Its
+API is defined by the motion integrator API:
+
+     class DL_euler : public DL_m_integrator {
+         DL_euler();
+         ~DL_euler();
+     }
+
+
+File: DLdoc.info,  Node: double_euler,  Next: rungekutta2,  Prev: euler,  Up: m_integrator
+
+Double Euler
+------------
+
+The double euler motion integrator takes two euler integration steps of
+half the step size for each of its integration steps. It is therefore
+about twice as expensive as the euler integrator (making it
+approximately as fast as the Runge Kutta 2 integrator), and still of
+linear order. Its API is defined by the motion integrator API:
+
+     class DL_double_euler : public DL_m_integrator {
+         DL_double_euler();
+         ~DL_double_euler();
+     }
+
+
+File: DLdoc.info,  Node: rungekutta2,  Next: rungekutta4,  Prev: double_euler,  Up: m_integrator
+
+Runge Kutta 2
+-------------
+
+The Runge Kutta 2 integrator is a second order integrator which (like
+the double euler integrator) costs about twice as much as the euler
+integrator. It is more accurate than the double euler integrator, and
+therefore preferable to it.  Its API is defined by the motion integrator
+API:
+
+     class DL_rungekutta2 : public DL_m_integrator {
+         DL_rungekutta2();
+         ~DL_rungekutta2();
+     }
+
+
+File: DLdoc.info,  Node: rungekutta4,  Prev: rungekutta2,  Up: m_integrator
+
+Runge Kutta 4
+-------------
+
+The Runge Kutta 4 motion integrator is a fourth order motion
+integrator. It is very accurate, but at about four times the price of
+the euler integrator.  Its API is defined by the motion integrator API:
+
+     class DL_rungekutta4 : public DL_m_integrator {
+         DL_rungekutta4();
+         ~DL_rungekutta4();
+     }
+
+
+File: DLdoc.info,  Node: Inverse dynamics classes,  Next: Miscellaneous classes,  Prev: Forward dynamics classes,  Up: Top
+
+Inverse dynamics classes
+************************
+
+* Menu:
+
+* constraint_manager::  The constraint manager
+* constraint::          The generic constraint class
+* ptp::                 The point-to-point constraint class
+* vtv::                 The velocity-to-velocity constraint class
+* linehinge::           The line-hinge constraint class
+* orientation::         The orientation constraint class
+* connector::           The connector constraint class
+* cyl::                 The cylinder constraint class
+* plc::                 The plane constraint class
+* pris::                The prism constraint class
+* ptc::                 The point-to-curve constraint class
+* pts::                 The point-to-surface constraint class
+* bar/rope::            The bar (rope) constraint class
+* multibar/rope::       The multibar (rope) constraint class
+* wheel::               The wheel constraint class
+* collision::           The collision constraint class
+
+
+File: DLdoc.info,  Node: constraint_manager,  Next: constraint,  Up: Inverse dynamics classes
+
+Constraint Manager
+==================
+
+The constraint manager is a one-of-a-kind object that controls the
+inverse dynamics calculations. Constraints register themselves
+automatically, and the dyna system will signal the constraint manager
+each time constraint correction needs to take place. Its API only
+provides access to the attributes that hold the parameter values that
+control the constraint correction process. The default values for these
+parameters should be fine in most cases, but for the more advanced
+users they are available for fine-tuning. Here is the API:
+
+     class DL_constraint_manager {
+         boolean analytical;
+         int       MaxIter;
+         DL_Scalar max_error;
+         int       NrSkip;
+         DL_Scalar error;
+         int       nriter;
+         int       max_collisionloops;
+     
+         int     get_nr_constraints();
+         int     get_dof();
+     
+         void    solve_using_lud();
+         boolean solving_using_lud();
+         void    solve_using_cg();
+         boolean solving_using_cg();
+         void    solve_using_svd();
+         boolean solving_using_svd();
+     
+         void    show_constraint_forces();
+         void    hide_constraint_forces();
+         boolean showing_constraint_forces();
+     
+                 DL_constraint_manager();
+                 ~DL_constraint_manager();
+     }
+
+`boolean DL_constraint_manager::analytical'
+     This boolean determines how the constraint manager will determine
+     how changes in the reaction forces will change the constraint
+     error: analytically or empirically (using test forces). The
+     analytical method is faster, so by default the boolean is `true'
+
+`int DL_constraint_manager::MaxIter'
+     The constraint manager adjusts the reaction forces in an iterative
+     manner, trying to decrease the constraint error in each step. The
+     `MaxIter' attribute specifies the maximum number of iterations per
+     frame (note that less iteration steps may actually be taken, if the
+     constraint error decreases below the thresh hold set by the
+     `max_error' attribute before the maximum number of iterations is
+     reached).
+
+`DL_Scalar DL_constraint_manager::max_error'
+     This attribute governs the number of iterations used in the
+     constraint correction, together with the `MaxIter' attribute. It
+     provides an error thresh hold for the constraint error: as soon as
+     the constraint error is less than this thresh hold, constraint
+     correction stops. Note that iteration is also stopped if the
+     maximum number of iterations as determined by the `MaxIter'
+     attribute is reached: the `max_error' attribute therefore only
+     provides a guaranty that the final constraint error is indeed
+     smaller than the thresh hold, if `MaxIter' is sufficiently high.
+
+`int DL_constraint_manager::NrSkip'
+     This attribute governs the recalculation of the dependencies
+     between the reaction forces and the constraint errors: this
+     dependency is calculated once every `NrSkip+1' frames. These
+     dependencies are used to determine how to change the reaction
+     forces to bring the constraint error to zero: the more accurate
+     the dependencies are, the more faster the constraint error will
+     converge to zero. The default value is zero, so the dependency is
+     recalculated at the start of every frame.
+
+`DL_Scalar DL_constraint_manager::error'
+     This attribute provides the most recently calculated constraint
+     error. This information can be used in adjusting the `MaxIter' and
+     `max_error' attributes, or to study the constraint correction
+     process itself. It is meant as a read-only attribute: changing it
+     will not have an effect.
+
+`int DL_constraint_manager::nriter'
+     This attribute provides the actual number of iteration steps taken
+     in the last frame, so it provides an indication of the converge
+     speed of the constraint correction process. It is meant as a
+     read-only attribute.
+
+`int DL_constraint_manager::max_collisionloops'
+     When collision detection is used, this attribute governs the
+     number of times the collision detection routines are called to
+     determine if there are any secondary collisions. The default value
+     of this attribute is one, so there is no secondary collision
+     detection within one frame by default.
+
+`int DL_constraint_manager::get_nr_constraints();'
+     This method returns the number of active constraints.
+
+`int DL_constraint_manager::get_dof();'
+     This method returns the number of restricted degrees of freedom
+     that the constraint manager is currently managing.
+
+`void DL_constraint_manager::solve_using_lud()'
+     Solve for the reaction forces using LU decomposition and backward
+     substitution. Advantages of this method are that it is fast and the
+     processing time does not depend much on the configuration, so the
+     frame rate will be stable as far as solving is concerned.
+     Disadvantage is that it can only handle configuartaion which have
+     exactly one solution for the constraint forces.
+
+`boolean DL_constraint_manager::solving_using_lud()'
+     This method returns if the constraints are being solved using LU
+     decomposition and backward substitution.
+
+`void DL_constraint_manager::solve_using_cg()'
+     Solve for the reaction forces using conjugate gradient. This
+     method can handle configurations which have one or more solutions
+     configurations, but the required processing time depends on the
+     configuration: it might be very fast for "easy" configuration, but
+     rather slow for "hard" situations, thereby giving a large variance
+     in framerate. In general it is significantly slower than using LU
+     decomposition, but more stable.
+
+`boolean DL_constraint_manager::solving_using_cg()'
+     This method returns if the constraints are being solved using
+     conjugate gradient solving
+
+`void DL_constraint_manager::solve_using_svd()'
+     Solve for the reaction forces using singular value decomposition.
+     This method can handle configurations with zero or more solutions
+     (although configurations with zero solutions, i.e. configurations
+     with conflicting constraints, can give rise to very large reaction
+     forces), but in general it is rather slow. So this is the most
+     stable, though usually slowest solution finding method.
+
+`boolean DL_constraint_manager::solving_using_svd()'
+     This method returns if the constraints are being solved using the
+     singular value decomposition method
+
+`void DL_constraint_manager::show_constraint_forces()'
+     This method calls `show_forces' for all constraints that are
+     present in the system, and will make sure that it is called for any
+     constraint that is added in the future.
+
+`void DL_constraint_manager::hide_constraint_forces()'
+     This method calls `hide_forces' for all constraints that are
+     present in the system, and will make sure that it is called for any
+     constraint that is added in the future.
+
+`boolean DL_constraint_manager::showing_constraint_forces()'
+     This method returns if constraint forces are shown or not.
+
+
+File: DLdoc.info,  Node: constraint,  Next: ptp,  Prev: constraint_manager,  Up: Inverse dynamics classes
+
+Constraint
+==========
+
+The `DL-constraint' class is the generic constraint class (which also
+doubles as the *empty* constraint which does not constrain anything).
+It provides the common API for all inverse dynamics constraints:
+
+     class DL_constraint : public DL_force_drawable {
+       DL_Scalar stiffness;
+       void  init();
+       void  activate();
+       void  deactivate();
+       int   get_dim();
+       void  soft();
+       void  hard();
+       void  autosofthard();
+       void  autosofthard(int);
+     
+             DL_constraint();
+             ~DL_constraint();
+     }
+
+`DL_Scalar DL_constraint::stiffness'
+     This attribute specifies the stiffness of the constraint. The
+     stiffness of a constraint is a factor which determines how much of
+     the constraint's error the constraint manager will attempt to
+     correct in each iteration step. The default value is one: attempt
+     to correct all error in the constraint. Lower (but non-negative)
+     values will "soften" the constraint with respect to other
+     constraints (at a cost penalty, since it will take the constraint
+     error longer to converge to a value lower than the constraint
+     manager's `max_error' value).
+
+`void DL_constraint::init()'
+     Initialize the constraint. This method is only for when the
+     constraint is used as an empty constraint (which does not
+     influence anything...).  it should not be used to initialize any
+     of the specializations of the constraint class: these have their
+     own initialization methods.
+
+`void DL_constraint::activate()'
+     Activates the constraint (if it had been de-activated before:
+     constraints activate themselves upon initialization).
+
+`void DL_constraint::deactivate()'
+     Deactivate the constraint.
+
+`int DL_constraint::get_dim()'
+     This method returns the dimension of the constraint: the number of
+     degrees of freedom the constraint restricts.
+
+`void DL_constraint::soft()'
+     This method softens constraints that are based on positional
+     information by also taking velocity into account: positions do not
+     have to match if there is a velocity that will make sure they
+     match in the next frame. This method makes sure that such
+     velocity-terms are added for the constraint correction from now
+     on. Normally, velocity-terms are only added (automatically) when
+     required (velocity terms also help in stabilizing some numerical
+     artifact caused by the time discretization).  Softening
+     constraints can be used in situations where constraints are not
+     valid initially, but are used for self assembling purposes. In such
+     cases, the self assembling proces will go smooth, instead of
+     instantanious (with the accompanying very large forces which can
+     destabelize calculations).
+
+`void DL_constraint::hard()'
+     This method is the counterpart of the `soft()' method: it makes
+     sure that the constraint is "hardened" by making sure that no
+     velocity terms are added from now on.
+
+`void DL_constraint::auto_softhard()'
+     This method can be used after invocation of soft() or hard() to
+     revert back to the automatic addition of velocity terms.
+
+`void DL_constraint::auto_softhard(int i)'
+     This method specifies that this constraint is to be made soft once
+     every `i' frames from now on.
+

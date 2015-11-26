@@ -1,0 +1,120 @@
+############################################################
+# CONFIGURABLE PART for SUN/SGI
+############################################################
+# linker options for linking dynamic libraries
+# SOFLAG     - option to create a shared object (.so-file)
+# SONAMEFLAG - option for giving .so-file a name:
+#               Usage: ld .... $(SONAMEFLAG) librender.so ....
+# SOPATHFLAG - option for the linker to put the search path for shared objects
+#           in object.
+#               Usage: ld .... $(SOPATHFLAG) /usr/lib:$(LIB_DIR) ...
+# CPPLAGS: pre-procesor flags
+
+include settings.$(MACHTYPE)
+
+############################################################
+# END CONFIGURABLE PART
+############################################################
+
+
+########################################################################
+# COMPILER
+########################################################################
+# compiler macros
+CCC=$(CC)
+
+# slow but debugging possible (default optimisation set in
+# settings.$(MACHTYPE) above):
+#CCFLAGS = -g
+
+# supress warnings:
+
+CCFLAGS += -w
+########################################################################
+# LINKER FLAGS
+########################################################################
+LDFLAGS= 
+
+########################################################################
+
+lib:libdynalib.so
+
+###############################
+LIB_NAME=dynalib
+LIB_VERSION=0
+
+SOURCES = list.cpp containerlist.cpp pointvector.cpp  vector4.cpp matrix.cpp\
+     largevector.cpp largematrix.cpp\
+     force_drawable.cpp usr_force_drawable.cpp force_drawer.cpp\
+     m_integrator.cpp euler.cpp doubleeuler.cpp rungekutta2.cpp rungekutta4.cpp\
+     supvec.cpp geo.cpp dyna.cpp dyna_system.cpp\
+     constraint_manager.cpp constraint.cpp ptp.cpp vtv.cpp linehinge.cpp\
+     orientation.cpp connector.cpp cyl.cpp plc.cpp pris.cpp\
+     bar.cpp rope.cpp multibar.cpp multirope.cpp\
+     curve.cpp line.cpp linesegment.cpp circle.cpp\
+              bsplinesegment.cpp bspline.cpp\
+              csplinesegment.cpp cspline.cpp\
+     ptc.cpp\
+     surface.cpp flatsurface.cpp ellipsoid.cpp\
+     pts.cpp\
+     collision.cpp wheel.cpp\
+     controller.cpp\
+      spring.cpp torquespring.cpp\
+      sensor.cpp\
+       sensor_dist_v.cpp sensor_velo_v.cpp\
+       sensor_angle_v.cpp sensor_avelo_v.cpp\
+      actuator.cpp\
+       actuator_fv.cpp actuator_tv.cpp\
+      pid.cpp
+
+CPPFLAGS += -I../Inc/
+
+############################################################
+.KEEP_STATE:
+ALWAYS:
+
+############################################################
+LIB_SO=lib$(LIB_NAME).so
+LIB_SO_V=$(LIB_SO).$(LIB_VERSION)
+OBJDIR=../Obj
+
+LDFLAGS += $(SOFLAG) $(SONAMEFLAG) $(LIB_SO)
+
+############################################################
+library $(LIB_NAME):$(LIB_SO)
+
+############################################################
+# construct objects from SOURCES and OBJECTS
+############################################################
+OBJECTSHH=$(SOURCES:%.c=$(OBJDIR)/%.o)
+OBJECTS += $(OBJECTSHH:%.cpp=$(OBJDIR)/%.o)
+
+############################################################
+# compilation rules
+############################################################
+#$(OBJDIR)/%.o: %.cpp; $(COMPILE.cc) $< -o $@
+$(OBJDIR)/%.o: %.cpp; $(CCC) -c $(CCFLAGS) $(CPPFLAGS) $< -o $@
+
+############################################################
+# for a dynamically linked library:
+############################################################
+$(LIB_SO): $(OBJECTS) $(INSTALL)/$(LIB_SO)
+$(INSTALL)/$(LIB_SO): ALWAYS
+	$(CCC) $(LDFLAGS) -o $(INSTALL)/$(LIB_SO_V) $(OBJECTS) $(LDLIBS);\
+	cd $(INSTALL); rm -f $(LIB_SO); ln -s $(LIB_SO_V) $(LIB_SO)
+
+############################################################
+# new 
+############################################################
+new : ALWAYS
+	$(MAKE) LDLIBEMPTY=yes install
+############################################################
+# installlation 
+############################################################
+install: $(LIB_SO)
+
+############################################################
+# clean directories
+############################################################
+clean: ALWAYS
+	rm -f $(OBJECTS) .make.state so_locations

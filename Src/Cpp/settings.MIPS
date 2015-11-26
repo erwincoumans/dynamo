@@ -1,0 +1,7 @@
+SOFLAG    = -shared -delay_load
+SONAMEFLAG= -soname
+SOPATHFLAG= -rpath
+CPPFLAGS= -DSGI
+CCFLAGS= -O2
+#CCFLAGS= -O3 -mips4
+CCFLAGS += -KPIC

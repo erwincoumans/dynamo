@@ -1,0 +1,282 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Author" CONTENT="Bart Barenbrug">
+   <META NAME="Description" CONTENT="Dynamic motion Library">
+   <META NAME="Keywords" CONTENT="dynamics 3D animation constraints">
+   <TITLE>DynaMo - Dynamic Motion library</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<CENTER>
+<H1>DynaMo: Dynamic Motion library</H1>
+<em>The library that powers your animations</em>
+<HR></CENTER>
+
+<H1>
+<FONT SIZE=+1>Contents</FONT></H1>
+
+<UL>
+<LI><FONT SIZE=+1><A HREF="#news">News</A></FONT></LI>
+<LI><FONT SIZE=+1><A HREF="#intro">Introduction</A></FONT></LI>
+<LI><FONT SIZE=+1><A HREF="#requires">Requirements</A></FONT></LI>
+<LI><FONT SIZE=+1><A HREF="#license">License</A></FONT></LI>
+<LI><FONT SIZE=+1><A HREF="#doc">Documentation and Publications</A></FONT></LI>
+<LI><FONT SIZE=+1><A HREF="#examples">Examples</A></FONT></LI>
+<LI><FONT SIZE=+1><A HREF="#download">Download</A></FONT></LI>
+<LI><FONT SIZE=+1><A HREF="#install">Installation</A></FONT></LI>
+<LI><FONT SIZE=+1><A HREF="#links">Links</A></FONT></LI>
+</UL>
+
+
+<H1>
+<A NAME="news"></A><FONT SIZE=+1>News</FONT></H1>
+
+<UL>
+<LI><FONT SIZE=+1>September 12th, 2007.
+ <UL>
+ <LI> Even though active development and maintenance on DynaMo has stopped, all 
+      files are now archived at the http://home.iae.nl/users/starcat/dynamo/ site.
+ </UL>
+<LI><FONT SIZE=+1>January 16th, 2004.
+ <UL>
+ <LI> A new year, and a new game that uses DynaMo.
+      Check it out <a href="http://www.marginallyclever.com/freakin.php">here</a>.
+ </UL>
+<LI><FONT SIZE=+1>June 20th, 2004.
+ <UL>
+ <LI> Fixed a small memory leak in the constraint manager, courtesy of 
+      <a href="http://www.nurium.com/">Fèlix Casablancas</a>, who's using Dynamo in a game of his.
+ </UL>
+<LI><FONT SIZE=+1>May 13th, 2003.
+ <UL>
+ <LI> Moved the main page and the dynamo source to my personal homepage as I don't know how long I'll
+      retain access to the TUE web-server. Please use url 
+      <a href="http://home.iae.nl/users/starcat/dynamo/">http://home.iae.nl/users/starcat/dynamo/</a>
+      from now on.
+ </UL>
+<LI><FONT SIZE=+1>Januari 12th, 2003.
+ <UL>
+ <LI> Fixed a bug in the large matrix code, thanks to Joanus D'Mentia for the report and fix.
+ </UL>
+<LI><FONT SIZE=+1>March 6th, 2002.
+ <UL>
+ <LI> Added the GDP code for the examples in the Ph.D. thesis to the <a href="#download">download</a> section.
+ </UL>
+<LI><FONT SIZE=+1>December 16th, 2001.
+ <UL>
+ <LI> Move to the new site (http://www.win.tue.nl/dynamo/ instead of http://www.win.tue.nl/~bartb/dynamo/)
+ <LI> Added some <a href="http://www.win.tue.nl/dynamo/Johan/index.html">examples by Johan Geerlings</a> who coupled Dynamo and Solid.
+ <LI> Fixed some html in this page. Thanks to Elie Accari for the heads up!
+ </UL>
+<LI><FONT SIZE=+1>November 18th, 2001.
+ <UL>
+ <LI> Fixed a bug in the code for springs and made it a bit safer, thanks to Gary R. Van Sickle.
+ </UL>
+<LI>
+<FONT SIZE=+1>October 18th, 2000.
+ <UL>
+ <LI> Fixed two memory leaks (constraint manager / collision handling)<br>
+      Thanks to <a href="http://www.codercorner.com/Pierre.htm">Pierre Terdiman</a> for pointing them out!
+ </UL>
+<LI>
+<FONT SIZE=+1>April 19nd, 2000.
+ <UL>
+ <LI> Msg() method added for easier rerouting of messages
+ <LI> Added Vincent Harvey's GLUT render functionality for the examples.
+ <LI> Improved velocity term handling (see Appendix C of the Ph.D. thesis)
+ </UL>
+<LI>
+<FONT SIZE=+1>Januari 22nd, 2000.
+ <UL>
+ <LI> Link added in the <a href="#doc">documentation</a> section to my Ph.D. <a
+ href="http://www.win.tue.nl/dynamo/publications/bartbthesis.pdf">thesis</a>, which describes the design of Dynamo.
+ </UL>
+<LI>
+<FONT SIZE=+1>July 26th, 1999.
+ <UL>
+ <LI> Two examples added: one that extends the basic example to show
+      how models can self-assemble using the constraints, and another
+      which shows the use of the collision constraint.
+ </UL>
+<FONT SIZE=+1>July 20th, 1999.
+ <UL>
+ <LI> The example (Direct3D version) now shows the frame rate
+ </UL>
+<FONT SIZE=+1>June 23rd, 1999.
+ <UL>
+ <LI> removed some example source files which accidently had gotten into the
+ Cpp directory in the distribution.
+ <LI> Fixed a few bugs (mainly related to collision handling).
+ </UL>
+<FONT SIZE=+1>June 8th, 1999.
+ <UL>
+ <LI> Adjusted example (added <a href="http://www.animats.com">John Nagle</a>'s OpenGL support;
+      stability improvement)<BR>
+ <LI> Adjusted documentation regarding the interface to collision detection, and fixed
+      a potential initialisation problem in the constraint manager.
+      (thanks to <a href="mailto:dynamo@thirdi.com">Tim Mensch</a> for pointing out the
+      problems)  
+ </UL></FONT>
+<LI><FONT SIZE=+1>March 27th, 1999. Dynamo first put on the web</FONT><BR>  
+<BR></LI>
+</UL>
+
+<H1>
+<A NAME="intro"></A><FONT SIZE=+1>Introduction</FONT></H1>
+<FONT SIZE=+1>Dynamo is a software library providing classes that takes care of
+the calculation of the motions of geometries moving under the influence of
+forces and torques and impulses. In addition, the library can also compute
+forces for you through the mechanism of <em>constraints</em>. These allow
+you to easily connect geometries to each other in various ways. A constraint
+only has to be specified once, and the Dynamo library will continually enforce
+it from that moment on by applying the required reaction forces. Some of the
+Dynamo's features are:</FONT>
+<UL>
+<LI>
+<FONT SIZE=+1>Full forward dynamics support for forces, torques and impulses.</FONT><BR>
+<BR></LI>
+
+<LI>
+<FONT SIZE=+1>Runs side-by-side with your application, and has a low-bandwidth
+interface communicating the newly calculated positions and orientations to your
+application.</FONT><BR>
+<BR></LI>
+
+<LI>
+<FONT SIZE=+1>Fast, tunable inverse dynamics support via constraints.</FONT><BR>
+<BR></LI>
+
+<LI>
+<FONT SIZE=+1>Over a dozen constraints available, including several types of
+hinges and a constraint for collision response calculations.</FONT><BR>
+<BR></LI>
+
+<LI>
+<FONT SIZE=+1>Support for controllers, activators and sensors.</FONT><BR>
+<BR></LI>
+
+LI> <FONT SIZE=+1>Fully object oriented design, allowing for easy extension of
+the library by adding your own constraints and controllers via inheritance:
+just derive your own class from the provided <em>constraint</em> or <em>controller</em>
+classes by implementing a few predefined methods.</FONT></LI> </UL>
+
+<H1>
+<A NAME="requires"></A><FONT SIZE=+1>Requirements</FONT></H2>
+<FONT SIZE=+1>The library is written in C++. It has been complied and tested on
+Sun and Silicon Graphics workstations using the standard CC compilers, and on
+the PC using MS Visual C++ 5.0.</FONT>
+
+<H1><A NAME="license"></A><FONT SIZE=+1>License</FONT></H1>
+<IMG SRC="http://www.win.tue.nl/~gino/solid/gnu-head-sm.jpg" HEIGHT=122 WIDTH=129
+ ALIGN=RIGHT><FONT SIZE=+1>The Dynamo library is released under the terms of the GNU Library General Public
+License (see the <A HREF="DLdoc_toc.html">documentation</A>).
+
+<H1><A NAME="doc"></A><FONT SIZE=+1>Documentation and publications</FONT></H1>
+
+<P>First, some older publications, based on my work for my Masters in which
+I added dynamics to one of our animation programs:</P>
+
+<UL>
+<LI><A HREF="publications/mtfbwy.zip">May the Force be with you</A>: this is a
+synopsis of the main findings of my Master's Thesis. It was written for
+a course in Technical Writing and Editing which I took during my time as
+an OOTI (so that I now am an <A HREF="http://www.win.tue.nl/xootic/">Xootic</A>). It serves as
+a nice introduction to the field of motion dynamics, and should also be
+readable while skipping all the formulae-bits for those who just want an
+overview without too many details. </LI>
+</UL>
+
+<UL>
+<LI><A HREF="publications/aynif.pdf">All
+you need is force</A>, which I co-wrote with my supervisor
+C.W.A.M van Overveld, was presented at the Workshop for Computer Animation
+and Simulation at EuroGraphics '95 (by me). It builds upon the work I did
+for my Master's Thesis, but presents the problem in a more general setting
+which suggest the approach taken in the work below. </LI>
+</UL>
+
+<P>Using what I learned before, I restarted builing a seperate object-oriented
+dynamics library as the final project of the OOTI
+course. Here is the report describing that design:</P>
+
+<UL>
+<LI><A HREF="gdpdyna.zip">Designing a library for constraint driven dynamics
+in the GDP</A>: this is my final report of the postgraduate
+programme Software Technology and describes the first part part of
+my PhD work, which has led to the Dynamo library. Here the ideas and algorithms
+are presented in an Object Oriented environment, which in my opinion leads to a
+much more intuitive view on the subject matter. </LI>
+</UL>
+
+<P> Afterwards, I extended this library to what has become Dynamo in my
+h.D. work. The resulting thesis describing the design of Dynamo (which
+I defended on April 27th 2000) is now available in 
+<a href="publications/bartbthesis.pdf">pdf format</a> (1.1MB).
+
+<P> The library has been developed for use in a host application. For
+tests and demos it has been incorporated in our GDP system.
+Here is the documentation for both the stand-alone Dynamo library, and also for
+the additional functionality provided bythe GDP wrapper:</P>
+
+<UL>
+<LI>Here is the <A HREF="DLdoc_toc.html">user documentation</A> for the
+stand-alone Dynamo library.</LI>
+</UL>
+
+<UL>
+<LI>Here are <A HREF="Lks/Html/classbrowser.html">class interface definitions</A>
+for the Looks language: the language used by the
+GDP.
+</LI>
+</UL>
+
+<H1><A NAME="examples"></A><FONT SIZE=+1>Examples</FONT></H1>
+
+<P>An example is shown in the following <A HREF="coaster.mpg">mpeg
+movie</A> which shows a sort of roller coaster. The motion in this animation
+is specified through the geometry of the track and the cart, a <I>constraint</I>
+that specifies that the cart is connected to the track (but can move freely
+along the track), a <I>constraint</I> that specifies that both parts of
+the cart are connected through a pin joint, and the specification of gravity.
+The system will calculate and apply reaction forces such that the two parts
+of the cart and the track and the cart remain connected (but the gravity
+will cause the cart to slide along the track). </P>
+
+<P>Another example featuring a rolling bicycle is presented
+<A HREF="bike/bike.html">here</A>.</P>
+
+
+<H1><A NAME="download"></A><FONT SIZE=+1>Download</FONT></H1>
+Dynamo is available for downloading as a zip file:
+<A HREF="dynamo.zip">dynamo.zip</A> (1MB zip file)<br>
+Also available are the <a href="Lks/LksDemo.zip">Looks
+sources</a> of the examples in the thesis (70KB zip file)
+
+
+<H1><A NAME="install"></A><FONT SIZE=+1>Installation</FONT></H1>
+<FONT SIZE=+1>The <a href="DLdoc_toc.html">user documentation</a> provides
+instructions on the two callback functions which need to be implemented to
+allow the library to communicate with your software. A make file is provided
+for compiling on a Sun or SGI workstation. The example which is provided shows
+how the library might be compiled on a PC.</FONT>
+
+<H1><A NAME="links"></A><FONT SIZE=+1>Links</FONT></H1>
+<UL>
+<LI>
+<FONT SIZE=+1>In order to use the collision response constraint in Dynamo, a
+collision detector is required. The <a
+HREF="http://www.win.tue.nl/~gino/solid/">SOLID</a> library provides such a
+detector and has been designed with (a.o.) physics-based interactive-speed
+animation in mind.</FONT></LI>
+
+</UL>
+
+<P>
+<HR WIDTH="100%">
+<ADDRESS>
+Author: <a href="mailto:&#98;&#97;&#114;&#116;&#46;&#98;&#97;&#114;&#101;&#110;&#98;&#114;&#117;&#103;&#64;&#105;&#97;&#101;&#46;&#110;&#108;">Bart Barenbrug</a>
+</ADDRESS>
+
+</BODY>
+</HTML>
